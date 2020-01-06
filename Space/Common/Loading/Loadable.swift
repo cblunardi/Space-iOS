@@ -6,8 +6,6 @@ enum Loadable<Value, Failure> {
     case failure(Failure)
 }
 
-extension Loadable: Equatable where Value: Equatable, Failure: Equatable {}
-
 extension Loadable {
     var availableValue: Value? {
         switch self {
@@ -52,6 +50,10 @@ extension Loadable {
         self = .loaded(value)
     }
 
+    mutating func receive(_ failure: Failure) {
+        self = .failure(failure)
+    }
+
     mutating func reload() {
         guard let value = availableValue else {
             self = .loading
@@ -60,3 +62,5 @@ extension Loadable {
         self = .reloading(value)
     }
 }
+
+extension Loadable: Equatable where Value: Equatable, Failure: Equatable {}

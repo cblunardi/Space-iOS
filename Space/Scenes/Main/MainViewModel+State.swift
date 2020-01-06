@@ -5,6 +5,8 @@ extension MainViewModel {
     struct State: Mutable, Equatable {
         var dates: Loadable<[EPICDateEntry], Never>
         var catalogs: Loadable<[EPICImageCatalog], Never>
+
+        var panningEntry: EPICImageEntry?
         var currentEntry: EPICImageEntry?
     }
 }
@@ -16,5 +18,9 @@ extension MainViewModel.State {
 
     var isInitial: Bool {
         self == .initial
+    }
+
+    var isLoading: Bool {
+        dates.loading || catalogs.loading
     }
 }

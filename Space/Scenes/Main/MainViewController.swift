@@ -93,6 +93,14 @@ private extension MainViewController {
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
         guard sender == panGestureRecognizer else { return }
+
+        let panTranslation = panGestureRecognizer.translation(in: mainImageView).x
+        guard panTranslation.isFinite else { return }
+
+        viewModel.didRecognize(panning: panTranslation / mainImageView.frame.width)
+
+        guard panGestureRecognizer.state == .ended else { return }
+        viewModel.didFinishPanning()
     }
 }
 

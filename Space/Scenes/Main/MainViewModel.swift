@@ -6,7 +6,7 @@ final class MainViewModel: ViewModel {
     private lazy var dateFormatter: DateFormatter = buildDateFormatter()
     private lazy var timeFormatter: DateFormatter = buildTimeFormatter()
 
-    private let state: CurrentValueSubject<State, Never> = .init(.initial)
+    let state: CurrentValueSubject<State, Never> = .init(.initial)
 
     private var subscriptions: Set<AnyCancellable> = .init()
 
@@ -21,7 +21,7 @@ final class MainViewModel: ViewModel {
 extension MainViewModel {
     var currentEntry: AnyPublisher<EPICImageEntry?, Never> {
         state
-            .map(\.currentEntry)
+            .map { $0.panningEntry ?? $0.currentEntry }
             .eraseToAnyPublisher()
     }
 
@@ -41,8 +41,8 @@ extension MainViewModel {
 extension MainViewModel {
     func load() {
         guard
-            currentState.dates.loading == false,
-            currentState.dates.loaded == false
+            state.value.dates.loading == false,
+            state.value.dates.loaded == false
         else { return }
 
         state.value.dates.reload()
@@ -78,10 +78,6 @@ extension MainViewModel {
     }
 }
 
-extension MainViewModel {
-    func didRecognize(panning: CGFloat) {}
-}
-
 private extension MainViewModel {
     var currentDate: AnyPublisher<Date?, Never> {
         currentEntry
@@ -89,8 +85,6 @@ private extension MainViewModel {
             .mapFlatMap(Formatters.epicDateFormatter.date(from:))
             .eraseToAnyPublisher()
     }
-
-    var currentState: State { state.value }
 
     func buildDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
@@ -118,6 +112,7 @@ private extension Publisher where Output == EPICImageEntry?, Failure == Never {
 
             return dependencies.epicService.getImage(from: entry)
                 .map(UIImage.init(data:))
+                .merge(with: Just(nil).setFailureType(to: Error.self))
                 .eraseToAnyPublisher()
         }
         .switchToLatest()

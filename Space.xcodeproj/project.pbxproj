@@ -61,6 +61,9 @@
 		B8E7FEB425A48A340016CDC6 /* MainViewModel+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */; };
 		B8E7FEB825A48ADA0016CDC6 /* EPICImageCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */; };
 		B8E7FEBD25A496860016CDC6 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEBC25A496860016CDC6 /* Loadable.swift */; };
+		B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */; };
+		B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */; };
+		B8E7FF0625A4B1AC0016CDC6 /* EPICImageEntry+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +135,9 @@
 		B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+State.swift"; sourceTree = "<group>"; };
 		B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImageCatalog.swift; sourceTree = "<group>"; };
 		B8E7FEBC25A496860016CDC6 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loadable+Combine.swift"; sourceTree = "<group>"; };
+		B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+PanningInteraction.swift"; sourceTree = "<group>"; };
+		B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImageEntry+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +235,7 @@
 				B8314476259C99990075D898 /* MainViewController.swift */,
 				B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */,
 				B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */,
+				B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -250,9 +257,9 @@
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8314594259E11C50075D898 /* Combine */,
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
-				B8E7FE9125A3E9F00016CDC6 /* Formatters */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B8E7FEAA25A4871F0016CDC6 /* Dimensions */,
+				B8E7FE9125A3E9F00016CDC6 /* Formatters */,
 				B8E7FEBB25A4967B0016CDC6 /* Loading */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
@@ -377,8 +384,9 @@
 			isa = PBXGroup;
 			children = (
 				B8314546259CD7970075D898 /* EPICDateEntry.swift */,
-				B8314536259CD66E0075D898 /* EPICImageEntry.swift */,
 				B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */,
+				B8314536259CD66E0075D898 /* EPICImageEntry.swift */,
+				B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */,
 			);
 			path = EPIC;
 			sourceTree = "<group>";
@@ -508,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				B8E7FEBC25A496860016CDC6 /* Loadable.swift */,
+				B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -615,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E7FEB825A48ADA0016CDC6 /* EPICImageCatalog.swift in Sources */,
+				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
@@ -630,8 +640,10 @@
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
+				B8E7FF0625A4B1AC0016CDC6 /* EPICImageEntry+.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
+				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
