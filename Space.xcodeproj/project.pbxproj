@@ -52,6 +52,7 @@
 		B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */; };
 		B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */; };
 		B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */; };
+		B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MapFlatMap.swift"; sourceTree = "<group>"; };
 		B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeakly.swift"; sourceTree = "<group>"; };
 		B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8314594259E11C50075D898 /* Combine */,
+				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
@@ -453,6 +456,14 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +571,7 @@
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
+				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,

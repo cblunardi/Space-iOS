@@ -22,9 +22,29 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
 
         self.viewModel = viewModel
 
-        viewModel.currentImage
+        viewModel
+            .currentImage
             .receive(on: RunLoop.main)
             .assignWeakly(to: \.mainImageView.image, on: self)
+            .store(in: &subscriptions)
+
+        viewModel
+            .currentImage
+            .map { $0?.size.aspectRatio }
+            .replaceNil(with: 1.0)
+            .receive(on: RunLoop.main)
+            .assignWeakly(to: \.mainImageViewAspectConstraint.constant, on: self)
+            .store(in: &subscriptions)
+
+        viewModel.currentImage
+            .combineLatest(publisher(for: \.view.frame))
+            .map { image, frame -> CGFloat in
+                let imageSize = image?.size ?? .zero
+                let imageHeight = frame.width / imageSize.aspectRatio
+                return (frame.height - imageHeight) / 2.0
+            }
+            .receive(on: RunLoop.main)
+            .assignWeakly(to: \.scrollView.contentInset.top, on: self)
             .store(in: &subscriptions)
     }
 }

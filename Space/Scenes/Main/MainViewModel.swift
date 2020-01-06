@@ -3,32 +3,25 @@ import Foundation
 import UIKit
 
 final class MainViewModel: ViewModel {
-
-}
-
-extension MainViewModel {
-    var latestEntry: AnyPublisher<EPICImageEntry?, Never> {
+    let latestEntry: AnyPublisher<EPICImageEntry?, Never> =
         dependencies.epicService
             .getRecentCatalog()
             .map(\.last)
             .replaceError(with: .none)
             .share()
             .eraseToAnyPublisher()
-    }
 
-    var currentImage: AnyPublisher<UIImage?, Never> {
+    private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         latestEntry
             .flatMapLatestImage()
             .replaceError(with: nil)
             .share()
             .eraseToAnyPublisher()
-    }
 
-    var currentTitle: AnyPublisher<String?, Never> {
+    private(set) lazy var currentTitle: AnyPublisher<String?, Never> =
         latestEntry
             .map { $0?.date }
             .eraseToAnyPublisher()
-    }
 }
 
 private extension Publisher where Output == EPICImageEntry?, Failure == Never {
