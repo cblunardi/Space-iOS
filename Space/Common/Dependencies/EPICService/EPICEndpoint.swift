@@ -71,12 +71,13 @@ private extension EPICImageEntry {
     }
 
     var asDateParameters: [String]? {
-        guard let date = DateFormatters.epicDateFormatter.date(from: date) else {
+        guard let date = Formatters.epicDateFormatter.date(from: date) else {
             return nil
         }
 
         let components: [Calendar.Component] = [.year, .month, .day]
+        let numbers: [NSNumber] = components.map { .init(value: calendar.component($0, from: date)) }
 
-        return components.map { calendar.component($0, from: date).description }
+        return numbers.compactMap(Formatters.epicParameterNumberFormatter.string(from:))
     }
 }
