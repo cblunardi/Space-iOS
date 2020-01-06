@@ -26,6 +26,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="pER-iz-h7u" firstAttribute="trailing" secondItem="DzQ-CM-g2u" secondAttribute="trailing" id="7I6-SS-jXT"/>
                                     <constraint firstItem="pER-iz-h7u" firstAttribute="leading" secondItem="DzQ-CM-g2u" secondAttribute="leading" id="96F-TU-dcL"/>
@@ -35,6 +36,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="DzQ-CM-g2u"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="5aB-AM-uDg"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="exe-tY-18h" appends="YES" id="WZ2-dA-mCd"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ROU-H0-vB9"/>
@@ -53,6 +57,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLR-9I-y8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="exe-tY-18h">
+                    <connections>
+                        <action selector="didRecognizeTapGesture:" destination="4dP-ll-5ns" id="O44-AE-pvx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="224.63768115942031" y="130.58035714285714"/>
         </scene>

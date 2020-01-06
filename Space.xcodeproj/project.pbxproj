@@ -53,6 +53,8 @@
 		B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */; };
 		B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */; };
 		B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */; };
+		B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */; };
+		B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeakly.swift"; sourceTree = "<group>"; };
 		B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
+		B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
+		B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */,
+				B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */,
+				B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -582,6 +588,7 @@
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
+				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
@@ -595,6 +602,7 @@
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
+				B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

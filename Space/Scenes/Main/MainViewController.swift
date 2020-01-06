@@ -14,7 +14,7 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configure()
     }
 
     func bind(viewModel: MainViewModel) {
@@ -46,5 +46,34 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .receive(on: RunLoop.main)
             .assignWeakly(to: \.scrollView.contentInset.top, on: self)
             .store(in: &subscriptions)
+    }
+}
+
+private extension MainViewController {
+    func configure() {
+        scrollView.delegate = self
+    }
+
+    @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
+        let zoomScale: CGFloat = scrollView.zoomScale == scrollView.minimumZoomScale ?
+            scrollView.maximumZoomScale : scrollView.minimumZoomScale
+
+        let zoomedViewPort: CGRect = CGRect(center: sender.location(in: scrollView) * zoomScale,
+                                            size: scrollView.frame.size)
+
+
+        UIView.animate(withDuration: 0.5) {
+            self.scrollView.setZoomScale(zoomScale, animated: false)
+
+            if zoomScale != self.scrollView.minimumZoomScale {
+                self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
+            }
+        }
+    }
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        mainImageView
     }
 }
