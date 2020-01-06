@@ -8,6 +8,7 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var mainImageView: UIImageView!
     @IBOutlet private var mainImageViewAspectConstraint: NSLayoutConstraint!
     @IBOutlet private var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var panGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
 
@@ -59,6 +60,8 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .receive(on: RunLoop.main)
             .assignWeakly(to: \.subtitleLabel.text, on: self)
             .store(in: &subscriptions)
+
+        viewModel.load()
     }
 }
 
@@ -84,6 +87,12 @@ private extension MainViewController {
             self.scrollView.setZoomScale(zoomScale, animated: false)
             self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
         }
+
+        panGestureRecognizer.isEnabled = zoomScale == scrollView.minimumZoomScale
+    }
+
+    @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
+        guard sender == panGestureRecognizer else { return }
     }
 }
 

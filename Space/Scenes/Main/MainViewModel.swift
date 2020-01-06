@@ -6,16 +6,12 @@ final class MainViewModel: ViewModel {
     private lazy var dateFormatter: DateFormatter = buildDateFormatter()
     private lazy var timeFormatter: DateFormatter = buildTimeFormatter()
 
-    let latestEntry: AnyPublisher<EPICImageEntry?, Never> =
-        dependencies.epicService
-            .getRecentCatalog()
-            .map(\.last)
-            .replaceError(with: .none)
-            .share()
-            .eraseToAnyPublisher()
+    private let state: CurrentValueSubject<State, Never> = .init(.initial)
+
+    private var subscriptions: Set<AnyCancellable> = .init()
 
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
-        latestEntry
+        currentEntry
             .flatMapLatestImage()
             .replaceError(with: nil)
             .share()
@@ -23,6 +19,12 @@ final class MainViewModel: ViewModel {
 }
 
 extension MainViewModel {
+    var currentEntry: AnyPublisher<EPICImageEntry?, Never> {
+        state
+            .map(\.currentEntry)
+            .eraseToAnyPublisher()
+    }
+
     var currentTitle: AnyPublisher<String?, Never> {
         currentDate
             .mapFlatMap(dateFormatter.string(from:))
@@ -36,13 +38,59 @@ extension MainViewModel {
     }
 }
 
+extension MainViewModel {
+    func load() {
+        guard
+            currentState.dates.loading == false,
+            currentState.dates.loaded == false
+        else { return }
+
+        state.value.dates.reload()
+
+        dependencies
+            .epicService
+            .getAvailableDates()
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { [weak self] in self?.receive($0) })
+            .store(in: &subscriptions)
+    }
+
+    private func receive(_ dates: [EPICDateEntry]) {
+        state.value.dates.receive(dates)
+
+        guard let recent = dates.first else { return }
+
+        state.value.catalogs.reload()
+        dependencies
+            .epicService
+            .getCatalog(from: recent)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { [weak self] in self?.receive(.init(date: recent, images: $0)) })
+            .store(in: &subscriptions)
+    }
+
+    private func receive(_ catalog: EPICImageCatalog) {
+        let previousCatalogs = state.value.catalogs.availableValue ?? []
+
+        state.value.catalogs.receive(previousCatalogs + [catalog])
+
+        state.value.currentEntry = state.value.currentEntry ?? catalog.images.first
+    }
+}
+
+extension MainViewModel {
+    func didRecognize(panning: CGFloat) {}
+}
+
 private extension MainViewModel {
     var currentDate: AnyPublisher<Date?, Never> {
-        latestEntry
+        currentEntry
             .map { $0?.date }
-            .mapFlatMap(DateFormatters.epicDateFormatter.date(from:))
+            .mapFlatMap(Formatters.epicDateFormatter.date(from:))
             .eraseToAnyPublisher()
     }
+
+    var currentState: State { state.value }
 
     func buildDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()

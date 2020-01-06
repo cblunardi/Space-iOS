@@ -38,6 +38,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="5aB-AM-uDg"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="exe-tY-18h" appends="YES" id="WZ2-dA-mCd"/>
+                                    <outletCollection property="gestureRecognizers" destination="67D-4k-KA0" appends="YES" id="h0A-j3-GMY"/>
                                 </connections>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
@@ -73,6 +74,7 @@
                     <connections>
                         <outlet property="mainImageView" destination="pER-iz-h7u" id="cYe-rI-gwp"/>
                         <outlet property="mainImageViewAspectConstraint" destination="aFz-ja-cZl" id="wf4-kj-Fvr"/>
+                        <outlet property="panGestureRecognizer" destination="67D-4k-KA0" id="X7P-py-wlj"/>
                         <outlet property="scrollView" destination="6Tn-sK-I05" id="gmY-vE-Ts7"/>
                         <outlet property="subtitleLabel" destination="be0-cN-3aL" id="Py5-gg-r9S"/>
                         <outlet property="tapGestureRecognizer" destination="exe-tY-18h" id="C60-7F-37m"/>
@@ -85,6 +87,11 @@
                         <action selector="didRecognizeTapGesture:" destination="4dP-ll-5ns" id="O44-AE-pvx"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="67D-4k-KA0">
+                    <connections>
+                        <action selector="didRecognizePanGesture:" destination="4dP-ll-5ns" id="gwa-YV-Wwt"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="224.63768115942031" y="130.58035714285714"/>
         </scene>
