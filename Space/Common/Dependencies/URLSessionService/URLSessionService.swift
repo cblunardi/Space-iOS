@@ -30,6 +30,9 @@ final class URLSessionService: URLSessionServiceProtocol {
 private extension URLSession {
     static func `default`(setting delegate: URLSessionDelegate? = nil) -> URLSession {
         let configuration: URLSessionConfiguration = .default
+        configuration.requestCachePolicy = .useProtocolCachePolicy
+        configuration.urlCache = .init(memoryCapacity: 512 * .megabyte,
+                                       diskCapacity: 1024 * .megabyte)
         return URLSession(configuration: configuration)
     }
 }

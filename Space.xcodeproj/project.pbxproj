@@ -57,6 +57,7 @@
 		B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */; };
 		B8E7FE9325A3EA010016CDC6 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9225A3EA010016CDC6 /* DateFormatters.swift */; };
 		B8E7FE9925A3EA320016CDC6 /* DateFormatters+EPIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9825A3EA320016CDC6 /* DateFormatters+EPIC.swift */; };
+		B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
 		B8E7FE9225A3EA010016CDC6 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		B8E7FE9825A3EA320016CDC6 /* DateFormatters+EPIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatters+EPIC.swift"; sourceTree = "<group>"; };
+		B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+Byte.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
 				B8E7FE9125A3E9F00016CDC6 /* DateFormatters */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
+				B8E7FEAA25A4871F0016CDC6 /* Dimensions */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
 				B8314530259CBE390075D898 /* Swift */,
@@ -484,6 +487,14 @@
 			path = DateFormatters;
 			sourceTree = "<group>";
 		};
+		B8E7FEAA25A4871F0016CDC6 /* Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */,
+			);
+			path = Dimensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -608,6 +619,7 @@
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B8E7FE9325A3EA010016CDC6 /* DateFormatters.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
+				B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */,
 				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
