@@ -55,6 +55,8 @@
 		B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */; };
 		B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */; };
 		B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */; };
+		B8E7FE9325A3EA010016CDC6 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9225A3EA010016CDC6 /* DateFormatters.swift */; };
+		B8E7FE9925A3EA320016CDC6 /* DateFormatters+EPIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9825A3EA320016CDC6 /* DateFormatters+EPIC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
 		B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
+		B8E7FE9225A3EA010016CDC6 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		B8E7FE9825A3EA320016CDC6 /* DateFormatters+EPIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatters+EPIC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,7 @@
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8314594259E11C50075D898 /* Combine */,
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
+				B8E7FE9125A3E9F00016CDC6 /* DateFormatters */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
@@ -470,6 +475,15 @@
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
+		B8E7FE9125A3E9F00016CDC6 /* DateFormatters */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FE9225A3EA010016CDC6 /* DateFormatters.swift */,
+				B8E7FE9825A3EA320016CDC6 /* DateFormatters+EPIC.swift */,
+			);
+			path = DateFormatters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -592,6 +606,7 @@
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
+				B8E7FE9325A3EA010016CDC6 /* DateFormatters.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
 				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
@@ -601,6 +616,7 @@
 				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
+				B8E7FE9925A3EA320016CDC6 /* DateFormatters+EPIC.swift in Sources */,
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
 				B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */,
 			);

@@ -65,21 +65,13 @@ extension EPICEndpoint {
 }
 
 private extension EPICImageEntry {
-    private var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.calendar = calendar
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: .zero)
-        return formatter
-    }
 
     private var calendar: Calendar {
         Calendar(identifier: .iso8601)
     }
 
     var asDateParameters: [String]? {
-        guard let date = dateFormatter.date(from: date) else {
+        guard let date = DateFormatters.epicDateFormatter.date(from: date) else {
             return nil
         }
 

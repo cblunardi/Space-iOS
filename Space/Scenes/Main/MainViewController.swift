@@ -7,6 +7,9 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var mainImageView: UIImageView!
     @IBOutlet private var mainImageViewAspectConstraint: NSLayoutConstraint!
+    @IBOutlet private var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var subtitleLabel: UILabel!
 
     var viewModel: MainViewModel!
 
@@ -46,28 +49,40 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .receive(on: RunLoop.main)
             .assignWeakly(to: \.scrollView.contentInset.top, on: self)
             .store(in: &subscriptions)
+
+        viewModel.currentTitle
+            .receive(on: RunLoop.main)
+            .assignWeakly(to: \.titleLabel.text, on: self)
+            .store(in: &subscriptions)
+
+        viewModel.currentSubtitle
+            .receive(on: RunLoop.main)
+            .assignWeakly(to: \.subtitleLabel.text, on: self)
+            .store(in: &subscriptions)
     }
 }
 
 private extension MainViewController {
     func configure() {
+        titleLabel.text = .none
+        subtitleLabel.text = .none
         scrollView.delegate = self
     }
 
     @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
+        guard sender == tapGestureRecognizer else { return }
+
         let zoomScale: CGFloat = scrollView.zoomScale == scrollView.minimumZoomScale ?
             scrollView.maximumZoomScale : scrollView.minimumZoomScale
 
-        let zoomedViewPort: CGRect = CGRect(center: sender.location(in: scrollView) * zoomScale,
-                                            size: scrollView.frame.size)
-
-
         UIView.animate(withDuration: 0.5) {
-            self.scrollView.setZoomScale(zoomScale, animated: false)
+            let tapLocation: CGPoint = self.tapGestureRecognizer.location(in: self.scrollView)
 
-            if zoomScale != self.scrollView.minimumZoomScale {
-                self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
-            }
+            let zoomedViewPort: CGRect = CGRect(center: tapLocation * zoomScale,
+                                                size: self.scrollView.frame.size)
+
+            self.scrollView.setZoomScale(zoomScale, animated: false)
+            self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
         }
     }
 }

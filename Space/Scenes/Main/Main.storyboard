@@ -40,20 +40,43 @@
                                     <outletCollection property="gestureRecognizers" destination="exe-tY-18h" appends="YES" id="WZ2-dA-mCd"/>
                                 </connections>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
+                                <rect key="frame" x="20" y="59" width="374" height="61.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th January, 2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fR-pz-Bt3">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:35:10" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be0-cN-3aL">
+                                        <rect key="frame" x="0.0" y="41" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ROU-H0-vB9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leading" id="3vG-DP-QYc"/>
+                            <constraint firstItem="8kC-ck-bfB" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leadingMargin" id="Nzp-qe-Ai5"/>
                             <constraint firstAttribute="trailing" secondItem="6Tn-sK-I05" secondAttribute="trailing" id="OCm-Ol-s6R"/>
                             <constraint firstAttribute="bottom" secondItem="6Tn-sK-I05" secondAttribute="bottom" id="Ofg-Sz-mZH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8kC-ck-bfB" secondAttribute="trailing" id="Q6e-U4-V3X"/>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="top" id="YNt-RF-qBu"/>
+                            <constraint firstItem="8kC-ck-bfB" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="topMargin" constant="15" id="Z3v-jw-fqf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainImageView" destination="pER-iz-h7u" id="cYe-rI-gwp"/>
                         <outlet property="mainImageViewAspectConstraint" destination="aFz-ja-cZl" id="wf4-kj-Fvr"/>
                         <outlet property="scrollView" destination="6Tn-sK-I05" id="gmY-vE-Ts7"/>
+                        <outlet property="subtitleLabel" destination="be0-cN-3aL" id="Py5-gg-r9S"/>
+                        <outlet property="tapGestureRecognizer" destination="exe-tY-18h" id="C60-7F-37m"/>
+                        <outlet property="titleLabel" destination="3fR-pz-Bt3" id="siU-eY-Mjh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLR-9I-y8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
