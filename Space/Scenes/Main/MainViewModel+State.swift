@@ -3,17 +3,16 @@ import Foundation
 
 extension MainViewModel {
     struct State: Mutable, Equatable {
-        var dates: Loadable<[EPICDateEntry], Never>
-        var catalogs: Loadable<[EPICImageCatalog], Never>
+        var entries: Loadable<[EPICImage], Never>
 
-        var panningEntry: EPICImageEntry?
-        var currentEntry: EPICImageEntry?
+        var panningEntry: EPICImage?
+        var currentEntry: EPICImage?
     }
 }
 
 extension MainViewModel.State {
     static var initial: MainViewModel.State {
-        .init(dates: .reset, catalogs: .reset, currentEntry: .none)
+        .init(entries: .reset, currentEntry: .none)
     }
 
     var isInitial: Bool {
@@ -21,18 +20,15 @@ extension MainViewModel.State {
     }
 
     var isLoading: Bool {
-        dates.loading || catalogs.loading
+        entries.loading
     }
 
-    mutating func receive(dates: [EPICDateEntry]) {
-        self.dates.receive(dates)
+    mutating func receive(entries: [EPICImage]) {
+        self.entries.receive(entries.sorted())
+
+        if currentEntry == .none {
+            currentEntry = entries.first
+        }
     }
 
-    mutating func receive(catalog: EPICImageCatalog) {
-        let catalogs = (self.catalogs.availableValue ?? []) + [catalog]
-        self.catalogs.receive(catalogs.sorted(by: \.date))
-
-        guard currentEntry == .none else { return }
-        currentEntry = catalogs.last?.images.last
-    }
 }

@@ -39,32 +39,6 @@ private extension URLSession {
 
 extension URLSessionService {
     static func configured() -> URLSessionService {
-        .init(decorators: [publicNASAAPIDecorator])
+        .init(decorators: [])
     }
 }
-
-private extension URLSessionService {
-    private static var publicNASAAPIDecorator: RequestDecorator {
-        let decorator: RequestDecorator = { request in
-            guard
-                let url = request.url,
-                var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-            else {
-                return request
-            }
-
-            components.queryItems = components.queryItems ?? []
-                + [URLQueryItem(name: "api_key", value: Secrets.publicNASAAPIKey)]
-
-            guard let decoratedURL = components.url else {
-                return request
-            }
-
-            return request.setting(\.url, to: decoratedURL)
-        }
-
-        return decorator
-    }
-}
-
-extension URLRequest: Mutable {}

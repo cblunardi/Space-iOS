@@ -1,11 +1,11 @@
 protocol DependenciesContainerProtocol: AnyObject {
     var urlSessionService: URLSessionServiceProtocol { get }
-    var epicService: EPICServiceProtocol { get }
-    var imageCacheService: ImageCacheServiceProtocol { get }
+    var spaceService: SpaceServiceProtocol { get }
+    var imageService: ImageServiceProtocol { get }
 }
 
 final class DependenciesContainer: DependenciesContainerProtocol {
     let urlSessionService: URLSessionServiceProtocol = URLSessionService.configured()
-    let epicService: EPICServiceProtocol = EPICService()
-    let imageCacheService: ImageCacheServiceProtocol = ImageCacheService()
+    let spaceService: SpaceServiceProtocol = SpaceService()
+    let imageService: ImageServiceProtocol = ImageService()
 }

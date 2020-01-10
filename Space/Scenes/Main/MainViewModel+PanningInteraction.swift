@@ -6,49 +6,20 @@ extension MainViewModel {
         assert((-1...1).contains(relativeTranslation))
 
         guard
-            let currentImageDate = state.value.currentEntry?.swiftDate,
+            let currentImageDate = state.value.currentEntry?.date,
             let targetDate = currentImageDate.advanced(by: relativeTranslation * 24.0),
-            let bestEntryMatch = state.value.catalogs.availableValue?.entryClosest(to: targetDate)
+            let bestEntryMatch = state.value.entries.availableValue?.entryClosest(to: targetDate)
         else {
             return
         }
 
         guard state.value.panningEntry != bestEntryMatch else { return }
         state.value.panningEntry = bestEntryMatch
-
-        loadNextCatalogsIfNeeded()
     }
 
     func didFinishPanning() {
         state.value.currentEntry = state.value.panningEntry
         state.value.panningEntry = .none
-    }
-}
-
-private extension MainViewModel {
-    func loadNextCatalogsIfNeeded() {
-        let dates = state.value.dates.availableValue
-        guard
-            state.value.catalogs.loading == false,
-            let catalogs = state.value.catalogs.availableValue,
-            let entry = state.value.panningEntry ?? state.value.currentEntry,
-            let catalogIndex = catalogs.firstIndex(containing: entry),
-            let catalog = catalogs[safe: catalogIndex],
-            let dateIndex = dates?.firstIndex(where: { $0.date == catalog.date }),
-            let nextDate = dates?[safe: dateIndex + 1] ?? dates?[safe: dateIndex - 1],
-            catalogs.contains(where: { $0.date == nextDate.date }) == false
-        else {
-            return
-        }
-
-        state.value.catalogs.reload()
-
-        dependencies
-            .epicService
-            .getCatalog(from: nextDate)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.state.value.receive(catalog: .init(date: nextDate, images: $0)) })
-            .store(in: &subscriptions)
     }
 }
 
@@ -71,19 +42,11 @@ private extension Date {
     }
 }
 
-private extension Array where Element == EPICImageCatalog {
-    func entryClosest(to date: Date) -> EPICImageEntry? {
-        lazy
-            .flatMap(\.images)
-            .compactMap { entry in
-                entry.swiftDate.map { entryDate in
-                    (entry, abs(entryDate.timeIntervalSince(date)))
-                }
-            }
-            .min(by: { $0.1 < $1.1 })?.0
-    }
-
-    func firstIndex(containing entry: EPICImageEntry) -> Index? {
-        firstIndex { $0.images.contains(entry) }
+private extension Array where Element == EPICImage {
+    func entryClosest(to date: Date) -> EPICImage? {
+        self.min(by: {
+            abs($0.date.timeIntervalSince(date))
+                < abs($1.date.timeIntervalSince(date))
+        })
     }
 }

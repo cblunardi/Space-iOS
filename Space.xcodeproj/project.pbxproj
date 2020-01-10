@@ -28,24 +28,22 @@
 		B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314528259CBAEC0075D898 /* MockSceneViewController.swift */; };
 		B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */; };
 		B8314532259CBE4A0075D898 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314531259CBE4A0075D898 /* String+.swift */; };
-		B8314537259CD66E0075D898 /* EPICImageEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314536259CD66E0075D898 /* EPICImageEntry.swift */; };
-		B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314546259CD7970075D898 /* EPICDateEntry.swift */; };
 		B831454C259CD8050075D898 /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831454B259CD8050075D898 /* URLSessionService.swift */; };
 		B8314558259CDC9F0075D898 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314557259CDC9F0075D898 /* Array+.swift */; };
 		B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831455B259D057B0075D898 /* CustomLocalisedError.swift */; };
 		B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314567259D083F0075D898 /* URLSessionServiceMock.swift */; };
 		B831456E259D08610075D898 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831456D259D08610075D898 /* URLSessionMock.swift */; };
-		B831457D259D0CE10075D898 /* EPICService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831457C259D0CE10075D898 /* EPICService.swift */; };
 		B8314589259D10DC0075D898 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314588259D10DC0075D898 /* Secrets.swift */; };
 		B8314591259D12600075D898 /* Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314590259D12600075D898 /* Mutable.swift */; };
 		B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */; };
 		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
 		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
-		B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145C6259E6A340075D898 /* EPICEndpoint.swift */; };
-		B83145E5259E730C0075D898 /* EPICEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E4259E730C0075D898 /* EPICEndpointTests.swift */; };
-		B83145EA259E732C0075D898 /* EPICImageEntry+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E9259E732C0075D898 /* EPICImageEntry+Mock.swift */; };
-		B83145F0259E74160075D898 /* EPICDateEntry+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */; };
-		B8E7FE4F25A39E3A0016CDC6 /* EPICServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */; };
+		B83145EA259E732C0075D898 /* EPICImage+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E9259E732C0075D898 /* EPICImage+Mock.swift */; };
+		B8C1585225A9FF07003F40CF /* EPICImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585125A9FF07003F40CF /* EPICImage.swift */; };
+		B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585925A9FF87003F40CF /* SpaceService.swift */; };
+		B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585E25AA01D4003F40CF /* URL+.swift */; };
+		B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */; };
+		B8C1587925AA105E003F40CF /* SpaceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -55,18 +53,13 @@
 		B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */; };
 		B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */; };
 		B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */; };
-		B8E7FE9325A3EA010016CDC6 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9225A3EA010016CDC6 /* Formatters.swift */; };
-		B8E7FE9925A3EA320016CDC6 /* Formatters+EPIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE9825A3EA320016CDC6 /* Formatters+EPIC.swift */; };
 		B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */; };
 		B8E7FEB425A48A340016CDC6 /* MainViewModel+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */; };
-		B8E7FEB825A48ADA0016CDC6 /* EPICImageCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */; };
 		B8E7FEBD25A496860016CDC6 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FEBC25A496860016CDC6 /* Loadable.swift */; };
 		B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */; };
 		B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */; };
-		B8E7FF0625A4B1AC0016CDC6 /* EPICImageEntry+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */; };
-		B8E7FF1625A523E70016CDC6 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */; };
-		B8E7FF1C25A526B20016CDC6 /* ImageCacheService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */; };
-		B8E7FF2125A527DE0016CDC6 /* ImageCacheServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */; };
+		B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1525A523E70016CDC6 /* ImageService.swift */; };
+		B8E7FF2125A527DE0016CDC6 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,24 +98,22 @@
 		B8314528259CBAEC0075D898 /* MockSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSceneViewController.swift; sourceTree = "<group>"; };
 		B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		B8314531259CBE4A0075D898 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		B8314536259CD66E0075D898 /* EPICImageEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImageEntry.swift; sourceTree = "<group>"; };
-		B8314546259CD7970075D898 /* EPICDateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICDateEntry.swift; sourceTree = "<group>"; };
 		B831454B259CD8050075D898 /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
 		B8314557259CDC9F0075D898 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		B831455B259D057B0075D898 /* CustomLocalisedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalisedError.swift; sourceTree = "<group>"; };
 		B8314567259D083F0075D898 /* URLSessionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceMock.swift; sourceTree = "<group>"; };
 		B831456D259D08610075D898 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
-		B831457C259D0CE10075D898 /* EPICService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICService.swift; sourceTree = "<group>"; };
 		B8314588259D10DC0075D898 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B8314590259D12600075D898 /* Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutable.swift; sourceTree = "<group>"; };
 		B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+URLRequestValidation.swift"; sourceTree = "<group>"; };
 		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
 		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
-		B83145C6259E6A340075D898 /* EPICEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICEndpoint.swift; sourceTree = "<group>"; };
-		B83145E4259E730C0075D898 /* EPICEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICEndpointTests.swift; sourceTree = "<group>"; };
-		B83145E9259E732C0075D898 /* EPICImageEntry+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImageEntry+Mock.swift"; sourceTree = "<group>"; };
-		B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICDateEntry+Mock.swift"; sourceTree = "<group>"; };
-		B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICServiceMock.swift; sourceTree = "<group>"; };
+		B83145E9259E732C0075D898 /* EPICImage+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImage+Mock.swift"; sourceTree = "<group>"; };
+		B8C1585125A9FF07003F40CF /* EPICImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImage.swift; sourceTree = "<group>"; };
+		B8C1585925A9FF87003F40CF /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
+		B8C1585E25AA01D4003F40CF /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Unwrap.swift"; sourceTree = "<group>"; };
+		B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceServiceMock.swift; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -132,18 +123,13 @@
 		B8E7FE8525A3D9850016CDC6 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
 		B8E7FE8925A3E51B0016CDC6 /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		B8E7FE8D25A3E6390016CDC6 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
-		B8E7FE9225A3EA010016CDC6 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
-		B8E7FE9825A3EA320016CDC6 /* Formatters+EPIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatters+EPIC.swift"; sourceTree = "<group>"; };
 		B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+Byte.swift"; sourceTree = "<group>"; };
 		B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+State.swift"; sourceTree = "<group>"; };
-		B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImageCatalog.swift; sourceTree = "<group>"; };
 		B8E7FEBC25A496860016CDC6 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loadable+Combine.swift"; sourceTree = "<group>"; };
 		B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+PanningInteraction.swift"; sourceTree = "<group>"; };
-		B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImageEntry+.swift"; sourceTree = "<group>"; };
-		B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
-		B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageCacheService+Combine.swift"; sourceTree = "<group>"; };
-		B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceMock.swift; sourceTree = "<group>"; };
+		B8E7FF1525A523E70016CDC6 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,7 +251,7 @@
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B8E7FEAA25A4871F0016CDC6 /* Dimensions */,
-				B8E7FE9125A3E9F00016CDC6 /* Formatters */,
+				B8C1585D25AA01C8003F40CF /* Foundation */,
 				B8E7FEBB25A4967B0016CDC6 /* Loading */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
@@ -296,8 +282,8 @@
 			children = (
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
-				B831457B259D0CBB0075D898 /* EPICService */,
 				B8E7FF1425A523BE0016CDC6 /* ImageCacheService */,
+				B8C1584D25A9FEE3003F40CF /* SpaceService */,
 				B831454A259CD7E60075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
@@ -361,7 +347,6 @@
 			children = (
 				B831451C259CB9F50075D898 /* DependenciesManagerTests.swift */,
 				B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */,
-				B83145E4259E730C0075D898 /* EPICEndpointTests.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -382,20 +367,9 @@
 		B8314535259CD6430075D898 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B831453D259CD6F10075D898 /* EPIC */,
+				B8C1584E25A9FEF1003F40CF /* EPIC */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B831453D259CD6F10075D898 /* EPIC */ = {
-			isa = PBXGroup;
-			children = (
-				B8314546259CD7970075D898 /* EPICDateEntry.swift */,
-				B8E7FEB725A48ADA0016CDC6 /* EPICImageCatalog.swift */,
-				B8314536259CD66E0075D898 /* EPICImageEntry.swift */,
-				B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */,
-			);
-			path = EPIC;
 			sourceTree = "<group>";
 		};
 		B831454A259CD7E60075D898 /* URLSessionService */ = {
@@ -418,8 +392,8 @@
 		B8314564259D08200075D898 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				B8E7FE4D25A39E300016CDC6 /* EPICService */,
 				B8E7FF1F25A527CA0016CDC6 /* ImageCacheService */,
+				B8C1587725AA1051003F40CF /* SpaceServiceMock */,
 				B8314566259D08320075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
@@ -434,21 +408,13 @@
 			path = URLSessionService;
 			sourceTree = "<group>";
 		};
-		B831457B259D0CBB0075D898 /* EPICService */ = {
-			isa = PBXGroup;
-			children = (
-				B831457C259D0CE10075D898 /* EPICService.swift */,
-				B83145C6259E6A340075D898 /* EPICEndpoint.swift */,
-			);
-			path = EPICService;
-			sourceTree = "<group>";
-		};
 		B8314594259E11C50075D898 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
 				B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */,
 				B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */,
 				B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */,
+				B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -456,18 +422,41 @@
 		B83145E8259E73140075D898 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B83145E9259E732C0075D898 /* EPICImageEntry+Mock.swift */,
-				B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */,
+				B83145E9259E732C0075D898 /* EPICImage+Mock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B8E7FE4D25A39E300016CDC6 /* EPICService */ = {
+		B8C1584D25A9FEE3003F40CF /* SpaceService */ = {
 			isa = PBXGroup;
 			children = (
-				B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */,
+				B8C1585925A9FF87003F40CF /* SpaceService.swift */,
 			);
-			path = EPICService;
+			path = SpaceService;
+			sourceTree = "<group>";
+		};
+		B8C1584E25A9FEF1003F40CF /* EPIC */ = {
+			isa = PBXGroup;
+			children = (
+				B8C1585125A9FF07003F40CF /* EPICImage.swift */,
+			);
+			path = EPIC;
+			sourceTree = "<group>";
+		};
+		B8C1585D25AA01C8003F40CF /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B8C1585E25AA01D4003F40CF /* URL+.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		B8C1587725AA1051003F40CF /* SpaceServiceMock */ = {
+			isa = PBXGroup;
+			children = (
+				B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */,
+			);
+			path = SpaceServiceMock;
 			sourceTree = "<group>";
 		};
 		B8E7FE5425A39F090016CDC6 /* Combine */ = {
@@ -503,15 +492,6 @@
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
-		B8E7FE9125A3E9F00016CDC6 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				B8E7FE9225A3EA010016CDC6 /* Formatters.swift */,
-				B8E7FE9825A3EA320016CDC6 /* Formatters+EPIC.swift */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
 		B8E7FEAA25A4871F0016CDC6 /* Dimensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +512,7 @@
 		B8E7FF1425A523BE0016CDC6 /* ImageCacheService */ = {
 			isa = PBXGroup;
 			children = (
-				B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */,
-				B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */,
+				B8E7FF1525A523E70016CDC6 /* ImageService.swift */,
 			);
 			path = ImageCacheService;
 			sourceTree = "<group>";
@@ -541,7 +520,7 @@
 		B8E7FF1F25A527CA0016CDC6 /* ImageCacheService */ = {
 			isa = PBXGroup;
 			children = (
-				B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */,
+				B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */,
 			);
 			path = ImageCacheService;
 			sourceTree = "<group>";
@@ -648,8 +627,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8E7FF1C25A526B20016CDC6 /* ImageCacheService+Combine.swift in Sources */,
-				B8E7FEB825A48ADA0016CDC6 /* EPICImageCatalog.swift in Sources */,
 				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
@@ -657,37 +634,34 @@
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
-				B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
-				B8E7FF1625A523E70016CDC6 /* ImageCacheService.swift in Sources */,
+				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
-				B8314537259CD66E0075D898 /* EPICImageEntry.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
-				B8E7FF0625A4B1AC0016CDC6 /* EPICImageEntry+.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
 				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
-				B8E7FE9325A3EA010016CDC6 /* Formatters.swift in Sources */,
 				B8E7FEBD25A496860016CDC6 /* Loadable.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
+				B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */,
+				B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */,
 				B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */,
 				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
 				B8E7FEB425A48A340016CDC6 /* MainViewModel+State.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
-				B831457D259D0CE10075D898 /* EPICService.swift in Sources */,
+				B8C1585225A9FF07003F40CF /* EPICImage.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
-				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
-				B8E7FE9925A3EA320016CDC6 /* Formatters+EPIC.swift in Sources */,
+				B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */,
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
 				B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */,
 			);
@@ -697,7 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8E7FF2125A527DE0016CDC6 /* ImageCacheServiceMock.swift in Sources */,
+				B8E7FF2125A527DE0016CDC6 /* ImageServiceMock.swift in Sources */,
 				B8314514259CB9650075D898 /* DependenciesContainerMock.swift in Sources */,
 				B831456E259D08610075D898 /* URLSessionMock.swift in Sources */,
 				B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */,
@@ -705,12 +679,10 @@
 				B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */,
 				B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */,
 				B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */,
-				B8E7FE4F25A39E3A0016CDC6 /* EPICServiceMock.swift in Sources */,
-				B83145EA259E732C0075D898 /* EPICImageEntry+Mock.swift in Sources */,
+				B8C1587925AA105E003F40CF /* SpaceServiceMock.swift in Sources */,
+				B83145EA259E732C0075D898 /* EPICImage+Mock.swift in Sources */,
 				B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */,
 				B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */,
-				B83145E5259E730C0075D898 /* EPICEndpointTests.swift in Sources */,
-				B83145F0259E74160075D898 /* EPICDateEntry+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,70 +19,41 @@ final class MainViewModel: ViewModel {
 }
 
 extension MainViewModel {
-    var currentEntry: AnyPublisher<EPICImageEntry?, Never> {
+    var currentEntry: AnyPublisher<EPICImage?, Never> {
         state
             .map { $0.panningEntry ?? $0.currentEntry }
             .eraseToAnyPublisher()
     }
 
     var currentTitle: AnyPublisher<String?, Never> {
-        currentDate
-            .mapFlatMap(dateFormatter.string(from:))
+        currentEntry
+            .mapFlatMap { [weak dateFormatter] in dateFormatter?.string(from: $0.date) }
             .eraseToAnyPublisher()
     }
 
     var currentSubtitle: AnyPublisher<String?, Never> {
-        currentDate
-            .mapFlatMap(timeFormatter.string(from:))
+        currentEntry
+            .mapFlatMap { [weak timeFormatter] in timeFormatter?.string(from: $0.date) }
             .eraseToAnyPublisher()
     }
 }
 
 extension MainViewModel {
     func load() {
-        guard
-            state.value.dates.loading == false,
-            state.value.dates.loaded == false
-        else { return }
+        guard state.value.isLoading == false else { return }
 
-        state.value.dates.reload()
+        state.value.entries.reload()
 
         dependencies
-            .epicService
-            .getAvailableDates()
+            .spaceService
+            .retrieveEPIC()
             .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.receive($0) })
+                  receiveValue: { [weak self] in self?.state.value.receive(entries: $0) })
             .store(in: &subscriptions)
-    }
-
-    private func receive(_ dates: [EPICDateEntry]) {
-        state.value.receive(dates: dates)
-
-        guard let recent = dates.first else { return }
-
-        state.value.catalogs.reload()
-
-        dependencies
-            .epicService
-            .getCatalog(from: recent)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.receive(.init(date: recent, images: $0)) })
-            .store(in: &subscriptions)
-    }
-
-    private func receive(_ catalog: EPICImageCatalog) {
-        state.value.receive(catalog: catalog)
     }
 }
 
 private extension MainViewModel {
-    var currentDate: AnyPublisher<Date?, Never> {
-        currentEntry
-            .map { $0?.date }
-            .mapFlatMap(Formatters.epicDateFormatter.date(from:))
-            .eraseToAnyPublisher()
-    }
-
     func buildDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -98,28 +69,26 @@ private extension MainViewModel {
     }
 }
 
-private extension Publisher where Output == EPICImageEntry?, Failure == Never {
+private extension Publisher where Output == EPICImage?, Failure == Never {
     func flatMapLatestImage() -> AnyPublisher<UIImage?, Error> {
         map { entry -> AnyPublisher<UIImage?, Error> in
-            guard let entry = entry else {
+            guard let url = entry.flatMap({ URL(string: $0.uri) }) else {
                 return Just(nil)
                     .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
 
-            let fallbackRetrieval = dependencies
-                .epicService
-                .getImage(from: entry)
-                .map(UIImage.init(data:))
-
-            let retrieval = dependencies
-                .imageCacheService
-                .cachedImage(with: entry.image,
-                             fallback: fallbackRetrieval)
-
-            return Just(nil)
+            let noImage: AnyPublisher<UIImage?, Error> = Just(nil)
                 .setFailureType(to: Error.self)
-                .merge(with: retrieval)
+                .eraseToAnyPublisher()
+
+            let imageRetrieval = dependencies
+                .imageService
+                .retrieve(from: url)
+                .map { Optional($0) }
+                .eraseToAnyPublisher()
+
+            return Publishers.Merge(noImage, imageRetrieval)
                 .eraseToAnyPublisher()
         }
         .switchToLatest()

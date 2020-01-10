@@ -6,6 +6,10 @@ extension Array {
     func sorted<Property>(by keyPath: KeyPath<Element, Property>) -> Self where Property: Comparable {
         sorted(by: { $0[keyPath: keyPath] < $1[keyPath: keyPath] })
     }
+
+    func min<Property>(by keyPath: KeyPath<Element, Property>) -> Element? where Property: Comparable {
+        self.min { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+    }
 }
 
 extension Array {

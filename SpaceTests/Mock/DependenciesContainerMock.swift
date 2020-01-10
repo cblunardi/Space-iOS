@@ -4,6 +4,9 @@ final class DependenciesContainerMock: DependenciesContainerProtocol {
     var urlSessionServiceMock: URLSessionServiceMock = URLSessionServiceMock()
     var urlSessionService: URLSessionServiceProtocol { urlSessionServiceMock }
 
-    var epicServiceMock: EPICServiceMock = EPICServiceMock()
-    var epicService: EPICServiceProtocol { epicServiceMock }
+    var imageServiceMock: ImageServiceMock = ImageServiceMock()
+    var imageService: ImageServiceProtocol { imageServiceMock }
+
+    var spaceServiceMock: SpaceServiceMock = SpaceServiceMock()
+    var spaceService: SpaceServiceProtocol { spaceServiceMock }
 }
