@@ -27,7 +27,7 @@ extension MainViewModel.State {
         self.entries.receive(entries.sorted())
 
         if currentEntry == .none {
-            currentEntry = entries.first
+            currentEntry = entries.last
         }
     }
 

@@ -31,8 +31,9 @@ private extension URLSession {
     static func `default`(setting delegate: URLSessionDelegate? = nil) -> URLSession {
         let configuration: URLSessionConfiguration = .default
         configuration.requestCachePolicy = .useProtocolCachePolicy
-        configuration.urlCache = .init(memoryCapacity: 512 * .megabyte,
-                                       diskCapacity: 1024 * .megabyte)
+        configuration.httpMaximumConnectionsPerHost = 20
+        configuration.urlCache = .init(memoryCapacity: 32 * .megabyte,
+                                       diskCapacity: 8 * .gigabyte)
         return URLSession(configuration: configuration)
     }
 }

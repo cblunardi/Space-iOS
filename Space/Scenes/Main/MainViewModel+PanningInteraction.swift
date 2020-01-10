@@ -15,6 +15,17 @@ extension MainViewModel {
 
         guard state.value.panningEntry != bestEntryMatch else { return }
         state.value.panningEntry = bestEntryMatch
+
+
+        guard
+            let entries = state.value.entries.availableValue,
+            let index = entries.firstIndex(of: bestEntryMatch) else {
+            return
+        }
+
+        entries.around(index: index, distance: 10)
+            .compactMap { URL(string: $0.uri) }
+            .forEach(dependencies.imageService.prefetch(from:))
     }
 
     func didFinishPanning() {

@@ -48,8 +48,17 @@ extension MainViewModel {
             .spaceService
             .retrieveEPIC()
             .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.state.value.receive(entries: $0) })
+                  receiveValue: { [weak self] in self?.receiveInitial(entries: $0) })
             .store(in: &subscriptions)
+    }
+
+    private func receiveInitial(entries: [EPICImage]) {
+        state.value.receive(entries: entries)
+
+        entries
+            .suffix(5)
+            .compactMap { URL(string: $0.uri) }
+            .forEach(dependencies.imageService.prefetch(from:))
     }
 }
 

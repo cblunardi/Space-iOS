@@ -18,3 +18,18 @@ extension Array {
         return self[index]
     }
 }
+
+extension Array {
+    func slice(safeRange: Range<Index>) -> ArraySlice<Element> {
+        let lowerBound: Int = Swift.max(startIndex, safeRange.lowerBound)
+        let upperBound: Int = Swift.min(endIndex, safeRange.upperBound)
+
+        return self[lowerBound..<upperBound]
+    }
+}
+
+extension Array where Element: Equatable {
+    func around(index: Index, distance: Int) -> ArraySlice<Element> {
+        slice(safeRange: (index - distance) ..< (index + distance))
+    }
+}
