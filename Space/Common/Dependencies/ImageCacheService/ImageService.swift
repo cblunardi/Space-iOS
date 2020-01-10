@@ -65,7 +65,6 @@ private extension ImageService {
             .unwrap(or: Error.imageDecoding)
             .handleEvents(receiveOutput: { [weak self] in self?.cacheImage($0, with: url) },
                           receiveCompletion: { _ in })
-            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
 
     }

@@ -29,6 +29,7 @@ extension CatalogItemViewModel {
             .retrieve(from: url)
             .map { Optional($0) }
             .replaceError(with: nil)
+            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
 
         return Publishers.Merge(empty, image)

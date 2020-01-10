@@ -3,7 +3,21 @@ import UIKit
 protocol Coordinator {
     associatedtype ViewControllerType: UIViewController
 
-    var viewController: WeakReference<ViewControllerType> { get }
+    var viewControllerReference: WeakReference<ViewControllerType> { get }
 
-    init(viewController: WeakReference<ViewControllerType>)
+    init(viewControllerReference: WeakReference<ViewControllerType>)
+}
+
+extension Coordinator {
+    var viewController: ViewControllerType? {
+        viewControllerReference.value
+    }
+
+    init(viewController: ViewControllerType) {
+        self.init(viewControllerReference: WeakReference(viewController))
+    }
+
+    func present(_ viewControllerToPresent: UIViewController) {
+        viewController?.present(viewControllerToPresent, animated: true)
+    }
 }

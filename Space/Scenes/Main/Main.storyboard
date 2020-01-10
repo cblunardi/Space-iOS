@@ -41,6 +41,14 @@
                                     <outletCollection property="gestureRecognizers" destination="67D-4k-KA0" appends="YES" id="h0A-j3-GMY"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kl2-vl-NN8">
+                                <rect key="frame" x="156.5" y="805" width="101" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <state key="normal" title="Show Catalog"/>
+                                <connections>
+                                    <action selector="showCatalogPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="ltT-Yy-Z9A"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
                                 <rect key="frame" x="20" y="59" width="374" height="61.5"/>
                                 <subviews>
@@ -62,6 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="ROU-H0-vB9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Kl2-vl-NN8" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="1Gi-JC-VXN"/>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leading" id="3vG-DP-QYc"/>
                             <constraint firstItem="8kC-ck-bfB" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leadingMargin" id="Nzp-qe-Ai5"/>
                             <constraint firstAttribute="trailing" secondItem="6Tn-sK-I05" secondAttribute="trailing" id="OCm-Ol-s6R"/>
@@ -69,9 +78,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8kC-ck-bfB" secondAttribute="trailing" id="Q6e-U4-V3X"/>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="top" id="YNt-RF-qBu"/>
                             <constraint firstItem="8kC-ck-bfB" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="topMargin" constant="15" id="Z3v-jw-fqf"/>
+                            <constraint firstItem="ROU-H0-vB9" firstAttribute="bottom" secondItem="Kl2-vl-NN8" secondAttribute="bottom" constant="25" id="m7L-Dk-VRw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="catalogButton" destination="Kl2-vl-NN8" id="dD4-56-sKO"/>
                         <outlet property="mainImageView" destination="pER-iz-h7u" id="cYe-rI-gwp"/>
                         <outlet property="mainImageViewAspectConstraint" destination="aFz-ja-cZl" id="wf4-kj-Fvr"/>
                         <outlet property="panGestureRecognizer" destination="67D-4k-KA0" id="X7P-py-wlj"/>

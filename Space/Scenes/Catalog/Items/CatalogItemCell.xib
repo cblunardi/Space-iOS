@@ -47,6 +47,10 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="164" height="155"/>
+            <connections>
+                <outlet property="imageView" destination="rXI-3Z-XSd" id="OxN-jE-5UD"/>
+                <outlet property="label" destination="VPT-3O-pWa" id="es8-Vr-gfg"/>
+            </connections>
             <point key="canvasLocation" x="-75.362318840579718" y="7.7008928571428568"/>
         </collectionViewCell>
     </objects>

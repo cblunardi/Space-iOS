@@ -6,9 +6,11 @@ final class MainViewModel: ViewModel {
     private lazy var dateFormatter: DateFormatter = Formatters.buildDateFormatter()
     private lazy var timeFormatter: DateFormatter = Formatters.buildTimeFormatter()
 
-    let state: CurrentValueSubject<State, Never> = .init(.initial)
+    let coordinator: MainCoordinatorProtocol
 
     var subscriptions: Set<AnyCancellable> = .init()
+
+    let state: CurrentValueSubject<State, Never> = .init(.initial)
 
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         currentEntry
@@ -16,6 +18,10 @@ final class MainViewModel: ViewModel {
             .replaceError(with: nil)
             .share()
             .eraseToAnyPublisher()
+
+    init(coordinator: MainCoordinatorProtocol) {
+        self.coordinator = coordinator
+    }
 }
 
 extension MainViewModel {
@@ -36,6 +42,12 @@ extension MainViewModel {
             .mapFlatMap { [weak timeFormatter] in timeFormatter?.string(from: $0.date) }
             .eraseToAnyPublisher()
     }
+
+    var catalogButtonVisible: AnyPublisher<Bool, Never> {
+        state
+            .map { $0.isLoading == false }
+            .eraseToAnyPublisher()
+    }
 }
 
 extension MainViewModel {
@@ -47,6 +59,7 @@ extension MainViewModel {
         dependencies
             .spaceService
             .retrieveEPIC()
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] in self?.receiveInitial(entries: $0) })
             .store(in: &subscriptions)
@@ -59,6 +72,13 @@ extension MainViewModel {
             .suffix(5)
             .compactMap { URL(string: $0.uri) }
             .forEach(dependencies.imageService.prefetch(from:))
+    }
+}
+
+extension MainViewModel {
+    func showCatalogPressed() {
+        guard let model = state.value.entries.availableValue else { return }
+        coordinator.showCatalog(model: model)
     }
 }
 
@@ -79,6 +99,7 @@ private extension Publisher where Output == EPICImage?, Failure == Never {
                 .imageService
                 .retrieve(from: url)
                 .map { Optional($0) }
+                .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
 
             return Publishers.Merge(noImage, imageRetrieval)

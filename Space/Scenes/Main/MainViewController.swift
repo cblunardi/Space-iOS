@@ -12,6 +12,8 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
 
+    @IBOutlet private var catalogButton: UIButton!
+
     var viewModel: MainViewModel!
 
     private var subscriptions: Set<AnyCancellable> = .init()
@@ -19,24 +21,14 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-
-        guard subscriptions.isEmpty, viewModel != nil else { return }
-        setupSubscriptions()
+        bind(viewModel: viewModel)
     }
 
     func bind(viewModel: MainViewModel) {
-        self.viewModel = viewModel
-
-        guard isViewLoaded else { return }
-        setupSubscriptions()
-    }
-
-    private func setupSubscriptions() {
         subscriptions.removeAll()
 
         viewModel
             .currentImage
-            .receive(on: RunLoop.main)
             .assignWeakly(to: \.image,
                           on: mainImageView,
                           crossDissolveDuration: UIC.Anims.imageTransitionDuration)
@@ -46,7 +38,6 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .currentImage
             .map { $0?.size.aspectRatio }
             .replaceNil(with: 1.0)
-            .receive(on: RunLoop.main)
             .assignWeakly(to: \.mainImageViewAspectConstraint.constant, on: self)
             .store(in: &subscriptions)
 
@@ -57,18 +48,20 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
                 let imageHeight = frame.width / imageSize.aspectRatio
                 return (frame.height - imageHeight) / 2.0
             }
-            .receive(on: RunLoop.main)
             .assignWeakly(to: \.scrollView.contentInset.top, on: self)
             .store(in: &subscriptions)
 
         viewModel.currentTitle
-            .receive(on: RunLoop.main)
             .assignWeakly(to: \.titleLabel.text, on: self)
             .store(in: &subscriptions)
 
         viewModel.currentSubtitle
-            .receive(on: RunLoop.main)
             .assignWeakly(to: \.subtitleLabel.text, on: self)
+            .store(in: &subscriptions)
+
+        viewModel.catalogButtonVisible
+            .map(!)
+            .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
         viewModel.load()
@@ -111,6 +104,10 @@ private extension MainViewController {
 
         guard panGestureRecognizer.state == .ended else { return }
         viewModel.didFinishPanning()
+    }
+
+    @IBAction func showCatalogPressed(_ sender: UIButton) {
+        viewModel.showCatalogPressed()
     }
 }
 

@@ -6,12 +6,14 @@ final class CatalogViewModel: ViewModel {
 
     let entries: [EPICImage]
 
-    init(entries: [EPICImage]) {
-        self.entries = entries
+    init(model: Model) {
+        entries = model
     }
 }
 
 extension CatalogViewModel {
+    typealias Model = [EPICImage]
+
     struct Section: Hashable {
         let date: String
     }
