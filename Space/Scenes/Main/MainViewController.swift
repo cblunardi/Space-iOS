@@ -19,17 +19,25 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+
+        guard subscriptions.isEmpty, viewModel != nil else { return }
+        setupSubscriptions()
     }
 
     func bind(viewModel: MainViewModel) {
-        subscriptions.removeAll()
-
         self.viewModel = viewModel
+
+        guard isViewLoaded else { return }
+        setupSubscriptions()
+    }
+
+    private func setupSubscriptions() {
+        subscriptions.removeAll()
 
         viewModel
             .currentImage
             .receive(on: RunLoop.main)
-            .assignWeakly(to: \.mainImageView.image, on: self)
+            .assignWeakly(to: \.image, on: mainImageView, crossDissolveDuration: 0.2)
             .store(in: &subscriptions)
 
         viewModel
