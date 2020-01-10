@@ -5,7 +5,7 @@ struct EPICImage: Codable {
     let uri: String
 }
 
-extension EPICImage: Equatable {}
+extension EPICImage: Equatable, Hashable {}
 
 extension EPICImage: Comparable {
     static func < (lhs: EPICImage, rhs: EPICImage) -> Bool {

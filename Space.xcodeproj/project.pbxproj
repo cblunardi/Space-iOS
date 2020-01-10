@@ -45,6 +45,13 @@
 		B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */; };
 		B8C1587925AA105E003F40CF /* SpaceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */; };
 		B8C1588125AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */; };
+		B8C1588825AC8727003F40CF /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C1588725AC8727003F40CF /* Catalog.storyboard */; };
+		B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588B25AC875C003F40CF /* CatalogViewController.swift */; };
+		B8C1589025AC8763003F40CF /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */; };
+		B8C1589525AC887B003F40CF /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589425AC887B003F40CF /* CatalogItemCell.swift */; };
+		B8C1589B25AC8885003F40CF /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */; };
+		B8C1589F25AC8892003F40CF /* CatalogItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */; };
+		B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158A525AC8A71003F40CF /* Formatters.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -116,6 +123,13 @@
 		B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Unwrap.swift"; sourceTree = "<group>"; };
 		B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceServiceMock.swift; sourceTree = "<group>"; };
 		B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AssignWeaklyAnimating.swift"; sourceTree = "<group>"; };
+		B8C1588725AC8727003F40CF /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
+		B8C1588B25AC875C003F40CF /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
+		B8C1589425AC887B003F40CF /* CatalogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
+		B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
+		B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemViewModel.swift; sourceTree = "<group>"; };
+		B8C158A525AC8A71003F40CF /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +218,7 @@
 		B83144B0259C9BE50075D898 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B8C1588625AC8715003F40CF /* Catalog */,
 				B83144B3259C9C2D0075D898 /* Main */,
 			);
 			path = Scenes;
@@ -253,6 +268,7 @@
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B8E7FEAA25A4871F0016CDC6 /* Dimensions */,
+				B8C158A425AC8A62003F40CF /* Formatters */,
 				B8C1585D25AA01C8003F40CF /* Foundation */,
 				B8E7FEBB25A4967B0016CDC6 /* Loading */,
 				B83144D5259CA4EC0075D898 /* Reference */,
@@ -461,6 +477,35 @@
 			path = SpaceServiceMock;
 			sourceTree = "<group>";
 		};
+		B8C1588625AC8715003F40CF /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				B8C1588725AC8727003F40CF /* Catalog.storyboard */,
+				B8C1588B25AC875C003F40CF /* CatalogViewController.swift */,
+				B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */,
+				B8C1589325AC886B003F40CF /* Items */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		B8C1589325AC886B003F40CF /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				B8C1589425AC887B003F40CF /* CatalogItemCell.swift */,
+				B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */,
+				B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		B8C158A425AC8A62003F40CF /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				B8C158A525AC8A71003F40CF /* Formatters.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
 		B8E7FE5425A39F090016CDC6 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,7 +654,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C1588825AC8727003F40CF /* Catalog.storyboard in Resources */,
 				B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */,
+				B8C1589B25AC8885003F40CF /* CatalogItemCell.xib in Resources */,
 				B83144C4259C9F7E0075D898 /* Main.storyboard in Resources */,
 				B831447C259C999B0075D898 /* Assets.xcassets in Resources */,
 			);
@@ -631,13 +678,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
+				B8C1589F25AC8892003F40CF /* CatalogItemViewModel.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
+				B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
+				B8C1589525AC887B003F40CF /* CatalogItemCell.swift in Sources */,
+				B8C1589025AC8763003F40CF /* CatalogViewModel.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
@@ -645,6 +696,7 @@
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
+				B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
 				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,

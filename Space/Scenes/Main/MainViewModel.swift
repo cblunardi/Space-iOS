@@ -3,8 +3,8 @@ import Foundation
 import UIKit
 
 final class MainViewModel: ViewModel {
-    private lazy var dateFormatter: DateFormatter = buildDateFormatter()
-    private lazy var timeFormatter: DateFormatter = buildTimeFormatter()
+    private lazy var dateFormatter: DateFormatter = Formatters.buildDateFormatter()
+    private lazy var timeFormatter: DateFormatter = Formatters.buildTimeFormatter()
 
     let state: CurrentValueSubject<State, Never> = .init(.initial)
 
@@ -59,22 +59,6 @@ extension MainViewModel {
             .suffix(5)
             .compactMap { URL(string: $0.uri) }
             .forEach(dependencies.imageService.prefetch(from:))
-    }
-}
-
-private extension MainViewModel {
-    func buildDateFormatter() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter
-    }
-
-    func buildTimeFormatter() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .medium
-        return formatter
     }
 }
 
