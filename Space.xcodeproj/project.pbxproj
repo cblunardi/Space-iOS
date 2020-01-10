@@ -52,6 +52,8 @@
 		B8C1589B25AC8885003F40CF /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */; };
 		B8C1589F25AC8892003F40CF /* CatalogItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */; };
 		B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158A525AC8A71003F40CF /* Formatters.swift */; };
+		B8C158AD25AC8D18003F40CF /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158AC25AC8D18003F40CF /* UIConstants.swift */; };
+		B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158B225AC90D6003F40CF /* Collection+.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -130,6 +132,8 @@
 		B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
 		B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemViewModel.swift; sourceTree = "<group>"; };
 		B8C158A525AC8A71003F40CF /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		B8C158AC25AC8D18003F40CF /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		B8C158B225AC90D6003F40CF /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 			children = (
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8314594259E11C50075D898 /* Combine */,
+				B8C158AB25AC8D04003F40CF /* Constants */,
 				B8E7FE8425A3D96A0016CDC6 /* CoreGraphics */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B8E7FEAA25A4871F0016CDC6 /* Dimensions */,
@@ -373,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				B8314557259CDC9F0075D898 /* Array+.swift */,
+				B8C158B225AC90D6003F40CF /* Collection+.swift */,
 				B831455B259D057B0075D898 /* CustomLocalisedError.swift */,
 				B8314590259D12600075D898 /* Mutable.swift */,
 				B83145B6259E25A40075D898 /* Set+.swift */,
@@ -504,6 +510,14 @@
 				B8C158A525AC8A71003F40CF /* Formatters.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		B8C158AB25AC8D04003F40CF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B8C158AC25AC8D18003F40CF /* UIConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		B8E7FE5425A39F090016CDC6 /* Combine */ = {
@@ -688,6 +702,7 @@
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B8C1589525AC887B003F40CF /* CatalogItemCell.swift in Sources */,
+				B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */,
 				B8C1589025AC8763003F40CF /* CatalogViewModel.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
@@ -696,6 +711,7 @@
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
+				B8C158AD25AC8D18003F40CF /* UIConstants.swift in Sources */,
 				B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,

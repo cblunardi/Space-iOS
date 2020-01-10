@@ -26,7 +26,9 @@ final class CatalogItemCell: UICollectionViewCell, ViewModelOwner {
 
         viewModel
             .image
-            .assignWeakly(to: \.image, on: imageView, crossDissolveDuration: 0.2)
+            .assignWeakly(to: \.image,
+                          on: imageView,
+                          crossDissolveDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
     }
 }

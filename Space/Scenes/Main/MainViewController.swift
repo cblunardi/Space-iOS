@@ -37,7 +37,9 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
         viewModel
             .currentImage
             .receive(on: RunLoop.main)
-            .assignWeakly(to: \.image, on: mainImageView, crossDissolveDuration: 0.2)
+            .assignWeakly(to: \.image,
+                          on: mainImageView,
+                          crossDissolveDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
         viewModel
