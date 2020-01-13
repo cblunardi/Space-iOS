@@ -6,6 +6,8 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
 
     private lazy var dataSource = makeDataSource()
 
+    private var subscriptions: Set<AnyCancellable> = .init()
+
     var viewModel: CatalogViewModel!
 
     @IBOutlet private var collectionView: UICollectionView!
@@ -18,11 +20,18 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
     }
 
     func bind(viewModel: CatalogViewModel) {
-        dataSource.apply(viewModel.snapshot)
+        subscriptions.removeAll()
 
-        viewModel.initiallySelectedIndex.map {
-            collectionView.scrollToItem(at: $0, at: .top, animated: false)
-        }
+        viewModel.snapshot
+            .sink { [weak self] in
+                self?.dataSource.apply($0.snapshot)
+
+                guard let index = $0.selectedIndex else { return }
+                self?.collectionView.scrollToItem(at: index,
+                                                  at: .centeredVertically,
+                                                  animated: false)
+            }
+            .store(in: &subscriptions)
     }
 }
 
@@ -36,7 +45,11 @@ private extension CatalogViewController {
 
         dataSource.supplementaryViewProvider = { [weak self] collection, kind, indexPath in
             guard
-                let headerViewModel = self?.viewModel.supplementaryViewViewModel(of: kind, for: indexPath)
+                let self = self,
+                let headerViewModel = self.viewModel
+                    .supplementaryViewViewModel(of: kind,
+                                                for: indexPath,
+                                                using: self.dataSource.snapshot())
             else {
                 return nil
             }

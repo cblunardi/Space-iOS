@@ -32,29 +32,50 @@ extension CatalogViewModel {
 
 extension CatalogViewModel {
     typealias SnapshotType = NSDiffableDataSourceSnapshot<Section, CatalogItemViewModel>
-    var snapshot: SnapshotType {
+
+    struct SnapshotAdapter {
+        let snapshot: SnapshotType
+        let selectedIndex: IndexPath?
+    }
+
+    var snapshot: AnyPublisher<SnapshotAdapter, Never> {
+        Future { [weak self, model] promise in
+            DispatchQueue.global(qos: .userInitiated).async {
+                guard let self = self else { return }
+                promise(.success(self.snapshotAdapter(from: model)))
+            }
+        }
+        .receive(on: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+
+    func supplementaryViewViewModel(of kind: String,
+                                    for indexPath: IndexPath,
+                                    using snapshot: SnapshotType)
+    -> CatalogHeaderViewModel?
+    {
+        snapshot
+            .sectionIdentifiers[safe: indexPath.section]
+            .map(CatalogHeaderViewModel.init(model:))
+    }
+
+    private func snapshotAdapter(from model: Model) -> SnapshotAdapter {
         var snapshot: SnapshotType = .init()
 
-        let groups: [(String, [EPICImage])] = model
+        let groups: [(Section, [EPICImage])] = model
             .entries
-            .stablyGrouped(by: { dateFormatter.string(from: $0.date) })
+            .stablyGrouped(by: { Section(datetime: $0.date) })
             .reversed()
 
         for (key, element) in groups {
-            snapshot.appendSections([Section(date: key)])
+            snapshot.appendSections([key])
             snapshot.appendItems(element.map { CatalogItemViewModel(entry: $0) })
         }
 
-        return snapshot
-    }
+        let selectedIndex: IndexPath? = model.initialEntry
+            .flatMap(groups.firstIndexPath(of:))
 
-    var initiallySelectedIndex: IndexPath? {
-        model.initialEntry.flatMap(snapshot.index(for:))
-    }
-
-    func supplementaryViewViewModel(of kind: String, for indexPath: IndexPath) -> CatalogHeaderViewModel? {
-        snapshot.sectionIdentifiers[safe: indexPath.section]
-            .map { CatalogHeaderViewModel(model: $0) }
+        return .init(snapshot: snapshot, selectedIndex: selectedIndex)
     }
 }
 
@@ -69,13 +90,20 @@ extension CatalogViewModel: CatalogViewModelInterface {
     }
 }
 
-private extension CatalogViewModel.SnapshotType {
-    func index(for entry: EPICImage) -> IndexPath? {
-        sectionIdentifiers.lazy.enumerated().compactMap { (sectionIndex, section) -> IndexPath? in
-            itemIdentifiers(inSection: section)
-                .enumerated()
-                .first(where: { $0.element.entry == entry })
-                .map { IndexPath(item: $0.offset, section: sectionIndex)}
-        }.first
+private extension CatalogViewModel.Section {
+    init(datetime: Date) {
+        date = Formatters.dateFormatter.string(from: datetime)
+    }
+}
+
+private extension Array where Element == (CatalogViewModel.Section, [EPICImage]) {
+    func firstIndexPath(of entry: EPICImage) -> IndexPath? {
+        lazy
+            .enumerated()
+            .compactMap { (offset, element) -> IndexPath? in
+                element.1
+                    .firstIndex(of: entry)
+                    .map { IndexPath(item: $0, section: offset) }
+            }.first
     }
 }
