@@ -12,7 +12,7 @@ extension Collection {
 
     func stablyGrouped<Key>(by keyer: (Element) -> Key) -> [(Key, [Element])] where Key: Hashable {
         var indexes: [Key: Int] = .init()
-        var groups: [(Key, [Element])] = .init()
+        var groups: [(key: Key, elements: [Element])] = .init()
 
         forEach { element in
             let key = keyer(element)
@@ -21,7 +21,7 @@ extension Collection {
                 indexes[key] = groups.indices.last
                 return
             }
-            groups[index].1.append(element)
+            groups[index].elements.append(element)
         }
 
         return groups

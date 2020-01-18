@@ -36,7 +36,7 @@
     </objects>
     <resources>
         <namedColor name="AccentColor">
-            <color red="0.51764705882352946" green="0.36862745098039218" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.17299999296665192" green="0.45100000500679016" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

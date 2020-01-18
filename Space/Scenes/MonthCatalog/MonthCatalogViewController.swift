@@ -108,6 +108,7 @@ private extension UICollectionViewCompositionalLayout {
                                                       heightDimension: .estimated(75))
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
+        group.contentInsets = .init(top: 4, leading: 4, bottom:4, trailing: 4)
 
         let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(50))
@@ -117,7 +118,7 @@ private extension UICollectionViewCompositionalLayout {
 
         let section: NSCollectionLayoutSection = .init(group: group)
         section.boundarySupplementaryItems = [header]
-        section.contentInsets = .init(top: 5, leading: 10, bottom: 5, trailing: 10)
+        section.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 
         return .init(section: section)
     }

@@ -16,7 +16,6 @@ extension MainViewModel {
         guard state.value.panningEntry != bestEntryMatch else { return }
         state.value.panningEntry = bestEntryMatch
 
-
         guard
             let entries = state.value.entries.availableValue,
             let index = entries.firstIndex(of: bestEntryMatch) else {

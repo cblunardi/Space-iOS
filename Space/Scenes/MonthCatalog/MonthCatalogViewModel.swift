@@ -76,7 +76,11 @@ extension MonthCatalogViewModel {
             .map { IndexPath(row: model.focused.dayNumbers?.median() ?? .zero, section: $0) }
 
         for month in model.focusedYear.months {
-            guard let section = month.localizedDate.map(Section.init(date:)) else { continue }
+            guard
+                let section = month.date
+                    .flatMap(Formatters.longMonthFormatter.string(from:))
+                    .map(Section.init(date:))
+            else { continue }
 
             let entries: [CatalogDayViewModel] = items(for: month,
                                                        selectedDay: selectedDay)

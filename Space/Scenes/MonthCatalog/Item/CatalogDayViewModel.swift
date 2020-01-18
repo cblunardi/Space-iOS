@@ -3,8 +3,6 @@ import Foundation
 import UIKit
 
 struct CatalogDayViewModel: ViewModel, Identifiable, Hashable {
-    private let timeFormatter: DateFormatter = Formatters.shortTimeFormatter
-
     let model: Model
 }
 
