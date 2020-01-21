@@ -64,6 +64,8 @@
 		B8C6628A25B84D83002066B9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314531259CBE4A0075D898 /* String+.swift */; };
 		B8C6628F25B84DBD002066B9 /* Publisher+MapCombining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6628E25B84DBD002066B9 /* Publisher+MapCombining.swift */; };
 		B8C6629325B84DC5002066B9 /* Publisher+MapCombining.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6628E25B84DBD002066B9 /* Publisher+MapCombining.swift */; };
+		B8C6629825B867EB002066B9 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6629725B867EB002066B9 /* Page.swift */; };
+		B8C6629F25B86A1B002066B9 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6629725B867EB002066B9 /* Page.swift */; };
 		B8E2C66425AF8F9B00F87D0E /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C65825AF8F9B00F87D0E /* CatalogCoordinator.swift */; };
 		B8E2C66525AF8F9B00F87D0E /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C65925AF8F9B00F87D0E /* CatalogViewModel.swift */; };
 		B8E2C66625AF8F9B00F87D0E /* CatalogMonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E2C65B25AF8F9B00F87D0E /* CatalogMonthCell.xib */; };
@@ -211,6 +213,7 @@
 		B8C158EF25ACD9CE003F40CF /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		B8C158F325ACDEBE003F40CF /* MonthCatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCatalogCoordinator.swift; sourceTree = "<group>"; };
 		B8C6628E25B84DBD002066B9 /* Publisher+MapCombining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MapCombining.swift"; sourceTree = "<group>"; };
+		B8C6629725B867EB002066B9 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		B8E2C65825AF8F9B00F87D0E /* CatalogCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
 		B8E2C65925AF8F9B00F87D0E /* CatalogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		B8E2C65B25AF8F9B00F87D0E /* CatalogMonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogMonthCell.xib; sourceTree = "<group>"; };
@@ -517,6 +520,7 @@
 		B8314535259CD6430075D898 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8C6629725B867EB002066B9 /* Page.swift */,
 				B8E2C67225B073A300F87D0E /* DateCatalog */,
 				B8C1584E25A9FEF1003F40CF /* EPIC */,
 			);
@@ -1023,6 +1027,7 @@
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8E2C68225B0780700F87D0E /* Integer+Time.swift in Sources */,
 				B8E2C70525B21F6A00F87D0E /* UIView+AutoLayout.swift in Sources */,
+				B8C6629825B867EB002066B9 /* Page.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
 				B8E2C67E25B0768200F87D0E /* DateCatalog+EPIC.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
@@ -1100,6 +1105,7 @@
 				B8E2C93925B6212400F87D0E /* Dependencies.swift in Sources */,
 				B8E2C93B25B6212400F87D0E /* ImageService.swift in Sources */,
 				B8E2C93A25B6212400F87D0E /* DependenciesContainer.swift in Sources */,
+				B8C6629F25B86A1B002066B9 /* Page.swift in Sources */,
 				B8E2C96125B621CD00F87D0E /* ImageProvider.swift in Sources */,
 				B8E2C94625B6214A00F87D0E /* Publisher+Unwrap.swift in Sources */,
 				B8C6629325B84DC5002066B9 /* Publisher+MapCombining.swift in Sources */,

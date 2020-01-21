@@ -42,7 +42,7 @@ private extension Provider {
 private extension Provider {
     func getLatest() -> AnyPublisher<ImageEntry, Never> {
         dependencies.spaceService
-            .retrieveEPICLatest()
+            .retrieveLatest()
             .first()
             .compactMap { image in URL(string: image.uri).map { (image, $0) } }
             .flatMapTuple { dependencies.imageService.retrieve(from: $0.1) }

@@ -57,7 +57,7 @@ extension MainViewModel {
 
         dependencies
             .spaceService
-            .retrieveEPIC()
+            .retrieveAll()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] in self?.receiveInitial(entries: $0) })

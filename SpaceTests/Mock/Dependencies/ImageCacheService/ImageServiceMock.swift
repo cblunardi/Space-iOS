@@ -8,4 +8,14 @@ final class ImageServiceMock: ImageServiceProtocol {
     func retrieve(from url: URL) -> AnyPublisher<UIImage, Error> {
         retrieveBehaviour(url)
     }
+
+    var prefetchBehaviour: (URL) -> Void = { _ in }
+    func prefetch(from url: URL) {
+        prefetchBehaviour(url)
+    }
+
+    var cachedImageBehaviour: (URL) -> UIImage? = { _ in nil }
+    func cachedImage(with key: URL) -> UIImage? {
+        cachedImageBehaviour(key)
+    }
 }

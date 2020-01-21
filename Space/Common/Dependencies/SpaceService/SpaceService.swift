@@ -2,8 +2,9 @@ import Combine
 import Foundation
 
 protocol SpaceServiceProtocol {
-    func retrieveEPIC() -> AnyPublisher<[EPICImage], Error>
-    func retrieveEPICLatest() -> AnyPublisher<EPICImage, Error>
+    func retrieveAll() -> AnyPublisher<[EPICImage], Error>
+    func retrieveLatest() -> AnyPublisher<EPICImage, Error>
+    func retrievePage(_ request: PageRequest) -> AnyPublisher<PageResponse<EPICImage>, Error>
 }
 
 final class SpaceService: SpaceServiceProtocol {
@@ -22,26 +23,30 @@ final class SpaceService: SpaceServiceProtocol {
         self.components = components
     }
 
-    func retrieveEPIC() -> AnyPublisher<[EPICImage], Swift.Error> {
-        let components = self.components.setting(\.path, to: "/epic")
-        guard let url = components.url else {
-            return Fail(error: Error.urlConstruction)
-                .eraseToAnyPublisher()
-        }
-
-        let request = URLRequest(url: url)
-            .setting(\.httpMethod, to: "GET")
-
-        return dependencies.urlSessionService
-            .perform(request: request)
-            .map(\.data)
-            .decode(type: [EPICImage].self, decoder: decoder)
-            .eraseToAnyPublisher()
+    func retrieveAll() -> AnyPublisher<[EPICImage], Swift.Error> {
+        retrieve(path: "/epic/all")
     }
 
-    func retrieveEPICLatest() -> AnyPublisher<EPICImage, Swift.Error> {
-        let components = self.components.setting(\.path, to: "/epic/latest")
-        guard let url = components.url else {
+    func retrieveLatest() -> AnyPublisher<EPICImage, Swift.Error> {
+        retrieve(path: "/epic/latest")
+    }
+
+    func retrievePage(_ request: PageRequest) -> AnyPublisher<PageResponse<EPICImage>, Swift.Error> {
+        retrieve(query: request.asQueryItems,
+                 path: "/epic")
+    }
+}
+
+private extension SpaceService {
+    func retrieve<T>(query: [URLQueryItem]? = .none, path: String)
+        -> AnyPublisher<T, Swift.Error>
+        where T: Decodable
+    {
+        let requestComponents: URLComponents = components
+            .setting(\.path, to: path)
+            .setting(\.queryItems, to: query)
+
+        guard let url = requestComponents.url else {
             return Fail(error: Error.urlConstruction)
                 .eraseToAnyPublisher()
         }
@@ -52,7 +57,7 @@ final class SpaceService: SpaceServiceProtocol {
         return dependencies.urlSessionService
             .perform(request: request)
             .map(\.data)
-            .decode(type: EPICImage.self, decoder: decoder)
+            .decode(type: T.self, decoder: decoder)
             .eraseToAnyPublisher()
     }
 }
@@ -60,6 +65,15 @@ final class SpaceService: SpaceServiceProtocol {
 extension SpaceService {
     enum Error: Swift.Error {
         case urlConstruction
+    }
+}
+
+private extension PageRequest {
+    var asQueryItems: [URLQueryItem] {
+        [
+            .init(name: "page", value: page.description),
+            .init(name: "per", value: per.description)
+        ]
     }
 }
 
