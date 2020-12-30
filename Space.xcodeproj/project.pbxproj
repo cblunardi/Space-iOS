@@ -22,6 +22,7 @@
 		B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */; };
 		B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144F4259CB4E60075D898 /* DependenciesContainer.swift */; };
 		B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144FA259CB50D0075D898 /* Dependencies.swift */; };
+		B8314532259CBE4A0075D898 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314531259CBE4A0075D898 /* String+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		B83144F4259CB4E60075D898 /* DependenciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainer.swift; sourceTree = "<group>"; };
 		B83144FA259CB50D0075D898 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		B8314531259CBE4A0075D898 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				B83144F3259CB4D20075D898 /* Dependencies */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
+				B8314530259CBE390075D898 /* Swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -193,6 +196,14 @@
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		B8314530259CBE390075D898 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B8314531259CBE4A0075D898 /* String+.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
