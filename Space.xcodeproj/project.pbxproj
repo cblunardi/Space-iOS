@@ -11,7 +11,6 @@
 		B8314475259C99990075D898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314474259C99990075D898 /* SceneDelegate.swift */; };
 		B8314477259C99990075D898 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314476259C99990075D898 /* MainViewController.swift */; };
 		B831447C259C999B0075D898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B831447B259C999B0075D898 /* Assets.xcassets */; };
-		B831448A259C999B0075D898 /* SpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314489259C999B0075D898 /* SpaceTests.swift */; };
 		B83144C4259C9F7E0075D898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83144C3259C9F7E0075D898 /* Main.storyboard */; };
 		B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83144C9259C9F950075D898 /* LaunchScreen.storyboard */; };
 		B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144D0259CA4A50075D898 /* Coordinator.swift */; };
@@ -22,6 +21,12 @@
 		B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */; };
 		B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144F4259CB4E60075D898 /* DependenciesContainer.swift */; };
 		B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144FA259CB50D0075D898 /* Dependencies.swift */; };
+		B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831450C259CB9110075D898 /* XCTestCase+.swift */; };
+		B8314514259CB9650075D898 /* DependenciesContainerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314513259CB9650075D898 /* DependenciesContainerMock.swift */; };
+		B831451D259CB9F50075D898 /* DependenciesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831451C259CB9F50075D898 /* DependenciesManagerTests.swift */; };
+		B8314523259CBAA50075D898 /* MockScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8314522259CBAA50075D898 /* MockScene.storyboard */; };
+		B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314528259CBAEC0075D898 /* MockSceneViewController.swift */; };
+		B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */; };
 		B8314532259CBE4A0075D898 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314531259CBE4A0075D898 /* String+.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +48,6 @@
 		B831447B259C999B0075D898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8314480259C999B0075D898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8314485259C999B0075D898 /* SpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8314489259C999B0075D898 /* SpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTests.swift; sourceTree = "<group>"; };
 		B831448B259C999B0075D898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B83144C3259C9F7E0075D898 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B83144C9259C9F950075D898 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +59,12 @@
 		B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		B83144F4259CB4E60075D898 /* DependenciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainer.swift; sourceTree = "<group>"; };
 		B83144FA259CB50D0075D898 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		B831450C259CB9110075D898 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		B8314513259CB9650075D898 /* DependenciesContainerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainerMock.swift; sourceTree = "<group>"; };
+		B831451C259CB9F50075D898 /* DependenciesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesManagerTests.swift; sourceTree = "<group>"; };
+		B8314522259CBAA50075D898 /* MockScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MockScene.storyboard; sourceTree = "<group>"; };
+		B8314528259CBAEC0075D898 /* MockSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSceneViewController.swift; sourceTree = "<group>"; };
+		B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		B8314531259CBE4A0075D898 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,8 +118,10 @@
 		B8314488259C999B0075D898 /* SpaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8314489259C999B0075D898 /* SpaceTests.swift */,
-				B831448B259C999B0075D898 /* Info.plist */,
+				B8314506259CB8C90075D898 /* Common */,
+				B8314512259CB9570075D898 /* Mock */,
+				B8314507259CB8D40075D898 /* Supporting */,
+				B8314519259CB9C50075D898 /* Tests */,
 			);
 			path = SpaceTests;
 			sourceTree = "<group>";
@@ -198,6 +210,65 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		B8314506259CB8C90075D898 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B8314511259CB9490075D898 /* XCTest */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B8314507259CB8D40075D898 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B831448B259C999B0075D898 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		B8314511259CB9490075D898 /* XCTest */ = {
+			isa = PBXGroup;
+			children = (
+				B831450C259CB9110075D898 /* XCTestCase+.swift */,
+			);
+			path = XCTest;
+			sourceTree = "<group>";
+		};
+		B8314512259CB9570075D898 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B8314513259CB9650075D898 /* DependenciesContainerMock.swift */,
+				B8314522259CBAA50075D898 /* MockScene.storyboard */,
+				B8314528259CBAEC0075D898 /* MockSceneViewController.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B8314519259CB9C50075D898 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B831451B259CB9D50075D898 /* Common */,
+				B831451A259CB9D10075D898 /* Scenes */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B831451A259CB9D10075D898 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B831451B259CB9D50075D898 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B831451C259CB9F50075D898 /* DependenciesManagerTests.swift */,
+				B831452C259CBBB50075D898 /* StoryboardLoadableTests.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B8314530259CBE390075D898 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +329,7 @@
 					};
 					B8314484259C999B0075D898 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 						TestTargetID = B831446E259C99990075D898;
 					};
 				};
@@ -296,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8314523259CBAA50075D898 /* MockScene.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +389,7 @@
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
+				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +398,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B831448A259C999B0075D898 /* SpaceTests.swift in Sources */,
+				B8314514259CB9650075D898 /* DependenciesContainerMock.swift in Sources */,
+				B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */,
+				B831451D259CB9F50075D898 /* DependenciesManagerTests.swift in Sources */,
+				B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */,
+				B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,8 +578,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SpaceTests/Info.plist;
+				INFOPLIST_FILE = SpaceTests/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,6 +589,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cblunardi.SpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Space.app/Space";
@@ -521,8 +601,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SpaceTests/Info.plist;
+				INFOPLIST_FILE = SpaceTests/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
