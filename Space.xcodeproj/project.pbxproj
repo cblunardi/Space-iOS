@@ -20,6 +20,8 @@
 		B83144E0259CA7290075D898 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144DF259CA7290075D898 /* ViewModel.swift */; };
 		B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144E6259CA74C0075D898 /* ViewModelOwner.swift */; };
 		B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */; };
+		B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144F4259CB4E60075D898 /* DependenciesContainer.swift */; };
+		B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83144FA259CB50D0075D898 /* Dependencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B83144DF259CA7290075D898 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B83144E6259CA74C0075D898 /* ViewModelOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelOwner.swift; sourceTree = "<group>"; };
 		B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		B83144F4259CB4E60075D898 /* DependenciesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesContainer.swift; sourceTree = "<group>"; };
+		B83144FA259CB50D0075D898 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B83144CF259CA47F0075D898 /* Architecture */,
+				B83144F3259CB4D20075D898 /* Dependencies */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
 			);
@@ -179,6 +184,15 @@
 				B83144ED259CA7A80075D898 /* StoryboardLoadable.swift */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B83144F3259CB4D20075D898 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				B83144FA259CB50D0075D898 /* Dependencies.swift */,
+				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +299,9 @@
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
+				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
+				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
