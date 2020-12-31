@@ -75,10 +75,10 @@
 		B8314531259CBE4A0075D898 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B8314536259CD66E0075D898 /* EPICImageEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImageEntry.swift; sourceTree = "<group>"; };
 		B8314546259CD7970075D898 /* EPICDateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICDateEntry.swift; sourceTree = "<group>"; };
-		B831454B259CD8050075D898 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
+		B831454B259CD8050075D898 /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
 		B8314557259CDC9F0075D898 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		B831455B259D057B0075D898 /* CustomLocalisedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalisedError.swift; sourceTree = "<group>"; };
-		B8314567259D083F0075D898 /* HTTPServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceMock.swift; sourceTree = "<group>"; };
+		B8314567259D083F0075D898 /* URLSessionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceMock.swift; sourceTree = "<group>"; };
 		B831456D259D08610075D898 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,7 +221,7 @@
 			children = (
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
-				B831454A259CD7E60075D898 /* HTTPService */,
+				B831454A259CD7E60075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -312,12 +312,12 @@
 			path = EPIC;
 			sourceTree = "<group>";
 		};
-		B831454A259CD7E60075D898 /* HTTPService */ = {
+		B831454A259CD7E60075D898 /* URLSessionService */ = {
 			isa = PBXGroup;
 			children = (
-				B831454B259CD8050075D898 /* HTTPService.swift */,
+				B831454B259CD8050075D898 /* URLSessionService.swift */,
 			);
-			path = HTTPService;
+			path = URLSessionService;
 			sourceTree = "<group>";
 		};
 		B8314563259D08140075D898 /* Scene */ = {
@@ -332,18 +332,20 @@
 		B8314564259D08200075D898 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				B8314566259D08320075D898 /* HTTPService */,
+				B8314566259D08320075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		B8314566259D08320075D898 /* HTTPService */ = {
+		B8314566259D08320075D898 /* URLSessionService */ = {
 			isa = PBXGroup;
 			children = (
-				B8314567259D083F0075D898 /* HTTPServiceMock.swift */,
+				B8314567259D083F0075D898 /* URLSessionServiceMock.swift */,
 				B831456D259D08610075D898 /* URLSessionMock.swift */,
 			);
-			path = HTTPService;
+			path = URLSessionService;
+			sourceTree = "<group>";
+		};
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,7 +462,7 @@
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
-				B831454C259CD8050075D898 /* HTTPService.swift in Sources */,
+				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
 				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
@@ -476,7 +478,7 @@
 				B831456E259D08610075D898 /* URLSessionMock.swift in Sources */,
 				B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */,
 				B831451D259CB9F50075D898 /* DependenciesManagerTests.swift in Sources */,
-				B8314568259D083F0075D898 /* HTTPServiceMock.swift in Sources */,
+				B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */,
 				B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */,
 				B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */,
 			);

@@ -1,7 +1,7 @@
 protocol DependenciesContainerProtocol: AnyObject {
-    var httpService: HTTPServiceProtocol { get }
+    var urlSessionService: URLSessionServiceProtocol { get }
 }
 
 final class DependenciesContainer: DependenciesContainerProtocol {
-    var httpService: HTTPServiceProtocol = HTTPService()
+    var urlSessionService: URLSessionServiceProtocol = URLSessionService.configured()
 }

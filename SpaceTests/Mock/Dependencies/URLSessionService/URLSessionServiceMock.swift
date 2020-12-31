@@ -2,7 +2,7 @@
 import Combine
 import XCTest
 
-final class HTTPServiceMock: HTTPServiceProtocol {
+final class URLSessionServiceMock: URLSessionServiceProtocol {
     var performBehaviour: (URLRequest) -> AnyPublisher<(data: Data, response: URLResponse), URLError> =
         { _ in Fail(error: URLError(.notConnectedToInternet)).eraseToAnyPublisher() }
 
