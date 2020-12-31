@@ -1,10 +1,10 @@
 import Foundation
 
 enum EPICEndpoint {
-    case getAvailableDates(type: CatalogType = .natural)
-    case getRecentCatalog(type: CatalogType = .natural)
-    case getCatalog(type: CatalogType = .natural, entry: EPICDateEntry)
-    case getImage(type: CatalogType = .natural, entry: EPICImageEntry)
+    case getAvailableDates(catalogType: CatalogType = .natural)
+    case getRecentCatalog(catalogType: CatalogType = .natural)
+    case getCatalog(catalogType: CatalogType = .natural, entry: EPICDateEntry)
+    case getImage(catalogType: CatalogType = .natural, entry: EPICImageEntry)
 }
 
 extension EPICEndpoint {
@@ -14,11 +14,11 @@ extension EPICEndpoint {
 
     var catalogType: CatalogType {
         switch self {
-        case let .getAvailableDates(type: type),
-             let .getRecentCatalog(type: type),
-             let .getCatalog(type: type, entry: _),
-             let .getImage(type: type, entry: _):
-            return type
+        case let .getAvailableDates(catalogType: catalogType),
+             let .getRecentCatalog(catalogType: catalogType),
+             let .getCatalog(catalogType: catalogType, entry: _),
+             let .getImage(catalogType: catalogType, entry: _):
+            return catalogType
         }
     }
 }
@@ -46,9 +46,9 @@ extension EPICEndpoint {
             path.append("all")
         case .getRecentCatalog:
             path.append("images")
-        case let .getCatalog(type: _, entry: entry):
+        case let .getCatalog(catalogType: _, entry: entry):
             path.append(entry.date)
-        case let .getImage(type: _, entry: entry):
+        case let .getImage(catalogType: _, entry: entry):
             guard let dateParameters = entry.asDateParameters else { return nil }
             path.append(contentsOf: dateParameters)
             path.append("png")
@@ -58,7 +58,7 @@ extension EPICEndpoint {
         var components: URLComponents = .init()
         components.scheme = "https"
         components.host = "api.nasa.gov"
-        components.path = path.joined(separator: "/")
+        components.path = "/" + path.joined(separator: "/")
 
         return components.url
     }
