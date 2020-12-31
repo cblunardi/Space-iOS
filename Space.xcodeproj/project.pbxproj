@@ -30,11 +30,19 @@
 		B8314532259CBE4A0075D898 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314531259CBE4A0075D898 /* String+.swift */; };
 		B8314537259CD66E0075D898 /* EPICImageEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314536259CD66E0075D898 /* EPICImageEntry.swift */; };
 		B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314546259CD7970075D898 /* EPICDateEntry.swift */; };
-		B831454C259CD8050075D898 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831454B259CD8050075D898 /* HTTPService.swift */; };
+		B831454C259CD8050075D898 /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831454B259CD8050075D898 /* URLSessionService.swift */; };
 		B8314558259CDC9F0075D898 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314557259CDC9F0075D898 /* Array+.swift */; };
 		B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831455B259D057B0075D898 /* CustomLocalisedError.swift */; };
-		B8314568259D083F0075D898 /* HTTPServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314567259D083F0075D898 /* HTTPServiceMock.swift */; };
+		B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314567259D083F0075D898 /* URLSessionServiceMock.swift */; };
 		B831456E259D08610075D898 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831456D259D08610075D898 /* URLSessionMock.swift */; };
+		B831457D259D0CE10075D898 /* NASAEpicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831457C259D0CE10075D898 /* NASAEpicService.swift */; };
+		B8314589259D10DC0075D898 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314588259D10DC0075D898 /* Secrets.swift */; };
+		B8314591259D12600075D898 /* Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314590259D12600075D898 /* Mutable.swift */; };
+		B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */; };
+		B83145A5259E21A00075D898 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145A4259E21A00075D898 /* HTTPStatusCode.swift */; };
+		B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */; };
+		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
+		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +88,14 @@
 		B831455B259D057B0075D898 /* CustomLocalisedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalisedError.swift; sourceTree = "<group>"; };
 		B8314567259D083F0075D898 /* URLSessionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceMock.swift; sourceTree = "<group>"; };
 		B831456D259D08610075D898 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		B831457C259D0CE10075D898 /* NASAEpicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAEpicService.swift; sourceTree = "<group>"; };
+		B8314588259D10DC0075D898 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		B8314590259D12600075D898 /* Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutable.swift; sourceTree = "<group>"; };
+		B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+URLRequestValidation.swift"; sourceTree = "<group>"; };
+		B83145A4259E21A00075D898 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPStatusCode+.swift"; sourceTree = "<group>"; };
+		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
+		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +180,7 @@
 				B83144C9259C9F950075D898 /* LaunchScreen.storyboard */,
 				B8314472259C99990075D898 /* AppDelegate.swift */,
 				B8314474259C99990075D898 /* SceneDelegate.swift */,
+				B8314588259D10DC0075D898 /* Secrets.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -192,7 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				B83144CF259CA47F0075D898 /* Architecture */,
+				B8314594259E11C50075D898 /* Combine */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
+				B83145A3259E21940075D898 /* Foundation */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
 				B8314530259CBE390075D898 /* Swift */,
@@ -222,6 +241,7 @@
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
 				B831454A259CD7E60075D898 /* URLSessionService */,
+				B831457B259D0CBB0075D898 /* NASAEpicService */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -288,9 +308,12 @@
 		B8314530259CBE390075D898 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				B8314531259CBE4A0075D898 /* String+.swift */,
 				B8314557259CDC9F0075D898 /* Array+.swift */,
 				B831455B259D057B0075D898 /* CustomLocalisedError.swift */,
+				B8314590259D12600075D898 /* Mutable.swift */,
+				B83145B6259E25A40075D898 /* Set+.swift */,
+				B83145B0259E23B10075D898 /* Set+Range.swift */,
+				B8314531259CBE4A0075D898 /* String+.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -346,6 +369,29 @@
 			path = URLSessionService;
 			sourceTree = "<group>";
 		};
+		B831457B259D0CBB0075D898 /* NASAEpicService */ = {
+			isa = PBXGroup;
+			children = (
+				B831457C259D0CE10075D898 /* NASAEpicService.swift */,
+			);
+			path = NASAEpicService;
+			sourceTree = "<group>";
+		};
+		B8314594259E11C50075D898 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		B83145A3259E21940075D898 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B83145A4259E21A00075D898 /* HTTPStatusCode.swift */,
+				B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,7 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
+				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
@@ -461,12 +509,18 @@
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
+				B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
+				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
+				B8314591259D12600075D898 /* Mutable.swift in Sources */,
+				B831457D259D0CE10075D898 /* NASAEpicService.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
+				B83145A5259E21A00075D898 /* HTTPStatusCode.swift in Sources */,
 				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
+				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
