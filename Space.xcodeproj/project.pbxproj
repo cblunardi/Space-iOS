@@ -43,6 +43,7 @@
 		B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */; };
 		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
 		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
+		B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145C6259E6A340075D898 /* EPICEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPStatusCode+.swift"; sourceTree = "<group>"; };
 		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
 		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
+		B83145C6259E6A340075D898 /* EPICEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				B831457C259D0CE10075D898 /* NASAEpicService.swift */,
+				B83145C6259E6A340075D898 /* EPICEndpoint.swift */,
 			);
 			path = NASAEpicService;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
+				B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,

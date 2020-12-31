@@ -6,5 +6,5 @@ struct EPICImageEntry: Codable, Identifiable {
     let identifier: String
     let caption: String
     let image: String
-    let date: Date
+    let date: String
 }

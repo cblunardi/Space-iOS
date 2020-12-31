@@ -1,5 +1,5 @@
 import Foundation
 
 struct EPICDateEntry: Codable {
-    let date: Date
+    let date: String
 }
