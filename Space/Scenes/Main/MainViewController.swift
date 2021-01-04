@@ -1,7 +1,7 @@
 import Combine
 import UIKit
 
-final class MainViewController: UIViewController, ViewModelOwner {
+final class MainViewController: UIViewController, StoryboardLoadable, ViewModelOwner {
     typealias ViewModelType = MainViewModel
 
     @IBOutlet private var scrollView: UIScrollView!
@@ -23,6 +23,7 @@ final class MainViewController: UIViewController, ViewModelOwner {
         self.viewModel = viewModel
 
         viewModel.currentImage
+            .receive(on: RunLoop.main)
             .assignWeakly(to: \.mainImageView.image, on: self)
             .store(in: &subscriptions)
     }

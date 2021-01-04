@@ -24,7 +24,7 @@ final class EPICService: EPICServiceProtocol {
     }
 
     func getImage(from entry: EPICImageEntry) -> AnyPublisher<Data, Swift.Error> {
-        performRequest(endpoint: .getImage(entry: entry))
+        performRawRequest(endpoint: .getImage(entry: entry))
     }
 }
 
@@ -48,10 +48,21 @@ private extension EPICService {
             ?? makeFailure(.urlConstruction)
     }
 
-    private func performRequest<ResponseType>(url: URL) -> AnyPublisher<ResponseType, Swift.Error> where ResponseType: Decodable {
+    func performRawRequest(endpoint: EPICEndpoint) -> AnyPublisher<Data, Swift.Error> {
+        endpoint.url.map(performRawRequest(url:))
+            ?? makeFailure(.urlConstruction)
+    }
+
+    private func performRawRequest(url: URL) -> AnyPublisher<Data, Swift.Error> {
         dependencies.urlSessionService
             .perform(request: .init(url: url))
             .validateHTTP()
+            .mapError { $0 as Swift.Error }
+            .eraseToAnyPublisher()
+    }
+
+    private func performRequest<ResponseType>(url: URL) -> AnyPublisher<ResponseType, Swift.Error> where ResponseType: Decodable {
+        performRawRequest(url: url)
             .decode(type: ResponseType.self, decoder: decoder)
             .eraseToAnyPublisher()
     }

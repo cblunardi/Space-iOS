@@ -50,8 +50,8 @@ private extension URLSessionService {
                 return request
             }
 
-            components.queryItems?.append(URLQueryItem(name: "api_key",
-                                                       value: Secrets.publicNASAAPIKey))
+            components.queryItems = components.queryItems ?? []
+                + [URLQueryItem(name: "api_key", value: Secrets.publicNASAAPIKey)]
 
             guard let decoratedURL = components.url else {
                 return request

@@ -39,8 +39,6 @@
 		B8314589259D10DC0075D898 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314588259D10DC0075D898 /* Secrets.swift */; };
 		B8314591259D12600075D898 /* Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314590259D12600075D898 /* Mutable.swift */; };
 		B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */; };
-		B83145A5259E21A00075D898 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145A4259E21A00075D898 /* HTTPStatusCode.swift */; };
-		B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */; };
 		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
 		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
 		B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145C6259E6A340075D898 /* EPICEndpoint.swift */; };
@@ -53,6 +51,7 @@
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
 		B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */; };
 		B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */; };
+		B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +101,6 @@
 		B8314588259D10DC0075D898 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B8314590259D12600075D898 /* Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutable.swift; sourceTree = "<group>"; };
 		B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+URLRequestValidation.swift"; sourceTree = "<group>"; };
-		B83145A4259E21A00075D898 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
-		B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPStatusCode+.swift"; sourceTree = "<group>"; };
 		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
 		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
 		B83145C6259E6A340075D898 /* EPICEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICEndpoint.swift; sourceTree = "<group>"; };
@@ -116,6 +113,7 @@
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MapFlatMap.swift"; sourceTree = "<group>"; };
 		B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeakly.swift"; sourceTree = "<group>"; };
+		B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +199,7 @@
 				B8314472259C99990075D898 /* AppDelegate.swift */,
 				B8314474259C99990075D898 /* SceneDelegate.swift */,
 				B8314588259D10DC0075D898 /* Secrets.swift */,
+				B8E7FE7625A3B1C20016CDC6 /* AppCoordinator.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -232,7 +231,6 @@
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8314594259E11C50075D898 /* Combine */,
 				B83144F3259CB4D20075D898 /* Dependencies */,
-				B83145A3259E21940075D898 /* Foundation */,
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
 				B8314530259CBE390075D898 /* Swift */,
@@ -415,15 +413,6 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
-		B83145A3259E21940075D898 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				B83145A4259E21A00075D898 /* HTTPStatusCode.swift */,
-				B83145AC259E22A40075D898 /* HTTPStatusCode+.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		B83145E8259E73140075D898 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,11 +567,11 @@
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
 				B8314537259CD66E0075D898 /* EPICImageEntry.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
+				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B83144DB259CA70B0075D898 /* Coordinator+.swift in Sources */,
-				B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
 				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
@@ -590,7 +579,6 @@
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
 				B831457D259D0CE10075D898 /* EPICService.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
-				B83145A5259E21A00075D898 /* HTTPStatusCode.swift in Sources */,
 				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
