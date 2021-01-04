@@ -35,7 +35,7 @@
 		B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831455B259D057B0075D898 /* CustomLocalisedError.swift */; };
 		B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314567259D083F0075D898 /* URLSessionServiceMock.swift */; };
 		B831456E259D08610075D898 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831456D259D08610075D898 /* URLSessionMock.swift */; };
-		B831457D259D0CE10075D898 /* NASAEPICService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831457C259D0CE10075D898 /* NASAEPICService.swift */; };
+		B831457D259D0CE10075D898 /* EPICService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B831457C259D0CE10075D898 /* EPICService.swift */; };
 		B8314589259D10DC0075D898 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314588259D10DC0075D898 /* Secrets.swift */; };
 		B8314591259D12600075D898 /* Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314590259D12600075D898 /* Mutable.swift */; };
 		B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */; };
@@ -92,7 +92,7 @@
 		B831455B259D057B0075D898 /* CustomLocalisedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalisedError.swift; sourceTree = "<group>"; };
 		B8314567259D083F0075D898 /* URLSessionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceMock.swift; sourceTree = "<group>"; };
 		B831456D259D08610075D898 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
-		B831457C259D0CE10075D898 /* NASAEPICService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAEPICService.swift; sourceTree = "<group>"; };
+		B831457C259D0CE10075D898 /* EPICService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICService.swift; sourceTree = "<group>"; };
 		B8314588259D10DC0075D898 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		B8314590259D12600075D898 /* Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutable.swift; sourceTree = "<group>"; };
 		B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+URLRequestValidation.swift"; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
 				B831454A259CD7E60075D898 /* URLSessionService */,
-				B831457B259D0CBB0075D898 /* NASAEPICService */,
+				B831457B259D0CBB0075D898 /* EPICService */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -379,13 +379,13 @@
 			path = URLSessionService;
 			sourceTree = "<group>";
 		};
-		B831457B259D0CBB0075D898 /* NASAEPICService */ = {
+		B831457B259D0CBB0075D898 /* EPICService */ = {
 			isa = PBXGroup;
 			children = (
-				B831457C259D0CE10075D898 /* NASAEPICService.swift */,
+				B831457C259D0CE10075D898 /* EPICService.swift */,
 				B83145C6259E6A340075D898 /* EPICEndpoint.swift */,
 			);
-			path = NASAEPICService;
+			path = EPICService;
 			sourceTree = "<group>";
 		};
 		B8314594259E11C50075D898 /* Combine */ = {
@@ -535,7 +535,7 @@
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
-				B831457D259D0CE10075D898 /* NASAEPICService.swift in Sources */,
+				B831457D259D0CE10075D898 /* EPICService.swift in Sources */,
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
 				B83145A5259E21A00075D898 /* HTTPStatusCode.swift in Sources */,
 				B8314547259CD7970075D898 /* EPICDateEntry.swift in Sources */,

@@ -1,14 +1,14 @@
 import Combine
 import Foundation
 
-protocol NASAEpicServiceProtocol {
+protocol EPICServiceProtocol {
     func getAvailableDates() -> AnyPublisher<[EPICDateEntry], Error>
     func getCatalog(from entry: EPICDateEntry) -> AnyPublisher<[EPICImageEntry], Error>
     func getRecentCatalog() -> AnyPublisher<[EPICImageEntry], Error>
     func getImage(from entry: EPICImageEntry) -> AnyPublisher<Data, Error>
 }
 
-final class NASAEpicService: NASAEpicServiceProtocol {
+final class EPICService: EPICServiceProtocol {
     private let decoder: JSONDecoder = .init()
 
     func getAvailableDates() -> AnyPublisher<[EPICDateEntry], Error> {
@@ -32,7 +32,7 @@ final class NASAEpicService: NASAEpicServiceProtocol {
     }
 }
 
-private extension NASAEpicService {
+private extension EPICService {
     func performRequest<ResponseType>(url: URL) -> AnyPublisher<ResponseType, Error> where ResponseType: Decodable {
         dependencies.urlSessionService
             .perform(request: .init(url: url))
