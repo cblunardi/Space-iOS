@@ -3,5 +3,6 @@ protocol DependenciesContainerProtocol: AnyObject {
 }
 
 final class DependenciesContainer: DependenciesContainerProtocol {
-    var urlSessionService: URLSessionServiceProtocol = URLSessionService.configured()
+    let urlSessionService: URLSessionServiceProtocol = URLSessionService.configured()
+    let epicService: EPICServiceProtocol = EPICService()
 }

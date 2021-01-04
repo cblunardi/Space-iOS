@@ -1,5 +1,9 @@
 @testable import Space
 
 final class DependenciesContainerMock: DependenciesContainerProtocol {
-    var urlSessionService: URLSessionServiceProtocol = URLSessionServiceMock()
+    var urlSessionServiceMock: URLSessionServiceMock = URLSessionServiceMock()
+    var urlSessionService: URLSessionServiceProtocol { urlSessionServiceMock }
+
+    var epicServiceMock: EPICServiceMock = EPICServiceMock()
+    var epicService: EPICServiceProtocol { epicServiceMock }
 }

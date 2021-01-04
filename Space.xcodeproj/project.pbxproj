@@ -47,6 +47,9 @@
 		B83145E5259E730C0075D898 /* EPICEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E4259E730C0075D898 /* EPICEndpointTests.swift */; };
 		B83145EA259E732C0075D898 /* EPICImageEntry+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E9259E732C0075D898 /* EPICImageEntry+Mock.swift */; };
 		B83145F0259E74160075D898 /* EPICDateEntry+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */; };
+		B8E7FE4F25A39E3A0016CDC6 /* EPICServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */; };
+		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
+		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,9 @@
 		B83145E4259E730C0075D898 /* EPICEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICEndpointTests.swift; sourceTree = "<group>"; };
 		B83145E9259E732C0075D898 /* EPICImageEntry+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImageEntry+Mock.swift"; sourceTree = "<group>"; };
 		B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICDateEntry+Mock.swift"; sourceTree = "<group>"; };
+		B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICServiceMock.swift; sourceTree = "<group>"; };
+		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
+		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +263,8 @@
 		B8314506259CB8C90075D898 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8E7FE5C25A39F7F0016CDC6 /* Foundation */,
+				B8E7FE5425A39F090016CDC6 /* Combine */,
 				B8314511259CB9490075D898 /* XCTest */,
 			);
 			path = Common;
@@ -365,6 +373,7 @@
 		B8314564259D08200075D898 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				B8E7FE4D25A39E300016CDC6 /* EPICService */,
 				B8314566259D08320075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
@@ -412,6 +421,30 @@
 				B83145EF259E74160075D898 /* EPICDateEntry+Mock.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B8E7FE4D25A39E300016CDC6 /* EPICService */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */,
+			);
+			path = EPICService;
+			sourceTree = "<group>";
+		};
+		B8E7FE5425A39F090016CDC6 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		B8E7FE5C25A39F7F0016CDC6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FE5D25A39F880016CDC6 /* MockError.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,9 +587,12 @@
 				B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */,
 				B831451D259CB9F50075D898 /* DependenciesManagerTests.swift in Sources */,
 				B8314568259D083F0075D898 /* URLSessionServiceMock.swift in Sources */,
+				B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */,
 				B8314529259CBAEC0075D898 /* MockSceneViewController.swift in Sources */,
+				B8E7FE4F25A39E3A0016CDC6 /* EPICServiceMock.swift in Sources */,
 				B83145EA259E732C0075D898 /* EPICImageEntry+Mock.swift in Sources */,
 				B831452D259CBBB50075D898 /* StoryboardLoadableTests.swift in Sources */,
+				B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */,
 				B83145E5259E730C0075D898 /* EPICEndpointTests.swift in Sources */,
 				B83145F0259E74160075D898 /* EPICDateEntry+Mock.swift in Sources */,
 			);

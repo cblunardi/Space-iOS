@@ -8,12 +8,14 @@ final class URLSessionDataTaskMock: URLSessionDataTask {
 final class URLSessionMock: URLSession {
     typealias DataTaskCompletionHandler = (Data?, URLResponse?, Error?) -> Void
 
-    var dataTaskBehaviour: (URLRequest, DataTaskCompletionHandler) -> Void = { $1(nil, nil, CustomLocalizedError(errorDescription: nil)) }
+    var dataTaskBehaviour: (URLRequest, DataTaskCompletionHandler) -> URLSessionDataTask = { _, completion in
+        completion(nil, nil, CustomLocalizedError(errorDescription: nil))
+        return URLSessionDataTaskMock()
+    }
 
     override func dataTask(with request: URLRequest,
                            completionHandler: @escaping DataTaskCompletionHandler) -> URLSessionDataTask
     {
         dataTaskBehaviour(request, completionHandler)
-        return URLSessionDataTaskMock()
     }
 }
