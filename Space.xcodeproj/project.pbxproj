@@ -50,6 +50,9 @@
 		B8E7FE4F25A39E3A0016CDC6 /* EPICServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
+		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
+		B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */; };
+		B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		B8E7FE4E25A39E3A0016CDC6 /* EPICServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICServiceMock.swift; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
+		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MapFlatMap.swift"; sourceTree = "<group>"; };
+		B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeakly.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +210,7 @@
 			children = (
 				B83144C3259C9F7E0075D898 /* Main.storyboard */,
 				B8314476259C99990075D898 /* MainViewController.swift */,
+				B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 				B83144D5259CA4EC0075D898 /* Reference */,
 				B83144EC259CA78E0075D898 /* Storyboard */,
 				B8314530259CBE390075D898 /* Swift */,
+				B8E7FE7325A3B12D0016CDC6 /* UIKit */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -401,6 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */,
+				B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */,
+				B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -445,6 +455,13 @@
 				B8E7FE5D25A39F880016CDC6 /* MockError.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		B8E7FE7325A3B12D0016CDC6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,11 +566,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
 				B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */,
+				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
@@ -566,6 +585,7 @@
 				B83145AD259E22A40075D898 /* HTTPStatusCode+.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
+				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
 				B831457D259D0CE10075D898 /* EPICService.swift in Sources */,
