@@ -56,11 +56,12 @@ extension MainViewModel {
     }
 
     private func receive(_ dates: [EPICDateEntry]) {
-        state.value.dates.receive(dates)
+        state.value.receive(dates: dates)
 
         guard let recent = dates.first else { return }
 
         state.value.catalogs.reload()
+
         dependencies
             .epicService
             .getCatalog(from: recent)
@@ -70,11 +71,7 @@ extension MainViewModel {
     }
 
     private func receive(_ catalog: EPICImageCatalog) {
-        let previousCatalogs = state.value.catalogs.availableValue ?? []
-
-        state.value.catalogs.receive(previousCatalogs + [catalog])
-
-        state.value.currentEntry = state.value.currentEntry ?? catalog.images.first
+        state.value.receive(catalog: catalog)
     }
 }
 

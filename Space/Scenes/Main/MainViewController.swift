@@ -97,7 +97,7 @@ private extension MainViewController {
         let panTranslation = panGestureRecognizer.translation(in: mainImageView).x
         guard panTranslation.isFinite else { return }
 
-        viewModel.didRecognize(panning: panTranslation / mainImageView.frame.width)
+        viewModel.didRecognize(relativeTranslation: Double(panTranslation / mainImageView.frame.width)) 
 
         guard panGestureRecognizer.state == .ended else { return }
         viewModel.didFinishPanning()
