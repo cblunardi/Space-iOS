@@ -110,9 +110,19 @@ private extension Publisher where Output == EPICImageEntry?, Failure == Never {
                     .eraseToAnyPublisher()
             }
 
-            return dependencies.epicService.getImage(from: entry)
+            let fallbackRetrieval = dependencies
+                .epicService
+                .getImage(from: entry)
                 .map(UIImage.init(data:))
-                .merge(with: Just(nil).setFailureType(to: Error.self))
+
+            let retrieval = dependencies
+                .imageCacheService
+                .cachedImage(with: entry.image,
+                             fallback: fallbackRetrieval)
+
+            return Just(nil)
+                .setFailureType(to: Error.self)
+                .merge(with: retrieval)
                 .eraseToAnyPublisher()
         }
         .switchToLatest()

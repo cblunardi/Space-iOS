@@ -64,6 +64,9 @@
 		B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */; };
 		B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */; };
 		B8E7FF0625A4B1AC0016CDC6 /* EPICImageEntry+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */; };
+		B8E7FF1625A523E70016CDC6 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */; };
+		B8E7FF1C25A526B20016CDC6 /* ImageCacheService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */; };
+		B8E7FF2125A527DE0016CDC6 /* ImageCacheServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,9 @@
 		B8E7FECC25A49EDC0016CDC6 /* Loadable+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loadable+Combine.swift"; sourceTree = "<group>"; };
 		B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+PanningInteraction.swift"; sourceTree = "<group>"; };
 		B8E7FF0525A4B1AC0016CDC6 /* EPICImageEntry+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImageEntry+.swift"; sourceTree = "<group>"; };
+		B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageCacheService+Combine.swift"; sourceTree = "<group>"; };
+		B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,8 +296,9 @@
 			children = (
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
-				B831454A259CD7E60075D898 /* URLSessionService */,
 				B831457B259D0CBB0075D898 /* EPICService */,
+				B8E7FF1425A523BE0016CDC6 /* ImageCacheService */,
+				B831454A259CD7E60075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -412,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				B8E7FE4D25A39E300016CDC6 /* EPICService */,
+				B8E7FF1F25A527CA0016CDC6 /* ImageCacheService */,
 				B8314566259D08320075D898 /* URLSessionService */,
 			);
 			path = Dependencies;
@@ -521,6 +529,23 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		B8E7FF1425A523BE0016CDC6 /* ImageCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FF1525A523E70016CDC6 /* ImageCacheService.swift */,
+				B8E7FF1B25A526B20016CDC6 /* ImageCacheService+Combine.swift */,
+			);
+			path = ImageCacheService;
+			sourceTree = "<group>";
+		};
+		B8E7FF1F25A527CA0016CDC6 /* ImageCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				B8E7FF2025A527DE0016CDC6 /* ImageCacheServiceMock.swift */,
+			);
+			path = ImageCacheService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -623,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E7FF1C25A526B20016CDC6 /* ImageCacheService+Combine.swift in Sources */,
 				B8E7FEB825A48ADA0016CDC6 /* EPICImageCatalog.swift in Sources */,
 				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
@@ -634,6 +660,7 @@
 				B83145C7259E6A340075D898 /* EPICEndpoint.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
+				B8E7FF1625A523E70016CDC6 /* ImageCacheService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
 				B8314537259CD66E0075D898 /* EPICImageEntry.swift in Sources */,
@@ -670,6 +697,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E7FF2125A527DE0016CDC6 /* ImageCacheServiceMock.swift in Sources */,
 				B8314514259CB9650075D898 /* DependenciesContainerMock.swift in Sources */,
 				B831456E259D08610075D898 /* URLSessionMock.swift in Sources */,
 				B831450D259CB9110075D898 /* XCTestCase+.swift in Sources */,
