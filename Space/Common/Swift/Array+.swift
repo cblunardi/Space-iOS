@@ -7,3 +7,10 @@ extension Array {
         sorted(by: { $0[keyPath: keyPath] < $1[keyPath: keyPath] })
     }
 }
+
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        guard indices.contains(index) else { return nil }
+        return self[index]
+    }
+}

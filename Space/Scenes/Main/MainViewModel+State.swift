@@ -29,10 +29,10 @@ extension MainViewModel.State {
     }
 
     mutating func receive(catalog: EPICImageCatalog) {
-        let catalogs = self.catalogs.availableValue ?? [] + [catalog]
+        let catalogs = (self.catalogs.availableValue ?? []) + [catalog]
         self.catalogs.receive(catalogs.sorted(by: \.date))
 
         guard currentEntry == .none else { return }
-        currentEntry = catalogs.last?.images.first
+        currentEntry = catalogs.last?.images.last
     }
 }

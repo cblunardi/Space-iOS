@@ -8,7 +8,7 @@ final class MainViewModel: ViewModel {
 
     let state: CurrentValueSubject<State, Never> = .init(.initial)
 
-    private var subscriptions: Set<AnyCancellable> = .init()
+    var subscriptions: Set<AnyCancellable> = .init()
 
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         currentEntry

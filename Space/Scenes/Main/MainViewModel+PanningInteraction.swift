@@ -16,12 +16,39 @@ extension MainViewModel {
         guard state.value.panningEntry != bestEntryMatch else { return }
         state.value.panningEntry = bestEntryMatch
 
-
+        loadNextCatalogsIfNeeded()
     }
 
     func didFinishPanning() {
         state.value.currentEntry = state.value.panningEntry
         state.value.panningEntry = .none
+    }
+}
+
+private extension MainViewModel {
+    func loadNextCatalogsIfNeeded() {
+        let dates = state.value.dates.availableValue
+        guard
+            state.value.catalogs.loading == false,
+            let catalogs = state.value.catalogs.availableValue,
+            let entry = state.value.panningEntry ?? state.value.currentEntry,
+            let catalogIndex = catalogs.firstIndex(containing: entry),
+            let catalog = catalogs[safe: catalogIndex],
+            let dateIndex = dates?.firstIndex(where: { $0.date == catalog.date }),
+            let nextDate = dates?[safe: dateIndex + 1] ?? dates?[safe: dateIndex - 1],
+            catalogs.contains(where: { $0.date == nextDate.date }) == false
+        else {
+            return
+        }
+
+        state.value.catalogs.reload()
+
+        dependencies
+            .epicService
+            .getCatalog(from: nextDate)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { [weak self] in self?.state.value.receive(catalog: .init(date: nextDate, images: $0)) })
+            .store(in: &subscriptions)
     }
 }
 
@@ -54,5 +81,9 @@ private extension Array where Element == EPICImageCatalog {
                 }
             }
             .min(by: { $0.1 < $1.1 })?.0
+    }
+
+    func firstIndex(containing entry: EPICImageEntry) -> Index? {
+        firstIndex { $0.images.contains(entry) }
     }
 }
