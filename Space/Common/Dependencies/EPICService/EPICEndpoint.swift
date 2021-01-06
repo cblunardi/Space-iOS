@@ -47,6 +47,7 @@ extension EPICEndpoint {
         case .getRecentCatalog:
             path.append("images")
         case let .getCatalog(catalogType: _, entry: entry):
+            path.append("date")
             path.append(entry.date)
         case let .getImage(catalogType: _, entry: entry):
             guard let dateParameters = entry.asDateParameters else { return nil }
