@@ -82,30 +82,18 @@ extension MainViewModel {
     }
 }
 
-private extension Publisher where Output == EPICImage?, Failure == Never {
-    func flatMapLatestImage() -> AnyPublisher<UIImage?, Error> {
-        map { entry -> AnyPublisher<UIImage?, Error> in
-            guard let url = entry.flatMap({ URL(string: $0.uri) }) else {
-                return Just(nil)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
+private extension Publisher where Output == EPICImage? {
+    func flatMapLatestImage() -> AnyPublisher<UIImage?, Never> {
+        replaceError(with: nil)
+            .map { entry -> AnyPublisher<UIImage?, Never> in
+                guard let url = entry.flatMap({ URL(string: $0.uri) }) else {
+                    return Just(nil)
+                        .eraseToAnyPublisher()
+                }
+
+                return dependencies.imageService.retrieveAndProcess(from: url)
             }
-
-            let noImage: AnyPublisher<UIImage?, Error> = Just(nil)
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
-
-            let imageRetrieval = dependencies
-                .imageService
-                .retrieve(from: url)
-                .map { Optional($0) }
-                .receive(on: RunLoop.main)
-                .eraseToAnyPublisher()
-
-            return Publishers.Merge(noImage, imageRetrieval)
-                .eraseToAnyPublisher()
-        }
-        .switchToLatest()
-        .eraseToAnyPublisher()
+            .switchToLatest()
+            .eraseToAnyPublisher()
     }
 }

@@ -25,10 +25,9 @@ extension Publisher where Failure == Never {
             guard let someObject = object else { return }
             UIView.transition(with: someObject,
                               duration: crossDissolveDuration,
-                              options: [.transitionCrossDissolve, .beginFromCurrentState],
-                              animations: {
-                                object?[keyPath: keyPath] = output
-                              }, completion: nil)
+                              options: [.transitionCrossDissolve],
+                              animations: { object?[keyPath: keyPath] = output },
+                              completion: nil)
         })
     }
 }

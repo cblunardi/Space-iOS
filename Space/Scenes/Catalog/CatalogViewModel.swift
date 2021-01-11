@@ -24,8 +24,9 @@ extension CatalogViewModel {
     var snapshot: SnapshotType {
         var snapshot: SnapshotType = .init()
 
-        let groups: [String: [EPICImage]] = entries
-            .grouped(by: { dateFormatter.string(from: $0.date) })
+        let groups: [(String, [EPICImage])] = entries
+            .stablyGrouped(by: { dateFormatter.string(from: $0.date) })
+            .reversed()
 
         for (key, element) in groups {
             snapshot.appendSections([Section(date: key)])
@@ -33,5 +34,10 @@ extension CatalogViewModel {
         }
 
         return snapshot
+    }
+
+    func supplementaryViewViewModel(of kind: String, for indexPath: IndexPath) -> CatalogHeaderViewModel? {
+        snapshot.sectionIdentifiers[safe: indexPath.section]
+            .map { CatalogHeaderViewModel(model: $0) }
     }
 }

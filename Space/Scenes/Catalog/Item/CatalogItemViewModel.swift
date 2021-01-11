@@ -19,21 +19,10 @@ extension CatalogItemViewModel {
 
     var image: AnyPublisher<UIImage?, Never> {
         guard let url = imageURL else {
-            return Empty().eraseToAnyPublisher()
+            return Just(nil).eraseToAnyPublisher()
         }
 
-        let empty: AnyPublisher<UIImage?, Never> = Just(nil)
-            .eraseToAnyPublisher()
-
-        let image: AnyPublisher<UIImage?, Never> = dependencies.imageService
-            .retrieve(from: url)
-            .map { Optional($0) }
-            .replaceError(with: nil)
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-
-        return Publishers.Merge(empty, image)
-            .eraseToAnyPublisher()
+        return dependencies.imageService.retrieveAndProcess(from: url)
     }
 
     var text: String? {

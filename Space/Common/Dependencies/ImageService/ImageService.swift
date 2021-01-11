@@ -5,6 +5,8 @@ import UIKit
 protocol ImageServiceProtocol: AnyObject {
     func retrieve(from url: URL) -> AnyPublisher<UIImage, Error>
     func prefetch(from url: URL)
+
+    func cachedImage(with key: URL) -> UIImage?
 }
 
 final class ImageService: ImageServiceProtocol {
@@ -108,7 +110,7 @@ fileprivate final class Request {
     }
 }
 
-private extension ImageService {
+extension ImageService {
     func cacheImage(_ image: UIImage, with key: URL) {
         cache.setObject(image, forKey: key as NSURL, cost: image.cacheCost)
     }
@@ -116,7 +118,9 @@ private extension ImageService {
     func cachedImage(with key: URL) -> UIImage? {
         cache.object(forKey: key as NSURL)
     }
+}
 
+private extension ImageService {
     func cacheRequest(_ request: Request, with key: URL) {
         requestCache.setObject(request, forKey: key as NSURL)
     }
@@ -146,6 +150,7 @@ private extension NSCache where KeyType == NSURL, ObjectType == Request {
 
 private extension UIImage {
     var cacheCost: Int {
-        Int(size.height) * (cgImage?.bytesPerRow ?? Int(size.width) * 4)
+        cgImage.map { $0.bytesPerRow * $0.height }
+            ?? Int(size.width * size.height * UIScreen.main.scale * 4)
     }
 }

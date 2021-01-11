@@ -44,7 +44,7 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
         viewModel.currentImage
             .combineLatest(publisher(for: \.view.frame))
             .map { image, frame -> CGFloat in
-                let imageSize = image?.size ?? .zero
+                let imageSize = image?.size ?? .init(width: 1, height: 1)
                 let imageHeight = frame.width / imageSize.aspectRatio
                 return (frame.height - imageHeight) / 2.0
             }
@@ -90,8 +90,6 @@ private extension MainViewController {
             self.scrollView.setZoomScale(zoomScale, animated: false)
             self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
         }
-
-        panGestureRecognizer.isEnabled = zoomScale == scrollView.minimumZoomScale
     }
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
@@ -114,5 +112,9 @@ private extension MainViewController {
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         mainImageView
+    }
+
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        panGestureRecognizer.isEnabled = scrollView.zoomScale == scrollView.minimumZoomScale
     }
 }

@@ -29,6 +29,22 @@ private extension CatalogViewController {
             cell?.bind(viewModel: item)
             return cell
         }
+
+        dataSource.supplementaryViewProvider = { [weak self] collection, kind, indexPath in
+            guard
+                let headerViewModel = self?.viewModel.supplementaryViewViewModel(of: kind, for: indexPath)
+            else {
+                return nil
+            }
+
+            let view = collection.dequeueReusableSupplementaryView(ofKind: "Header",
+                                                                   withReuseIdentifier: "CatalogHeaderView",
+                                                                   for: indexPath) as? CatalogHeaderView
+
+            view?.bind(viewModel: headerViewModel)
+
+            return view
+        }
         return dataSource
     }
 
@@ -36,7 +52,13 @@ private extension CatalogViewController {
         collectionView.register(UINib(nibName: "CatalogItemCell", bundle: .main),
                                 forCellWithReuseIdentifier: "CatalogItemCell")
 
-        collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout.build(), animated: false)
+        collectionView.register(UINib(nibName: "CatalogHeaderView", bundle: .main),
+                                forSupplementaryViewOfKind: "Header",
+                                withReuseIdentifier: "CatalogHeaderView")
+
+        collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout.build(),
+                                               animated: false)
+
         collectionView.dataSource = dataSource
     }
 }
@@ -55,8 +77,16 @@ private extension UICollectionViewCompositionalLayout {
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
 
+        let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(50))
+
+        let header: NSCollectionLayoutBoundarySupplementaryItem = .init(layoutSize: headerSize,
+                                                                        elementKind: "Header",
+                                                                        alignment: .topLeading)
+
         let section: NSCollectionLayoutSection = .init(group: group)
         section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [header]
 
         return .init(section: section)
     }

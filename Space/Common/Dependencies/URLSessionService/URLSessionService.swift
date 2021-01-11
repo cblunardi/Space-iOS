@@ -32,8 +32,8 @@ private extension URLSession {
         let configuration: URLSessionConfiguration = .default
         configuration.requestCachePolicy = .useProtocolCachePolicy
         configuration.httpMaximumConnectionsPerHost = 20
-        configuration.urlCache = .init(memoryCapacity: 32 * .megabyte,
-                                       diskCapacity: 8 * .gigabyte)
+        configuration.urlCache = .init(memoryCapacity: 32 * .mega,
+                                       diskCapacity: 8 * .giga)
         return URLSession(configuration: configuration)
     }
 }

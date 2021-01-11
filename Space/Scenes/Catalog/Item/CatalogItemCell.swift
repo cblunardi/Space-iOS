@@ -15,6 +15,8 @@ final class CatalogItemCell: UICollectionViewCell, ViewModelOwner {
         super.prepareForReuse()
 
         subscriptions.removeAll()
+
+        imageView.image = .none
     }
 
     func bind(viewModel: CatalogItemViewModel) {

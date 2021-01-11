@@ -13,7 +13,7 @@ struct Formatters {
     static func buildTimeFormatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .none
-        formatter.timeStyle = .medium
+        formatter.timeStyle = .short
         return formatter
     }
 }
