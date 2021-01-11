@@ -10,7 +10,6 @@ protocol ImageServiceProtocol: AnyObject {
 }
 
 final class ImageService: ImageServiceProtocol {
-    private let cache: NSCache<NSURL, UIImage> = .configured()
     private let requestCache: NSCache<NSURL, Request> = .configured()
 
     func retrieve(from url: URL) -> AnyPublisher<UIImage, Swift.Error> {
@@ -25,13 +24,16 @@ final class ImageService: ImageServiceProtocol {
 
     func prefetch(from url: URL) {
         guard
-            cachedImage(with: url) == nil,
             cachedRequest(with: url) == nil
         else {
             return
         }
 
         cacheRequest(.init(publisher: download(from: url)), with: url)
+    }
+
+    func cachedImage(with key: URL) -> UIImage? {
+        try? cachedRequest(with: key)?.result?.get()
     }
 }
 
@@ -50,11 +52,8 @@ private extension ImageService {
             cacheRequest(request, with: url)
         }
 
-        return Future { [weak self] promise in
-            request.add(receiver: {
-                promise($0)
-                self?.removeCachedRequest(with: url)
-            })
+        return Future { promise in
+            request.add(receiver: { promise($0) })
         }
         .eraseToAnyPublisher()
     }
@@ -65,8 +64,6 @@ private extension ImageService {
             .map { UIImage(data: $0.data) }
             .mapError { $0 as Swift.Error}
             .unwrap(or: Error.imageDecoding)
-            .handleEvents(receiveOutput: { [weak self] in self?.cacheImage($0, with: url) },
-                          receiveCompletion: { _ in })
             .eraseToAnyPublisher()
 
     }
@@ -110,19 +107,9 @@ fileprivate final class Request {
     }
 }
 
-extension ImageService {
-    func cacheImage(_ image: UIImage, with key: URL) {
-        cache.setObject(image, forKey: key as NSURL, cost: image.cacheCost)
-    }
-
-    func cachedImage(with key: URL) -> UIImage? {
-        cache.object(forKey: key as NSURL)
-    }
-}
-
 private extension ImageService {
     func cacheRequest(_ request: Request, with key: URL) {
-        requestCache.setObject(request, forKey: key as NSURL)
+        requestCache.setObject(request, forKey: key as NSURL, cost: 2048 * 2048 * 4 * 2)
     }
 
     func cachedRequest(with key: URL) -> Request? {
@@ -134,17 +121,12 @@ private extension ImageService {
     }
 }
 
-private extension NSCache where KeyType == NSURL, ObjectType == UIImage {
-    static func configured() -> NSCache<NSURL, UIImage> {
-        let cache = NSCache<NSURL, UIImage>()
-        cache.totalCostLimit = 1 * .giga
-        return cache
-    }
-}
-
 private extension NSCache where KeyType == NSURL, ObjectType == Request {
     static func configured() -> NSCache<NSURL, Request> {
-        .init()
+        let cache: NSCache<NSURL, Request> = .init()
+        cache.totalCostLimit = 1 * .giga
+        cache.countLimit = 50
+        return cache
     }
 }
 
