@@ -137,7 +137,7 @@ private extension ImageService {
 private extension NSCache where KeyType == NSURL, ObjectType == UIImage {
     static func configured() -> NSCache<NSURL, UIImage> {
         let cache = NSCache<NSURL, UIImage>()
-        cache.totalCostLimit = 1 * .gigabyte
+        cache.totalCostLimit = 1 * .giga
         return cache
     }
 }
