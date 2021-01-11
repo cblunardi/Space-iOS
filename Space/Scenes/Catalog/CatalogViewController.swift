@@ -60,6 +60,19 @@ private extension CatalogViewController {
                                                animated: false)
 
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
+    }
+}
+
+extension CatalogViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let snapshot = dataSource.snapshot()
+        guard
+            let section = snapshot.sectionIdentifiers[safe: indexPath.section],
+            let item = snapshot.itemIdentifiers(inSection: section)[safe: indexPath.item]
+        else { return }
+
+        viewModel.didSelect(item: item)
     }
 }
 

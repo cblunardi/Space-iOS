@@ -78,7 +78,11 @@ extension MainViewModel {
 extension MainViewModel {
     func showCatalogPressed() {
         guard let model = state.value.entries.availableValue else { return }
+
         coordinator.showCatalog(model: model)
+            .selectedItem
+            .sink { [weak self] in self?.state.value.currentEntry = $0 }
+            .store(in: &subscriptions)
     }
 }
 

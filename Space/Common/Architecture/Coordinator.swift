@@ -20,4 +20,9 @@ extension Coordinator {
     func present(_ viewControllerToPresent: UIViewController) {
         viewController?.present(viewControllerToPresent, animated: true)
     }
+
+    func close() {
+        let presenting = viewController?.presentingViewController ?? viewController
+        presenting?.dismiss(animated: true)
+    }
 }

@@ -60,6 +60,7 @@
 		B8C158E025ACBC84003F40CF /* CatalogHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158DF25ACBC84003F40CF /* CatalogHeaderViewModel.swift */; };
 		B8C158EA25ACC33B003F40CF /* ImageService+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158E925ACC33B003F40CF /* ImageService+.swift */; };
 		B8C158F025ACD9CE003F40CF /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158EF25ACD9CE003F40CF /* Reference.swift */; };
+		B8C158F425ACDEBE003F40CF /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -146,6 +147,7 @@
 		B8C158DF25ACBC84003F40CF /* CatalogHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogHeaderViewModel.swift; sourceTree = "<group>"; };
 		B8C158E925ACC33B003F40CF /* ImageService+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageService+.swift"; sourceTree = "<group>"; };
 		B8C158EF25ACD9CE003F40CF /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C1588725AC8727003F40CF /* Catalog.storyboard */,
+				B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */,
 				B8C1588B25AC875C003F40CF /* CatalogViewController.swift */,
 				B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */,
 				B8C158DC25ACBC55003F40CF /* Header */,
@@ -746,6 +749,7 @@
 				B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
+				B8C158F425ACDEBE003F40CF /* CatalogCoordinator.swift in Sources */,
 				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
