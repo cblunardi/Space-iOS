@@ -45,7 +45,7 @@ private extension ImageService {
     func request(from url: URL) -> AnyPublisher<UIImage, Swift.Error> {
         let request: Request
 
-        if let cached = cachedRequest(with: url) {
+        if let cached = cachedRequest(with: url), case .success = cached.result {
             request = cached
         } else {
             request = .init(publisher: download(from: url))
@@ -64,6 +64,7 @@ private extension ImageService {
             .map { UIImage(data: $0.data) }
             .mapError { $0 as Swift.Error}
             .unwrap(or: Error.imageDecoding)
+            .share()
             .eraseToAnyPublisher()
 
     }
@@ -98,7 +99,6 @@ fileprivate final class Request {
     private func receive(output: UIImage) {
         result = .success(output)
         receivers.forEach { $0(.success(output)) }
-        receivers.removeAll()
     }
 
     func add(receiver: @escaping Receiver) {

@@ -7,7 +7,7 @@ extension MainViewModel {
 
         guard
             let currentImageDate = state.value.currentEntry?.date,
-            let targetDate = currentImageDate.advanced(by: relativeTranslation * 24.0),
+            let targetDate = currentImageDate.advanced(by: relativeTranslation * 12),
             let bestEntryMatch = state.value.entries.availableValue?.entryClosest(to: targetDate)
         else {
             return
@@ -23,7 +23,7 @@ extension MainViewModel {
             return
         }
 
-        entries.around(index: index, distance: 10)
+        entries.around(index: index, distance: 5)
             .compactMap { URL(string: $0.uri) }
             .forEach(dependencies.imageService.prefetch(from:))
     }

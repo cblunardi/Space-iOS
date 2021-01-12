@@ -8,18 +8,16 @@ extension ImageServiceProtocol {
         }
 
         let empty: AnyPublisher<UIImage?, Never> = Just(nil)
-            .delay(for: .milliseconds(100), scheduler: RunLoop.main)
             .eraseToAnyPublisher()
 
         let retrieve: AnyPublisher<UIImage?, Never> = dependencies.imageService
             .retrieve(from: url)
             .map { Optional($0) }
             .replaceError(with: nil)
-            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
 
-        return Publishers.Merge(empty, retrieve)
-            .prefix(while: { $0 != nil })
+        return Publishers.Concatenate(prefix: empty, suffix: retrieve)
+            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
 }

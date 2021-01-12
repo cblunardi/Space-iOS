@@ -15,7 +15,6 @@ final class MainViewModel: ViewModel {
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         currentEntry
             .flatMapLatestImage()
-            .replaceError(with: nil)
             .share()
             .eraseToAnyPublisher()
 
@@ -69,7 +68,7 @@ extension MainViewModel {
         state.value.receive(entries: entries)
 
         entries
-            .suffix(5)
+            .around(index: entries.endIndex, distance: 2)
             .compactMap { URL(string: $0.uri) }
             .forEach(dependencies.imageService.prefetch(from:))
     }
@@ -79,25 +78,22 @@ extension MainViewModel {
     func showCatalogPressed() {
         guard let model = state.value.entries.availableValue else { return }
 
-        coordinator.showCatalog(model: model)
+        coordinator.showCatalog(model: .init(entries: model, initialEntry: state.value.currentEntry))
             .selectedItem
             .sink { [weak self] in self?.state.value.currentEntry = $0 }
             .store(in: &subscriptions)
     }
 }
 
-private extension Publisher where Output == EPICImage? {
+private extension Publisher where Output == EPICImage?, Failure == Never {
     func flatMapLatestImage() -> AnyPublisher<UIImage?, Never> {
-        replaceError(with: nil)
-            .map { entry -> AnyPublisher<UIImage?, Never> in
-                guard let url = entry.flatMap({ URL(string: $0.uri) }) else {
-                    return Just(nil)
-                        .eraseToAnyPublisher()
-                }
-
-                return dependencies.imageService.retrieveAndProcess(from: url)
-            }
-            .switchToLatest()
-            .eraseToAnyPublisher()
+        map { entry -> AnyPublisher<UIImage?, Never> in
+            entry
+                .flatMap({ URL(string: $0.uri) })
+                .map(dependencies.imageService.retrieveAndProcess(from:))
+                ?? Just(nil).eraseToAnyPublisher()
+        }
+        .switchToLatest()
+        .eraseToAnyPublisher()
     }
 }

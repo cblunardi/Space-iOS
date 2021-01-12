@@ -14,11 +14,17 @@ extension Publishers {
 
         typealias Failure = Upstream.Failure
 
-        let map: AnyPublisher<Output, Failure>
+        let upstream: Upstream
+        let failure: Failure
 
         init(upstream: Upstream, failure: Failure) {
-            map = upstream
-                .flatMap { value -> AnyPublisher<Output, Failure> in
+            self.upstream = upstream
+            self.failure = failure
+        }
+
+        func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+            upstream
+                .flatMap { [failure] value -> AnyPublisher<Output, Failure> in
                     guard let wrapped = value else {
                         return Fail(error: failure)
                             .eraseToAnyPublisher()
@@ -27,11 +33,7 @@ extension Publishers {
                         .setFailureType(to: Failure.self)
                         .eraseToAnyPublisher()
                 }
-                .eraseToAnyPublisher()
-        }
-
-        func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
-            map.receive(subscriber: subscriber)
+                .receive(subscriber: subscriber)
         }
     }
 }

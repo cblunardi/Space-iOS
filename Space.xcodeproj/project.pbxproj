@@ -452,8 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				B8314595259E11DF0075D898 /* Combine+URLRequestValidation.swift */,
-				B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */,
 				B8E7FE6F25A3B05A0016CDC6 /* Publisher+AssignWeakly.swift */,
+				B8E7FE6B25A3AA000016CDC6 /* Publisher+MapFlatMap.swift */,
 				B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */,
 			);
 			path = Combine;

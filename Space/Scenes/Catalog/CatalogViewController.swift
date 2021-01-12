@@ -19,6 +19,10 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
 
     func bind(viewModel: CatalogViewModel) {
         dataSource.apply(viewModel.snapshot)
+
+        viewModel.initiallySelectedIndex.map {
+            collectionView.scrollToItem(at: $0, at: .top, animated: false)
+        }
     }
 }
 
@@ -79,27 +83,25 @@ extension CatalogViewController: UICollectionViewDelegate {
 private extension UICollectionViewCompositionalLayout {
     static func build() -> UICollectionViewCompositionalLayout {
 
-        let itemSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                     heightDimension: .fractionalHeight(1.0))
-
+        let itemSize: NSCollectionLayoutSize = .init(widthDimension: .absolute(65),
+                                                     heightDimension: .absolute(65))
         let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
 
-        let groupSize: NSCollectionLayoutSize = .init(widthDimension: .absolute(150),
-                                                      heightDimension: .absolute(150))
-
+        let groupSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .absolute(65))
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
+        group.interItemSpacing = .fixed(3)
 
         let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(50))
-
         let header: NSCollectionLayoutBoundarySupplementaryItem = .init(layoutSize: headerSize,
                                                                         elementKind: "Header",
                                                                         alignment: .topLeading)
 
         let section: NSCollectionLayoutSection = .init(group: group)
-        section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [header]
+        section.interGroupSpacing = 3
 
         return .init(section: section)
     }

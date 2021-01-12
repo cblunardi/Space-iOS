@@ -11,16 +11,19 @@ final class CatalogViewModel: ViewModel {
 
     let coordinator: CatalogCoordinatorProtocol
 
-    let entries: [EPICImage]
+    let model: Model
 
     init(model: Model, coordinator: CatalogCoordinatorProtocol) {
-        entries = model
+        self.model = model
         self.coordinator = coordinator
     }
 }
 
 extension CatalogViewModel {
-    typealias Model = [EPICImage]
+    struct Model {
+        let entries: [EPICImage]
+        let initialEntry: EPICImage?
+    }
 
     struct Section: Hashable {
         let date: String
@@ -32,7 +35,8 @@ extension CatalogViewModel {
     var snapshot: SnapshotType {
         var snapshot: SnapshotType = .init()
 
-        let groups: [(String, [EPICImage])] = entries
+        let groups: [(String, [EPICImage])] = model
+            .entries
             .stablyGrouped(by: { dateFormatter.string(from: $0.date) })
             .reversed()
 
@@ -42,6 +46,10 @@ extension CatalogViewModel {
         }
 
         return snapshot
+    }
+
+    var initiallySelectedIndex: IndexPath? {
+        model.initialEntry.flatMap(snapshot.index(for:))
     }
 
     func supplementaryViewViewModel(of kind: String, for indexPath: IndexPath) -> CatalogHeaderViewModel? {
@@ -58,5 +66,16 @@ extension CatalogViewModel: CatalogViewModelInterface {
     func didSelect(item: CatalogItemViewModel) {
         coordinator.close()
         selectedItemSubject.send(item.entry)
+    }
+}
+
+private extension CatalogViewModel.SnapshotType {
+    func index(for entry: EPICImage) -> IndexPath? {
+        sectionIdentifiers.lazy.enumerated().compactMap { (sectionIndex, section) -> IndexPath? in
+            itemIdentifiers(inSection: section)
+                .enumerated()
+                .first(where: { $0.element.entry == entry })
+                .map { IndexPath(item: $0.offset, section: sectionIndex)}
+        }.first
     }
 }

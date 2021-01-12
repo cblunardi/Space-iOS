@@ -13,18 +13,6 @@ extension CatalogItemViewModel {
         entry.hashValue
     }
 
-    var imageURL: URL? {
-        URL(string: entry.uri)
-    }
-
-    var image: AnyPublisher<UIImage?, Never> {
-        guard let url = imageURL else {
-            return Just(nil).eraseToAnyPublisher()
-        }
-
-        return dependencies.imageService.retrieveAndProcess(from: url)
-    }
-
     var text: String? {
         timeFormatter.string(from: entry.date)
     }

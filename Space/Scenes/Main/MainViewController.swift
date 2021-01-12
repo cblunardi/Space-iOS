@@ -79,7 +79,7 @@ private extension MainViewController {
         guard sender == tapGestureRecognizer else { return }
 
         let zoomScale: CGFloat = scrollView.zoomScale == scrollView.minimumZoomScale ?
-            scrollView.maximumZoomScale : scrollView.minimumZoomScale
+            scrollView.averageZoomScale : scrollView.minimumZoomScale
 
         UIView.animate(withDuration: 0.5) {
             let tapLocation: CGPoint = self.tapGestureRecognizer.location(in: self.scrollView)
@@ -107,6 +107,10 @@ private extension MainViewController {
     @IBAction func showCatalogPressed(_ sender: UIButton) {
         viewModel.showCatalogPressed()
     }
+}
+
+private extension UIScrollView {
+    var averageZoomScale: CGFloat { (minimumZoomScale + maximumZoomScale) / 2}
 }
 
 extension MainViewController: UIScrollViewDelegate {

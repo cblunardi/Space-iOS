@@ -10,7 +10,7 @@ final class SpaceService: SpaceServiceProtocol {
     private let decoder: JSONDecoder = .configured
 
     init(scheme: String = "https",
-         host: String = "space-backend.herokuapp.com",
+         host: String = "d2quyyen2nzp5v.cloudfront.net",
          port: Int? = nil)
     {
         var components = URLComponents()
