@@ -99,15 +99,15 @@ extension ExtendedCatalogViewController: UICollectionViewDelegate {
 private extension UICollectionViewCompositionalLayout {
     static func build() -> UICollectionViewCompositionalLayout {
 
-        let itemSize: NSCollectionLayoutSize = .init(widthDimension: .absolute(65),
-                                                     heightDimension: .absolute(65))
+        let itemSize: NSCollectionLayoutSize = .init(widthDimension: .absolute(35),
+                                                     heightDimension: .absolute(35))
         let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
 
         let groupSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .absolute(65))
+                                                      heightDimension: .absolute(35))
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
-        group.interItemSpacing = .fixed(3)
+        group.interItemSpacing = .flexible(6)
 
         let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(50))
@@ -117,7 +117,8 @@ private extension UICollectionViewCompositionalLayout {
 
         let section: NSCollectionLayoutSection = .init(group: group)
         section.boundarySupplementaryItems = [header]
-        section.interGroupSpacing = 3
+        section.interGroupSpacing = 8
+        section.contentInsets = .init(top: 5, leading: 10, bottom: 5, trailing: 10)
 
         return .init(section: section)
     }

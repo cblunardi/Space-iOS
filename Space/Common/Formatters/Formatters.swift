@@ -16,4 +16,11 @@ struct Formatters {
         formatter.timeStyle = .short
         return formatter
     }
+
+    static let shortTimeFormatter: DateFormatter = buildShortTimeFormatter()
+    static func buildShortTimeFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("hha")
+        return formatter
+    }
 }

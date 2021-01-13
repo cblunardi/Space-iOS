@@ -17,23 +17,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VPT-3O-pWa">
-                        <rect key="frame" x="80.5" y="90.5" width="39.5" height="19.5"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jb-je-ZCC">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VPT-3O-pWa">
+                                <rect key="frame" x="80.5" y="90.5" width="39.5" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="VPT-3O-pWa" firstAttribute="centerY" secondItem="1Jb-je-ZCC" secondAttribute="centerY" id="Pcd-2W-Bhk"/>
+                            <constraint firstItem="VPT-3O-pWa" firstAttribute="centerX" secondItem="1Jb-je-ZCC" secondAttribute="centerX" id="tXl-Wf-Yr3"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" name="AccentColor"/>
                 <constraints>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="centerY" secondItem="jpA-DO-Lt6" secondAttribute="centerY" id="7Rt-9H-PKW"/>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="centerX" secondItem="jpA-DO-Lt6" secondAttribute="centerX" id="IKX-vU-HIs"/>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="leadingMargin" id="P6k-Gt-p99"/>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="topMargin" id="S6I-tc-p44"/>
+                    <constraint firstAttribute="bottom" secondItem="1Jb-je-ZCC" secondAttribute="bottom" id="DId-ht-iWf"/>
+                    <constraint firstAttribute="trailing" secondItem="1Jb-je-ZCC" secondAttribute="trailing" id="Dwt-Nf-qd2"/>
+                    <constraint firstItem="1Jb-je-ZCC" firstAttribute="top" secondItem="jpA-DO-Lt6" secondAttribute="top" id="JBk-66-PcD"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="top" constant="4" id="Stc-2u-3eX"/>
+                    <constraint firstItem="1Jb-je-ZCC" firstAttribute="leading" secondItem="jpA-DO-Lt6" secondAttribute="leading" id="gyc-gA-e1p"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="leading" constant="4" id="pIk-mr-XWP"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="164" height="155"/>
             <connections>
+                <outlet property="containerView" destination="1Jb-je-ZCC" id="enQ-Tk-AVz"/>
                 <outlet property="label" destination="VPT-3O-pWa" id="es8-Vr-gfg"/>
             </connections>
             <point key="canvasLocation" x="-75.362318840579718" y="7.7008928571428568"/>

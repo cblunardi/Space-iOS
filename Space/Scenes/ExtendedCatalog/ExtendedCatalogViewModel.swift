@@ -60,9 +60,12 @@ extension ExtendedCatalogViewModel {
     private func snapshotAdapter(from groups: Groups) -> SnapshotAdapter {
         var snapshot: SnapshotType = .init()
 
-        for (key, element) in groups {
+        for (key, elements) in groups {
             snapshot.appendSections([key])
-            snapshot.appendItems(element.map { ExtendedCatalogItemViewModel(entry: $0) })
+            let items = elements
+                .map { ExtendedCatalogItemViewModel(entry: $0,
+                                                    selected: model.initialEntry == $0) }
+            snapshot.appendItems(items)
         }
 
         let selectedIndex: IndexPath? = model.initialEntry
