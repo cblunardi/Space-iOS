@@ -44,23 +44,23 @@
 		B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */; };
 		B8C1587925AA105E003F40CF /* SpaceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */; };
 		B8C1588125AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */; };
-		B8C1588825AC8727003F40CF /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C1588725AC8727003F40CF /* Catalog.storyboard */; };
-		B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588B25AC875C003F40CF /* CatalogViewController.swift */; };
-		B8C1589025AC8763003F40CF /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */; };
-		B8C1589525AC887B003F40CF /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589425AC887B003F40CF /* CatalogItemCell.swift */; };
-		B8C1589B25AC8885003F40CF /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */; };
-		B8C1589F25AC8892003F40CF /* CatalogItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */; };
+		B8C1588825AC8727003F40CF /* ExtendedCatalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C1588725AC8727003F40CF /* ExtendedCatalog.storyboard */; };
+		B8C1588C25AC875C003F40CF /* ExtendedCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588B25AC875C003F40CF /* ExtendedCatalogViewController.swift */; };
+		B8C1589025AC8763003F40CF /* ExtendedCatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1588F25AC8763003F40CF /* ExtendedCatalogViewModel.swift */; };
+		B8C1589525AC887B003F40CF /* ExtendedCatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589425AC887B003F40CF /* ExtendedCatalogItemCell.swift */; };
+		B8C1589B25AC8885003F40CF /* ExtendedCatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1589A25AC8885003F40CF /* ExtendedCatalogItemCell.xib */; };
+		B8C1589F25AC8892003F40CF /* ExtendedCatalogItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1589E25AC8892003F40CF /* ExtendedCatalogItemViewModel.swift */; };
 		B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158A525AC8A71003F40CF /* Formatters.swift */; };
 		B8C158AD25AC8D18003F40CF /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158AC25AC8D18003F40CF /* UIConstants.swift */; };
 		B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158B225AC90D6003F40CF /* Collection+.swift */; };
 		B8C158B925AC9FED003F40CF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158B825AC9FED003F40CF /* MainCoordinator.swift */; };
 		B8C158BF25ACA01F003F40CF /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158BE25ACA01F003F40CF /* NavigationCoordinator.swift */; };
-		B8C158D325ACBC3E003F40CF /* CatalogHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C158D225ACBC3E003F40CF /* CatalogHeaderView.xib */; };
-		B8C158D725ACBC48003F40CF /* CatalogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158D625ACBC48003F40CF /* CatalogHeaderView.swift */; };
-		B8C158E025ACBC84003F40CF /* CatalogHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158DF25ACBC84003F40CF /* CatalogHeaderViewModel.swift */; };
+		B8C158D325ACBC3E003F40CF /* ExtendedCatalogHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C158D225ACBC3E003F40CF /* ExtendedCatalogHeaderView.xib */; };
+		B8C158D725ACBC48003F40CF /* ExtendedCatalogHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158D625ACBC48003F40CF /* ExtendedCatalogHeaderView.swift */; };
+		B8C158E025ACBC84003F40CF /* ExtendedCatalogHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158DF25ACBC84003F40CF /* ExtendedCatalogHeaderViewModel.swift */; };
 		B8C158EA25ACC33B003F40CF /* ImageService+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158E925ACC33B003F40CF /* ImageService+.swift */; };
 		B8C158F025ACD9CE003F40CF /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158EF25ACD9CE003F40CF /* Reference.swift */; };
-		B8C158F425ACDEBE003F40CF /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */; };
+		B8C158F425ACDEBE003F40CF /* ExtendedCatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C158F325ACDEBE003F40CF /* ExtendedCatalogCoordinator.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -131,23 +131,23 @@
 		B8C1586625AA06EA003F40CF /* Publisher+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Unwrap.swift"; sourceTree = "<group>"; };
 		B8C1587825AA105E003F40CF /* SpaceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceServiceMock.swift; sourceTree = "<group>"; };
 		B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AssignWeaklyAnimating.swift"; sourceTree = "<group>"; };
-		B8C1588725AC8727003F40CF /* Catalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
-		B8C1588B25AC875C003F40CF /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
-		B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
-		B8C1589425AC887B003F40CF /* CatalogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
-		B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
-		B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemViewModel.swift; sourceTree = "<group>"; };
+		B8C1588725AC8727003F40CF /* ExtendedCatalog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExtendedCatalog.storyboard; sourceTree = "<group>"; };
+		B8C1588B25AC875C003F40CF /* ExtendedCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogViewController.swift; sourceTree = "<group>"; };
+		B8C1588F25AC8763003F40CF /* ExtendedCatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogViewModel.swift; sourceTree = "<group>"; };
+		B8C1589425AC887B003F40CF /* ExtendedCatalogItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogItemCell.swift; sourceTree = "<group>"; };
+		B8C1589A25AC8885003F40CF /* ExtendedCatalogItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedCatalogItemCell.xib; sourceTree = "<group>"; };
+		B8C1589E25AC8892003F40CF /* ExtendedCatalogItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogItemViewModel.swift; sourceTree = "<group>"; };
 		B8C158A525AC8A71003F40CF /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		B8C158AC25AC8D18003F40CF /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		B8C158B225AC90D6003F40CF /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		B8C158B825AC9FED003F40CF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B8C158BE25ACA01F003F40CF /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
-		B8C158D225ACBC3E003F40CF /* CatalogHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogHeaderView.xib; sourceTree = "<group>"; };
-		B8C158D625ACBC48003F40CF /* CatalogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogHeaderView.swift; sourceTree = "<group>"; };
-		B8C158DF25ACBC84003F40CF /* CatalogHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogHeaderViewModel.swift; sourceTree = "<group>"; };
+		B8C158D225ACBC3E003F40CF /* ExtendedCatalogHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedCatalogHeaderView.xib; sourceTree = "<group>"; };
+		B8C158D625ACBC48003F40CF /* ExtendedCatalogHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogHeaderView.swift; sourceTree = "<group>"; };
+		B8C158DF25ACBC84003F40CF /* ExtendedCatalogHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogHeaderViewModel.swift; sourceTree = "<group>"; };
 		B8C158E925ACC33B003F40CF /* ImageService+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageService+.swift"; sourceTree = "<group>"; };
 		B8C158EF25ACD9CE003F40CF /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
-		B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
+		B8C158F325ACDEBE003F40CF /* ExtendedCatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedCatalogCoordinator.swift; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		B83144B0259C9BE50075D898 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B8C1588625AC8715003F40CF /* Catalog */,
+				B8C1588625AC8715003F40CF /* ExtendedCatalog */,
 				B83144B3259C9C2D0075D898 /* Main */,
 			);
 			path = Scenes;
@@ -499,25 +499,25 @@
 			path = SpaceServiceMock;
 			sourceTree = "<group>";
 		};
-		B8C1588625AC8715003F40CF /* Catalog */ = {
+		B8C1588625AC8715003F40CF /* ExtendedCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				B8C1588725AC8727003F40CF /* Catalog.storyboard */,
-				B8C158F325ACDEBE003F40CF /* CatalogCoordinator.swift */,
-				B8C1588B25AC875C003F40CF /* CatalogViewController.swift */,
-				B8C1588F25AC8763003F40CF /* CatalogViewModel.swift */,
+				B8C1588725AC8727003F40CF /* ExtendedCatalog.storyboard */,
+				B8C158F325ACDEBE003F40CF /* ExtendedCatalogCoordinator.swift */,
+				B8C1588B25AC875C003F40CF /* ExtendedCatalogViewController.swift */,
+				B8C1588F25AC8763003F40CF /* ExtendedCatalogViewModel.swift */,
 				B8C158DC25ACBC55003F40CF /* Header */,
 				B8C1589325AC886B003F40CF /* Item */,
 			);
-			path = Catalog;
+			path = ExtendedCatalog;
 			sourceTree = "<group>";
 		};
 		B8C1589325AC886B003F40CF /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				B8C1589425AC887B003F40CF /* CatalogItemCell.swift */,
-				B8C1589E25AC8892003F40CF /* CatalogItemViewModel.swift */,
-				B8C1589A25AC8885003F40CF /* CatalogItemCell.xib */,
+				B8C1589425AC887B003F40CF /* ExtendedCatalogItemCell.swift */,
+				B8C1589E25AC8892003F40CF /* ExtendedCatalogItemViewModel.swift */,
+				B8C1589A25AC8885003F40CF /* ExtendedCatalogItemCell.xib */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -541,9 +541,9 @@
 		B8C158DC25ACBC55003F40CF /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				B8C158D625ACBC48003F40CF /* CatalogHeaderView.swift */,
-				B8C158DF25ACBC84003F40CF /* CatalogHeaderViewModel.swift */,
-				B8C158D225ACBC3E003F40CF /* CatalogHeaderView.xib */,
+				B8C158D625ACBC48003F40CF /* ExtendedCatalogHeaderView.swift */,
+				B8C158DF25ACBC84003F40CF /* ExtendedCatalogHeaderViewModel.swift */,
+				B8C158D225ACBC3E003F40CF /* ExtendedCatalogHeaderView.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -697,10 +697,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C1588825AC8727003F40CF /* Catalog.storyboard in Resources */,
+				B8C1588825AC8727003F40CF /* ExtendedCatalog.storyboard in Resources */,
 				B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */,
-				B8C158D325ACBC3E003F40CF /* CatalogHeaderView.xib in Resources */,
-				B8C1589B25AC8885003F40CF /* CatalogItemCell.xib in Resources */,
+				B8C158D325ACBC3E003F40CF /* ExtendedCatalogHeaderView.xib in Resources */,
+				B8C1589B25AC8885003F40CF /* ExtendedCatalogItemCell.xib in Resources */,
 				B83144C4259C9F7E0075D898 /* Main.storyboard in Resources */,
 				B831447C259C999B0075D898 /* Assets.xcassets in Resources */,
 			);
@@ -722,22 +722,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
-				B8C1589F25AC8892003F40CF /* CatalogItemViewModel.swift in Sources */,
+				B8C1589F25AC8892003F40CF /* ExtendedCatalogItemViewModel.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8314589259D10DC0075D898 /* Secrets.swift in Sources */,
 				B8C158BF25ACA01F003F40CF /* NavigationCoordinator.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B8C158EA25ACC33B003F40CF /* ImageService+.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
-				B8C158E025ACBC84003F40CF /* CatalogHeaderViewModel.swift in Sources */,
+				B8C158E025ACBC84003F40CF /* ExtendedCatalogHeaderViewModel.swift in Sources */,
 				B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
-				B8C1589525AC887B003F40CF /* CatalogItemCell.swift in Sources */,
+				B8C1589525AC887B003F40CF /* ExtendedCatalogItemCell.swift in Sources */,
 				B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */,
 				B8C158F025ACD9CE003F40CF /* Reference.swift in Sources */,
-				B8C1589025AC8763003F40CF /* CatalogViewModel.swift in Sources */,
+				B8C1589025AC8763003F40CF /* ExtendedCatalogViewModel.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
@@ -746,17 +746,17 @@
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
 				B8C158AD25AC8D18003F40CF /* UIConstants.swift in Sources */,
-				B8C1588C25AC875C003F40CF /* CatalogViewController.swift in Sources */,
+				B8C1588C25AC875C003F40CF /* ExtendedCatalogViewController.swift in Sources */,
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
-				B8C158F425ACDEBE003F40CF /* CatalogCoordinator.swift in Sources */,
+				B8C158F425ACDEBE003F40CF /* ExtendedCatalogCoordinator.swift in Sources */,
 				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B8314475259C99990075D898 /* SceneDelegate.swift in Sources */,
 				B8E7FEBD25A496860016CDC6 /* Loadable.swift in Sources */,
 				B83145B1259E23B10075D898 /* Set+Range.swift in Sources */,
 				B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */,
-				B8C158D725ACBC48003F40CF /* CatalogHeaderView.swift in Sources */,
+				B8C158D725ACBC48003F40CF /* ExtendedCatalogHeaderView.swift in Sources */,
 				B8C158B925AC9FED003F40CF /* MainCoordinator.swift in Sources */,
 				B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */,
 				B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */,

@@ -1,14 +1,14 @@
 import Combine
 import UIKit
 
-final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable {
-    typealias DataSource = UICollectionViewDiffableDataSource<CatalogViewModel.Section, CatalogItemViewModel>
+final class ExtendedCatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable {
+    typealias DataSource = UICollectionViewDiffableDataSource<ExtendedCatalogViewModel.Section, ExtendedCatalogItemViewModel>
 
     private lazy var dataSource = makeDataSource()
 
     private var subscriptions: Set<AnyCancellable> = .init()
 
-    var viewModel: CatalogViewModel!
+    var viewModel: ExtendedCatalogViewModel!
 
     @IBOutlet private var collectionView: UICollectionView!
 
@@ -19,7 +19,7 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
         bind(viewModel: viewModel)
     }
 
-    func bind(viewModel: CatalogViewModel) {
+    func bind(viewModel: ExtendedCatalogViewModel) {
         subscriptions.removeAll()
 
         viewModel.snapshot
@@ -35,10 +35,12 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
     }
 }
 
-private extension CatalogViewController {
+private extension ExtendedCatalogViewController {
     func makeDataSource() -> DataSource {
         let dataSource: DataSource = .init(collectionView: collectionView) { collection, indexPath, item in
-            let cell = collection.dequeueReusableCell(withReuseIdentifier: "CatalogItemCell", for: indexPath) as? CatalogItemCell
+            let cell = collection
+                .dequeueReusableCell(withReuseIdentifier: ExtendedCatalogItemCell.reuseIdentifier,
+                                     for: indexPath) as? ExtendedCatalogItemCell
             cell?.bind(viewModel: item)
             return cell
         }
@@ -54,9 +56,10 @@ private extension CatalogViewController {
                 return nil
             }
 
-            let view = collection.dequeueReusableSupplementaryView(ofKind: "Header",
-                                                                   withReuseIdentifier: "CatalogHeaderView",
-                                                                   for: indexPath) as? CatalogHeaderView
+            let view = collection
+                .dequeueReusableSupplementaryView(ofKind: "Header",
+                                                  withReuseIdentifier: ExtendedCatalogHeaderView.reuseIdentifier,
+                                                  for: indexPath) as? ExtendedCatalogHeaderView
 
             view?.bind(viewModel: headerViewModel)
 
@@ -66,12 +69,12 @@ private extension CatalogViewController {
     }
 
     func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CatalogItemCell", bundle: .main),
-                                forCellWithReuseIdentifier: "CatalogItemCell")
+        collectionView.register(UINib(nibName: "ExtendedCatalogItemCell", bundle: .main),
+                                forCellWithReuseIdentifier: ExtendedCatalogItemCell.reuseIdentifier)
 
-        collectionView.register(UINib(nibName: "CatalogHeaderView", bundle: .main),
+        collectionView.register(UINib(nibName: "ExtendedCatalogHeaderView", bundle: .main),
                                 forSupplementaryViewOfKind: "Header",
-                                withReuseIdentifier: "CatalogHeaderView")
+                                withReuseIdentifier: ExtendedCatalogHeaderView.reuseIdentifier)
 
         collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout.build(),
                                                animated: false)
@@ -81,7 +84,7 @@ private extension CatalogViewController {
     }
 }
 
-extension CatalogViewController: UICollectionViewDelegate {
+extension ExtendedCatalogViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let snapshot = dataSource.snapshot()
         guard

@@ -2,13 +2,13 @@ import Combine
 import Foundation
 import UIKit
 
-struct CatalogItemViewModel: ViewModel, Identifiable, Hashable {
+struct ExtendedCatalogItemViewModel: ViewModel, Identifiable, Hashable {
     private let timeFormatter: DateFormatter = Formatters.timeFormatter
 
     let entry: EPICImage
 }
 
-extension CatalogItemViewModel {
+extension ExtendedCatalogItemViewModel {
     var id: Int {
         entry.hashValue
     }
