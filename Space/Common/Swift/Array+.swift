@@ -26,6 +26,18 @@ extension Array {
 
         return self[lowerBound..<upperBound]
     }
+
+    func slice(safeRange: PartialRangeFrom<Index>) -> ArraySlice<Element> {
+        let lowerBound: Int = Swift.max(startIndex, safeRange.lowerBound)
+
+        return self[lowerBound..<endIndex]
+    }
+
+    func slice(safeRange: PartialRangeUpTo<Index>) -> ArraySlice<Element> {
+        let upperBound: Int = Swift.min(endIndex, safeRange.upperBound)
+
+        return self[startIndex..<upperBound]
+    }
 }
 
 extension Array where Element: Equatable {

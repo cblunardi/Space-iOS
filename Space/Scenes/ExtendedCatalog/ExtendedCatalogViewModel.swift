@@ -84,8 +84,7 @@ private extension ExtendedCatalogViewModel {
                 let groups = model
                     .entries
                     .stablyGrouped(by: { Section(datetime: $0.date) })
-                    .reversed()
-                promise(.success(Array(groups)))
+                promise(.success(groups))
             }
         }
         .receive(on: RunLoop.main)

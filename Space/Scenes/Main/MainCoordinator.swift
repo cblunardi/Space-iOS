@@ -1,19 +1,19 @@
 import UIKit
 
 protocol MainCoordinatorProtocol {
-    func showCatalog(model: ExtendedCatalogViewModel.Model) -> ExtendedCatalogViewModelInterface
+    func showCatalog(model: CatalogViewModel.Model) -> CatalogViewModelInterface
 }
 
 struct MainCoordinator: Coordinator, MainCoordinatorProtocol {
     var viewControllerReference: WeakReference<UIViewController>
 
-    @discardableResult func showCatalog(model: ExtendedCatalogViewModel.Model) -> ExtendedCatalogViewModelInterface {
-        let viewController: ExtendedCatalogViewController = .instantiate()
-        let coordinator: ExtendedCatalogCoordinator = .init(viewController: viewController)
-        let viewModel: ExtendedCatalogViewModel = .init(model: model, coordinator: coordinator)
+    @discardableResult func showCatalog(model: CatalogViewModel.Model) -> CatalogViewModelInterface {
+        let viewController: CatalogViewController = .instantiate()
+        let coordinator: CatalogCoordinator = .init(root: viewController)
+        let viewModel: CatalogViewModel = .init(model: model, coordinator: coordinator)
         viewController.viewModel = viewModel
 
-        present(viewController)
+        coordinator.viewController.map { present($0) }
 
         return viewModel
     }
