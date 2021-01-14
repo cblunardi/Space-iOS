@@ -27,3 +27,31 @@ extension Collection {
         return groups
     }
 }
+
+extension RandomAccessCollection {
+    func slice(safeRange: Range<Index>) -> SubSequence {
+        let lowerBound: Index = Swift.max(startIndex, safeRange.lowerBound)
+        let upperBound: Index = Swift.min(endIndex, safeRange.upperBound)
+
+        return self[lowerBound..<upperBound]
+    }
+
+    func slice(safeRange: PartialRangeFrom<Index>) -> SubSequence {
+        let lowerBound: Index = Swift.max(startIndex, safeRange.lowerBound)
+
+        return self[lowerBound..<endIndex]
+    }
+
+    func slice(safeRange: PartialRangeUpTo<Index>) -> SubSequence {
+        let upperBound: Index = Swift.min(endIndex, safeRange.upperBound)
+
+        return self[startIndex..<upperBound]
+    }
+}
+
+extension RandomAccessCollection {
+    subscript(safe index: Index) -> Element? {
+        guard indices.contains(index) else { return nil }
+        return self[index]
+    }
+}

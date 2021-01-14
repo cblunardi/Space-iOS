@@ -2,21 +2,20 @@ import Combine
 import Foundation
 import UIKit
 
-struct ExtendedCatalogItemViewModel: ViewModel, Identifiable, Hashable {
+struct CatalogDayViewModel: ViewModel, Identifiable, Hashable {
     private let timeFormatter: DateFormatter = Formatters.shortTimeFormatter
 
-    let entry: EPICImage
-
+    let model: DateCatalog<EPICImage>.Day
     let selected: Bool
 }
 
-extension ExtendedCatalogItemViewModel {
+extension CatalogDayViewModel {
     var id: Int {
-        entry.hashValue
+        model.hashValue
     }
 
     var text: String? {
-        timeFormatter.string(from: entry.date)
+        model.localizedDate
     }
 
     var backgroundColor: UIColor {

@@ -6,7 +6,6 @@ extension DateCatalog where Model == EPICImage {
             .stablyGrouped(by: { DateComponents.downToYear(from: $0.date) })
 
         let years: [Year] = groups
-            .reversed()
             .map { Year(components: $0.0, entries: $0.1) }
 
         self.init(years: years)

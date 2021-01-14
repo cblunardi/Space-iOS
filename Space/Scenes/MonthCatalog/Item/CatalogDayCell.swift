@@ -1,10 +1,10 @@
 import Combine
 import UIKit
 
-final class ExtendedCatalogItemCell: UICollectionViewCell, ViewModelOwner {
-    static let reuseIdentifier = "ExtendedCatalogItemCell"
+final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
+    static let reuseIdentifier = "CatalogDayCell"
 
-    var viewModel: ExtendedCatalogItemViewModel!
+    var viewModel: CatalogDayViewModel!
 
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var label: UILabel!
@@ -21,7 +21,7 @@ final class ExtendedCatalogItemCell: UICollectionViewCell, ViewModelOwner {
         containerView.layer.cornerRadius = frame.width / 2
     }
 
-    func bind(viewModel: ExtendedCatalogItemViewModel) {
+    func bind(viewModel: CatalogDayViewModel) {
         self.viewModel = viewModel
 
         label.text = viewModel.text

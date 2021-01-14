@@ -3,16 +3,16 @@ import UIKit
 protocol CatalogCoordinatorProtocol {
     func close()
 
-    func showExtendedCatalog(model: ExtendedCatalogViewModel.Model) -> ExtendedCatalogViewModelInterface
+    func showExtendedCatalog(model: MonthCatalogViewModel.Model) -> MonthCatalogViewModelInterface
 }
 
 struct CatalogCoordinator: NavigationCoordinator, CatalogCoordinatorProtocol {
     var viewControllerReference: WeakReference<UINavigationController>
 
-    func showExtendedCatalog(model: ExtendedCatalogViewModel.Model) -> ExtendedCatalogViewModelInterface {
-        let viewController: ExtendedCatalogViewController = .instantiate()
-        let coordinator: ExtendedCatalogCoordinator = .init(viewController: viewController)
-        let viewModel: ExtendedCatalogViewModel = .init(model: model, coordinator: coordinator)
+    func showExtendedCatalog(model: MonthCatalogViewModel.Model) -> MonthCatalogViewModelInterface {
+        let viewController: MonthCatalogViewController = .instantiate()
+        let coordinator: MonthCatalogCoordinator = .init(viewController: viewController)
+        let viewModel: MonthCatalogViewModel = .init(model: model, coordinator: coordinator)
         viewController.viewModel = viewModel
 
         push(viewController)

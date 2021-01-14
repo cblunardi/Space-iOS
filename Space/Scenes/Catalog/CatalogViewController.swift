@@ -58,9 +58,10 @@ private extension CatalogViewController {
                 return nil
             }
 
-            let view = collection.dequeueReusableSupplementaryView(ofKind: "Header",
-                                                                   withReuseIdentifier: "CatalogHeaderView",
-                                                                   for: indexPath) as? CatalogHeaderView
+            let view = collection
+                .dequeueReusableSupplementaryView(ofKind: TitleHeaderView.kind,
+                                                  withReuseIdentifier: TitleHeaderView.reuseIdentifier,
+                                                  for: indexPath) as? TitleHeaderView
 
             view?.bind(viewModel: headerViewModel)
 
@@ -73,9 +74,9 @@ private extension CatalogViewController {
         collectionView.register(UINib(nibName: "CatalogMonthCell", bundle: .main),
                                 forCellWithReuseIdentifier: CatalogMonthCell.reuseIdentifier)
 
-        collectionView.register(UINib(nibName: "CatalogHeaderView", bundle: .main),
-                                forSupplementaryViewOfKind: "Header",
-                                withReuseIdentifier: "CatalogHeaderView")
+        collectionView.register(UINib(nibName: "TitleHeaderView", bundle: .main),
+                                forSupplementaryViewOfKind: TitleHeaderView.kind,
+                                withReuseIdentifier: TitleHeaderView.reuseIdentifier)
 
         collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout.build(),
                                                animated: false)
@@ -103,19 +104,25 @@ private extension UICollectionViewCompositionalLayout {
         let itemSize: NSCollectionLayoutSize =
             .init(widthDimension: .fractionalWidth(1 / 3),
                   heightDimension: .fractionalWidth(2 / 5))
+
         let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
 
         let groupSize: NSCollectionLayoutSize =
             .init(widthDimension: .fractionalWidth(1.0),
                   heightDimension: .fractionalWidth(2 / 5))
-        let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
-                                                         subitems: [item])
 
-        let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(50))
-        let header: NSCollectionLayoutBoundarySupplementaryItem = .init(layoutSize: headerSize,
-                                                                        elementKind: "Header",
-                                                                        alignment: .topLeading)
+        let group: NSCollectionLayoutGroup =
+            .horizontal(layoutSize: groupSize,
+                        subitems: [item])
+
+        let headerSize: NSCollectionLayoutSize =
+            .init(widthDimension: .fractionalWidth(1.0),
+                  heightDimension: .estimated(50))
+
+        let header: NSCollectionLayoutBoundarySupplementaryItem =
+            .init(layoutSize: headerSize,
+                  elementKind: TitleHeaderView.kind,
+                  alignment: .topLeading)
 
         let section: NSCollectionLayoutSection = .init(group: group)
         section.boundarySupplementaryItems = [header]

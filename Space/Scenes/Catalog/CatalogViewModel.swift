@@ -7,9 +7,8 @@ protocol CatalogViewModelInterface {
 
 final class CatalogViewModel: ViewModel {
     private let workingQueue: DispatchQueue = .global(qos: .userInitiated)
-    private let dateFormatter: DateFormatter = Formatters.dateFormatter
 
-    private let stateSubject: CurrentValueSubject<State, Never> = .init(.init())
+    private let stateSubject: CurrentValueSubject<Loadable<State, Never>, Never> = .init(.reset)
     private let selectedItemSubject: PassthroughSubject<EPICImage, Never> = .init()
 
     private var subscriptions: Set<AnyCancellable> = .init()
@@ -26,7 +25,7 @@ final class CatalogViewModel: ViewModel {
 extension CatalogViewModel {
     struct Model {
         let entries: [EPICImage]
-        let initialEntry: EPICImage?
+        let selectedEntry: EPICImage?
     }
 
     struct Section: Hashable {
@@ -34,7 +33,8 @@ extension CatalogViewModel {
     }
 
     struct State: Mutable {
-        var catalog: Loadable<DateCatalog<EPICImage>, Never> = .reset
+        var catalog: DateCatalog<EPICImage>
+        var selectedRoute: DateCatalog<EPICImage>.Route?
     }
 }
 
@@ -49,60 +49,52 @@ extension CatalogViewModel {
     var snapshot: AnyPublisher<SnapshotAdapter, Never> {
         stateSubject
             .receive(on: workingQueue)
-            .compactMap { $0.catalog.availableValue }
+            .compactMap { $0.availableValue }
             .compactMap { [weak self] in self?.snapshotAdapter(from: $0) }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
 
     func load() {
-        guard stateSubject.value.catalog.loading == false else { return }
+        guard stateSubject.value.loading == false else { return }
 
-        let entries = model.entries
+        stateSubject.value.reload()
 
-        stateSubject.value.catalog.reload()
-
-        Future(execute: DateCatalog(with: entries), on: workingQueue)
+        let model = self.model
+        Future(execute: State(model: model), on: workingQueue)
             .receive(on: RunLoop.main)
-            .sink { [weak self] in self?.stateSubject.value.catalog.receive($0) }
+            .sink { [weak self] in self?.stateSubject.value.receive($0) }
             .store(in: &subscriptions)
     }
 
     func supplementaryViewViewModel(of kind: String,
                                     for indexPath: IndexPath,
                                     using snapshot: SnapshotType)
-    -> CatalogHeaderViewModel?
+    -> TitleHeaderViewModel?
     {
         snapshot
             .sectionIdentifiers[safe: indexPath.section]
-            .map(CatalogHeaderViewModel.init(model:))
+            .map { TitleHeaderViewModel(title: $0.date) }
     }
 
-    private func snapshotAdapter(from catalog: DateCatalog<EPICImage>) -> SnapshotAdapter {
+    private func snapshotAdapter(from state: State) -> SnapshotAdapter {
         var snapshot: SnapshotType = .init()
 
-        let selectedIndex: IndexPath? = model
-            .initialEntry
-            .flatMap(catalog.years.firstIndexPath(of:))
+        let selectedIndex: IndexPath? = state
+            .selectedRoute
+            .map { IndexPath(item: $0.month, section: $0.year)}
 
-        let selectedDay: DateCatalog<EPICImage>.Day?
-        if let selectedIndex = selectedIndex, let model = model.initialEntry {
-            selectedDay = catalog
-                .years[safe: selectedIndex.section]?
-                .months[safe: selectedIndex.item]?
-                .days
-                .first(where: { $0.entries.lazy.map(\.model).contains(model) })
-        } else {
-            selectedDay = nil
-        }
+        let selectedDay: DateCatalog<EPICImage>.Day? = state
+            .selectedRoute
+            .map { state.catalog.years[$0.year].months[$0.month].days[$0.day] }
 
-        for year in catalog.years {
-            guard let yearDate = year.date else { continue }
+        for year in state.catalog.years {
+            guard let yearDate = year.localizedDate else { continue }
 
             let items: [CatalogMonthViewModel] = year.months
                 .map { .init(month: $0, selectedDay: selectedDay) }
 
-            snapshot.appendSections([Section(datetime: yearDate)])
+            snapshot.appendSections([Section(date: yearDate)])
             snapshot.appendItems(items)
         }
 
@@ -117,31 +109,18 @@ extension CatalogViewModel: CatalogViewModelInterface {
 
     func didSelect(item: CatalogMonthViewModel) {
         coordinator
-            .showExtendedCatalog(model: .init(entries: model.entries,
-                                              initialEntry: .none))
+            .showExtendedCatalog(model: .init(catalog: item.month,
+                                              selected: stateSubject.value.availableValue?.selectedRoute))
             .selectedItem
             .sink(receiveValue: { [weak self] in self?.selectedItemSubject.send($0) })
             .store(in: &subscriptions)
     }
 }
 
-private extension CatalogViewModel.Section {
-    init(datetime: Date) {
-        date = Formatters.yearFormatter.string(from: datetime)
-    }
-}
-
-private extension Array where Element == DateCatalog<EPICImage>.Year {
-    func firstIndexPath(of entry: EPICImage) -> IndexPath? {
-        lazy
-            .enumerated()
-            .compactMap { (offset, element) -> IndexPath? in
-                element
-                    .months
-                    .firstIndex(where: {
-                        $0.days.lazy.flatMap(\.models).contains(entry)
-                    })
-                    .map { IndexPath(item: $0, section: offset) }
-            }.first
+private extension CatalogViewModel.State {
+    init(model: CatalogViewModel.Model) {
+        let catalog: DateCatalog<EPICImage> = .init(with: model.entries)
+        self.init(catalog: catalog,
+                  selectedRoute: model.selectedEntry.flatMap(catalog.route(of:)))
     }
 }

@@ -1,14 +1,14 @@
 import Combine
 import UIKit
 
-final class ExtendedCatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable {
-    typealias DataSource = UICollectionViewDiffableDataSource<ExtendedCatalogViewModel.Section, ExtendedCatalogItemViewModel>
+final class MonthCatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable {
+    typealias DataSource = UICollectionViewDiffableDataSource<MonthCatalogViewModel.Section, CatalogDayViewModel>
 
     private lazy var dataSource = makeDataSource()
 
     private var subscriptions: Set<AnyCancellable> = .init()
 
-    var viewModel: ExtendedCatalogViewModel!
+    var viewModel: MonthCatalogViewModel!
 
     @IBOutlet private var collectionView: UICollectionView!
 
@@ -19,28 +19,19 @@ final class ExtendedCatalogViewController: UIViewController, ViewModelOwner, Sto
         bind(viewModel: viewModel)
     }
 
-    func bind(viewModel: ExtendedCatalogViewModel) {
+    func bind(viewModel: MonthCatalogViewModel) {
         subscriptions.removeAll()
 
-        viewModel.snapshot
-            .sink { [weak self] in
-                self?.dataSource.apply($0.snapshot)
-
-                guard let index = $0.selectedIndex else { return }
-                self?.collectionView.scrollToItem(at: index,
-                                                  at: .centeredVertically,
-                                                  animated: false)
-            }
-            .store(in: &subscriptions)
+        dataSource.apply(viewModel.snapshot.snapshot)
     }
 }
 
-private extension ExtendedCatalogViewController {
+private extension MonthCatalogViewController {
     func makeDataSource() -> DataSource {
         let dataSource: DataSource = .init(collectionView: collectionView) { collection, indexPath, item in
             let cell = collection
-                .dequeueReusableCell(withReuseIdentifier: ExtendedCatalogItemCell.reuseIdentifier,
-                                     for: indexPath) as? ExtendedCatalogItemCell
+                .dequeueReusableCell(withReuseIdentifier: CatalogDayCell.reuseIdentifier,
+                                     for: indexPath) as? CatalogDayCell
             cell?.bind(viewModel: item)
             return cell
         }
@@ -58,8 +49,8 @@ private extension ExtendedCatalogViewController {
 
             let view = collection
                 .dequeueReusableSupplementaryView(ofKind: "Header",
-                                                  withReuseIdentifier: ExtendedCatalogHeaderView.reuseIdentifier,
-                                                  for: indexPath) as? ExtendedCatalogHeaderView
+                                                  withReuseIdentifier: TitleHeaderView.reuseIdentifier,
+                                                  for: indexPath) as? TitleHeaderView
 
             view?.bind(viewModel: headerViewModel)
 
@@ -69,12 +60,12 @@ private extension ExtendedCatalogViewController {
     }
 
     func setupCollectionView() {
-        collectionView.register(UINib(nibName: "ExtendedCatalogItemCell", bundle: .main),
-                                forCellWithReuseIdentifier: ExtendedCatalogItemCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: "CatalogDayCell", bundle: .main),
+                                forCellWithReuseIdentifier: CatalogDayCell.reuseIdentifier)
 
-        collectionView.register(UINib(nibName: "ExtendedCatalogHeaderView", bundle: .main),
+        collectionView.register(UINib(nibName: "TitleHeaderView", bundle: .main),
                                 forSupplementaryViewOfKind: "Header",
-                                withReuseIdentifier: ExtendedCatalogHeaderView.reuseIdentifier)
+                                withReuseIdentifier: TitleHeaderView.reuseIdentifier)
 
         collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout.build(),
                                                animated: false)
@@ -84,7 +75,7 @@ private extension ExtendedCatalogViewController {
     }
 }
 
-extension ExtendedCatalogViewController: UICollectionViewDelegate {
+extension MonthCatalogViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let snapshot = dataSource.snapshot()
         guard

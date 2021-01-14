@@ -12,34 +12,6 @@ extension Array {
     }
 }
 
-extension Array {
-    subscript(safe index: Index) -> Element? {
-        guard indices.contains(index) else { return nil }
-        return self[index]
-    }
-}
-
-extension Array {
-    func slice(safeRange: Range<Index>) -> ArraySlice<Element> {
-        let lowerBound: Int = Swift.max(startIndex, safeRange.lowerBound)
-        let upperBound: Int = Swift.min(endIndex, safeRange.upperBound)
-
-        return self[lowerBound..<upperBound]
-    }
-
-    func slice(safeRange: PartialRangeFrom<Index>) -> ArraySlice<Element> {
-        let lowerBound: Int = Swift.max(startIndex, safeRange.lowerBound)
-
-        return self[lowerBound..<endIndex]
-    }
-
-    func slice(safeRange: PartialRangeUpTo<Index>) -> ArraySlice<Element> {
-        let upperBound: Int = Swift.min(endIndex, safeRange.upperBound)
-
-        return self[startIndex..<upperBound]
-    }
-}
-
 extension Array where Element: Equatable {
     func around(index: Index, distance: Int) -> ArraySlice<Element> {
         slice(safeRange: (index - distance) ..< (index + distance))

@@ -33,17 +33,8 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
         label.text = viewModel.text
 
         items
-            .slice(safeRange: 0..<viewModel.numberOfDays)
-            .forEach { $0.backgroundColor = .darkGray }
-
-        items
-            .slice(safeRange: viewModel.numberOfDays...)
-            .forEach { $0.backgroundColor = .clear}
-
-        viewModel
-            .selectedItemIndex
-            .flatMap { items[safe: $0] }?
-            .backgroundColor = .systemRed
+            .enumerated()
+            .forEach { $0.element.backgroundColor = viewModel.color(for: $0.offset) }
     }
 }
 
