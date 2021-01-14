@@ -24,14 +24,14 @@ extension CatalogMonthViewModel {
         }
 
         guard let day = month.days.first(where: { $0.components.day == dayOffset }) else {
-            return .darkGray
+            return Colors.Catalog.dayUnavailable
         }
 
         guard selectedDay == day else {
-            return .lightGray
+            return Colors.Catalog.day
         }
 
-        return .systemRed
+        return Colors.Catalog.daySelected
     }
 }
 

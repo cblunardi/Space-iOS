@@ -13,4 +13,3 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appCoordinator.start(in: window)
     }
 }
-
