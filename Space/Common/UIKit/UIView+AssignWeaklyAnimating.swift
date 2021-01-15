@@ -6,7 +6,7 @@ extension Publisher where Failure == Never {
                               on object: Object,
                               animationDuration: TimeInterval)
     -> AnyCancellable
-    where Object: UIView
+    where Object: AnyObject
     {
         sink(receiveValue: { [weak object] output in
             UIView.animate(withDuration: animationDuration) {

@@ -76,6 +76,10 @@
 		B8E2C6BD25B0CF0300F87D0E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C6BC25B0CF0300F87D0E /* Colors.swift */; };
 		B8E2C6C425B0D8F900F87D0E /* DateCatalog+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C6C325B0D8F900F87D0E /* DateCatalog+Color.swift */; };
 		B8E2C6EC25B21D5B00F87D0E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B8E2C6EB25B21D5B00F87D0E /* Lottie */; };
+		B8E2C6FA25B21E4C00F87D0E /* EarthMoonAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B8E2C6F925B21E4C00F87D0E /* EarthMoonAnimation.json */; };
+		B8E2C6FF25B21EED00F87D0E /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C6FE25B21EED00F87D0E /* Animations.swift */; };
+		B8E2C70525B21F6A00F87D0E /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */; };
+		B8E2C70925B2220A00F87D0E /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */; };
 		B8E7FE5625A39F180016CDC6 /* AnyPublisher+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */; };
 		B8E7FE5E25A39F880016CDC6 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE5D25A39F880016CDC6 /* MockError.swift */; };
 		B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */; };
@@ -177,6 +181,10 @@
 		B8E2C6A725B0C21F00F87D0E /* TitleHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleHeaderViewModel.swift; sourceTree = "<group>"; };
 		B8E2C6BC25B0CF0300F87D0E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B8E2C6C325B0D8F900F87D0E /* DateCatalog+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateCatalog+Color.swift"; sourceTree = "<group>"; };
+		B8E2C6F925B21E4C00F87D0E /* EarthMoonAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EarthMoonAnimation.json; sourceTree = "<group>"; };
+		B8E2C6FE25B21EED00F87D0E /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		B8E7FE5525A39F180016CDC6 /* AnyPublisher+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Mock.swift"; sourceTree = "<group>"; };
 		B8E7FE5D25A39F880016CDC6 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -258,6 +266,7 @@
 		B83144AF259C9BD90075D898 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B8E2C6F825B21E3300F87D0E /* Animations */,
 				B831447B259C999B0075D898 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -312,6 +321,7 @@
 		B83144D4259CA4D30075D898 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8E2C6FD25B21EDF00F87D0E /* Animations */,
 				B83144CF259CA47F0075D898 /* Architecture */,
 				B8E2C6A325B0C1BD00F87D0E /* CollectionView */,
 				B8E2C6BB25B0CEF800F87D0E /* Colors */,
@@ -639,6 +649,22 @@
 			path = DateCatalog;
 			sourceTree = "<group>";
 		};
+		B8E2C6F825B21E3300F87D0E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B8E2C6F925B21E4C00F87D0E /* EarthMoonAnimation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		B8E2C6FD25B21EDF00F87D0E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B8E2C6FE25B21EED00F87D0E /* Animations.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		B8E7FE5425A39F090016CDC6 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +685,8 @@
 			isa = PBXGroup;
 			children = (
 				B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */,
+				B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */,
+				B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -799,6 +827,7 @@
 				B8C1588825AC8727003F40CF /* MonthCatalog.storyboard in Resources */,
 				B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */,
 				B8C1589B25AC8885003F40CF /* CatalogDayCell.xib in Resources */,
+				B8E2C6FA25B21E4C00F87D0E /* EarthMoonAnimation.json in Resources */,
 				B83144C4259C9F7E0075D898 /* Main.storyboard in Resources */,
 				B831447C259C999B0075D898 /* Assets.xcassets in Resources */,
 				B8E2C6A925B0C21F00F87D0E /* TitleHeaderView.xib in Resources */,
@@ -841,6 +870,7 @@
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
 				B8E2C68225B0780700F87D0E /* Integer+Time.swift in Sources */,
+				B8E2C70525B21F6A00F87D0E /* UIView+AutoLayout.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
 				B8E2C67E25B0768200F87D0E /* DateCatalog+EPIC.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
@@ -861,6 +891,7 @@
 				B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */,
 				B8C158B925AC9FED003F40CF /* MainCoordinator.swift in Sources */,
 				B8C1586725AA06EA003F40CF /* Publisher+Unwrap.swift in Sources */,
+				B8E2C70925B2220A00F87D0E /* UIView+Loading.swift in Sources */,
 				B8E2C69425B0B58700F87D0E /* DateCatalog+Search.swift in Sources */,
 				B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */,
 				B8E2C6BD25B0CF0300F87D0E /* Colors.swift in Sources */,
@@ -883,6 +914,7 @@
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
 				B8E2C66425AF8F9B00F87D0E /* CatalogCoordinator.swift in Sources */,
 				B8E2C66525AF8F9B00F87D0E /* CatalogViewModel.swift in Sources */,
+				B8E2C6FF25B21EED00F87D0E /* Animations.swift in Sources */,
 				B8E7FE8A25A3E51B0016CDC6 /* CGRect+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
