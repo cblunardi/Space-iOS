@@ -108,9 +108,15 @@ extension CatalogViewModel: CatalogViewModelInterface {
     }
 
     func didSelect(item: CatalogMonthViewModel) {
+        guard let state = stateSubject.value.availableValue else { return }
+
+        let model: MonthCatalogViewModel.Model =
+            .init(catalog: state.catalog,
+                  focused: item.month,
+                  selected: state.selectedRoute)
+
         coordinator
-            .showExtendedCatalog(model: .init(catalog: item.month,
-                                              selected: stateSubject.value.availableValue?.selectedRoute))
+            .showExtendedCatalog(model: model)
             .selectedItem
             .sink(receiveValue: { [weak self] in self?.selectedItemSubject.send($0) })
             .store(in: &subscriptions)

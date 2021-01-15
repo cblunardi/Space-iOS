@@ -19,7 +19,9 @@ final class MonthCatalogViewModel: ViewModel {
 
 extension MonthCatalogViewModel {
     struct Model {
-        let catalog: DateCatalog<EPICImage>.Month
+        let catalog: DateCatalog<EPICImage>
+        let focused: DateCatalog<EPICImage>.Month
+
         let selected: DateCatalog<EPICImage>.Route?
     }
 
@@ -53,21 +55,27 @@ extension MonthCatalogViewModel {
     private func snapshotAdapter(from model: Model) -> SnapshotAdapter {
         var snapshot: SnapshotType = .init()
 
+        let year: DateCatalog<EPICImage>.Year = model.catalog
+            .years
+            .first { $0.months.contains(model.focused) }!
+
         let selectedDay: DateCatalog<EPICImage>.Day? = model
             .selected
-            .map { model.catalog.days[$0.day] }
+            .map { model.catalog.years[$0.year].months[$0.month].days[$0.day] }
 
         let selectedIndexPath: IndexPath? = model
             .selected
-            .map { IndexPath(row: $0.day, section: .zero) }
+            .map { IndexPath(row: $0.day, section: $0.month) }
 
-        let section: Section = .init(date: model.catalog.localizedDate ?? "")
-        let items: [CatalogDayViewModel] = model.catalog
-            .days
-            .map { CatalogDayViewModel(model: $0, selected: $0 == selectedDay) }
+        for month in year.months {
+            guard let section = month.localizedDate.map(Section.init(date:)) else { continue }
 
-        snapshot.appendSections([section])
-        snapshot.appendItems(items, toSection: section)
+            let entries: [CatalogDayViewModel] = month.days
+                .map { CatalogDayViewModel(model: $0, selected: $0 == selectedDay) }
+
+            snapshot.appendSections([section])
+            snapshot.appendItems(entries, toSection: section)
+        }
 
         return .init(snapshot: snapshot, selectedIndex: selectedIndexPath)
     }
