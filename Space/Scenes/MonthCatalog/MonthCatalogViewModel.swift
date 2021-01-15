@@ -70,8 +70,10 @@ extension MonthCatalogViewModel {
             .map { model.catalog.years[$0.year].months[$0.month].days[$0.day] }
 
         let selectedIndexPath: IndexPath? = model
-            .selected
-            .map { IndexPath(row: $0.day, section: $0.month) }
+            .focusedYear
+            .months
+            .firstIndex(of: model.focused)
+            .map { IndexPath(row: model.focused.dayNumbers?.median() ?? .zero, section: $0) }
 
         for month in model.focusedYear.months {
             guard let section = month.localizedDate.map(Section.init(date:)) else { continue }
@@ -93,7 +95,7 @@ extension MonthCatalogViewModel: MonthCatalogViewModelInterface {
     }
 
     func didSelect(item: CatalogDayViewModel) {
-        guard let entry = item.model.day?.models.median(roundingRule: .toNearestOrEven) else { return }
+        guard let entry = item.model.day?.models.median() else { return }
         coordinator.close()
         selectedItemSubject.send(entry)
     }

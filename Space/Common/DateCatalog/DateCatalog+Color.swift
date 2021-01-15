@@ -1,17 +1,30 @@
 import UIKit
 
 extension DateCatalog.Month {
+    var dayNumbers: Range<Int>? {
+        guard
+            let calendar = components.calendar,
+            let date = date
+        else {
+            return nil
+        }
+
+        return calendar.range(of: .day, in: .month, for: date)
+    }
+
     var firstWeekdayIndex: Int {
         guard
             let date = self.date,
             let firstWeekDay = components.calendar?.component(.weekday, from: date)
-        else { return .zero }
+        else {
+            return .zero
+        }
 
         return firstWeekDay - 1
     }
 
     func isDayIndexValid(_ dayIndex: Int) -> Bool {
-        daysRangeInMonth?.contains(dayNumber(from: dayIndex)) == true
+        dayNumbers?.contains(dayNumber(from: dayIndex)) == true
     }
 
     func day(from dayIndex: Int) -> DateCatalog.Day? {
@@ -36,17 +49,6 @@ extension DateCatalog.Month {
 }
 
 private extension DateCatalog.Month {
-    var daysRangeInMonth: Range<Int>? {
-        guard
-            let calendar = components.calendar,
-            let date = date
-        else {
-            return nil
-        }
-
-        return calendar.range(of: .day, in: .month, for: date)
-    }
-
     func dayNumber(from dayIndex: Int) -> Int {
         dayIndex - firstWeekdayIndex + 1
     }

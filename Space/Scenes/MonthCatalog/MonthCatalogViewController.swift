@@ -23,7 +23,14 @@ final class MonthCatalogViewController: UIViewController, ViewModelOwner, Storyb
         subscriptions.removeAll()
 
         title = viewModel.title
-        dataSource.apply(viewModel.snapshot.snapshot)
+
+        let adapter = viewModel.snapshot
+        dataSource.apply(adapter.snapshot)
+
+        guard let indexPath = adapter.selectedIndex else { return }
+        collectionView.scrollToItem(at: indexPath,
+                                    at: .centeredVertically,
+                                    animated: false)
     }
 }
 
@@ -91,15 +98,16 @@ extension MonthCatalogViewController: UICollectionViewDelegate {
 private extension UICollectionViewCompositionalLayout {
     static func build() -> UICollectionViewCompositionalLayout {
 
-        let itemSize: NSCollectionLayoutSize = .init(widthDimension: .absolute(35),
-                                                     heightDimension: .absolute(35))
+        let itemSize: NSCollectionLayoutSize =
+            .init(widthDimension: .fractionalWidth(1 / 7),
+                  heightDimension: .fractionalWidth(1 / 7))
         let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
+        item.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
 
         let groupSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .absolute(35))
+                                                      heightDimension: .estimated(75))
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
-        group.interItemSpacing = .flexible(6)
 
         let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(50))
@@ -109,7 +117,6 @@ private extension UICollectionViewCompositionalLayout {
 
         let section: NSCollectionLayoutSection = .init(group: group)
         section.boundarySupplementaryItems = [header]
-        section.interGroupSpacing = 8
         section.contentInsets = .init(top: 5, leading: 10, bottom: 5, trailing: 10)
 
         return .init(section: section)
