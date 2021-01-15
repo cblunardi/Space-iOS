@@ -15,6 +15,7 @@ final class CatalogViewModel: ViewModel {
 
     let coordinator: CatalogCoordinatorProtocol
     let model: Model
+    let title: String = "Catalog"
 
     init(model: Model, coordinator: CatalogCoordinatorProtocol) {
         self.model = model

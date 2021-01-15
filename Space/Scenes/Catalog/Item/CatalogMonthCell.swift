@@ -10,6 +10,11 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
     @IBOutlet private var label: UILabel!
     @IBOutlet private var containerStackView: UIStackView!
 
+    private lazy var items: [UIView] = containerStackView
+        .arrangedSubviews
+        .compactMap { $0 as? UIStackView }
+        .flatMap(\.arrangedSubviews)
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -35,14 +40,5 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
         items
             .enumerated()
             .forEach { $0.element.backgroundColor = viewModel.color(for: $0.offset) }
-    }
-}
-
-private extension CatalogMonthCell {
-    var items: [UIView] {
-        containerStackView
-            .arrangedSubviews
-            .compactMap { $0 as? UIStackView }
-            .flatMap(\.arrangedSubviews)
     }
 }

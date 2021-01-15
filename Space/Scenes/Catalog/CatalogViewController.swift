@@ -22,6 +22,8 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
     func bind(viewModel: CatalogViewModel) {
         subscriptions.removeAll()
 
+        title = viewModel.title
+
         viewModel.snapshot
             .sink { [weak self] in
                 self?.dataSource.apply($0.snapshot)
