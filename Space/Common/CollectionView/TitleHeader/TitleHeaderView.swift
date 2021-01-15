@@ -13,4 +13,8 @@ final class TitleHeaderView: UICollectionReusableView, ViewModelOwner {
 
         label.text = viewModel.title
     }
+
+    func setTitle(color: UIColor) {
+        label.textColor = color
+    }
 }

@@ -22,6 +22,7 @@ final class MonthCatalogViewController: UIViewController, ViewModelOwner, Storyb
     func bind(viewModel: MonthCatalogViewModel) {
         subscriptions.removeAll()
 
+        title = viewModel.title
         dataSource.apply(viewModel.snapshot.snapshot)
     }
 }

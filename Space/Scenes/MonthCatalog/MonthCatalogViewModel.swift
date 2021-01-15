@@ -23,6 +23,12 @@ extension MonthCatalogViewModel {
         let focused: DateCatalog<EPICImage>.Month
 
         let selected: DateCatalog<EPICImage>.Route?
+
+        var focusedYear: DateCatalog<EPICImage>.Year {
+            catalog
+                .years
+                .first { $0.months.contains(focused) }!
+        }
     }
 
     struct Section: Hashable {
@@ -42,6 +48,10 @@ extension MonthCatalogViewModel {
         snapshotAdapter(from: model)
     }
 
+    var title: String? {
+        model.focusedYear.localizedDate
+    }
+
     func supplementaryViewViewModel(of kind: String,
                                     for indexPath: IndexPath,
                                     using snapshot: SnapshotType)
@@ -55,10 +65,6 @@ extension MonthCatalogViewModel {
     private func snapshotAdapter(from model: Model) -> SnapshotAdapter {
         var snapshot: SnapshotType = .init()
 
-        let year: DateCatalog<EPICImage>.Year = model.catalog
-            .years
-            .first { $0.months.contains(model.focused) }!
-
         let selectedDay: DateCatalog<EPICImage>.Day? = model
             .selected
             .map { model.catalog.years[$0.year].months[$0.month].days[$0.day] }
@@ -67,11 +73,11 @@ extension MonthCatalogViewModel {
             .selected
             .map { IndexPath(row: $0.day, section: $0.month) }
 
-        for month in year.months {
+        for month in model.focusedYear.months {
             guard let section = month.localizedDate.map(Section.init(date:)) else { continue }
 
-            let entries: [CatalogDayViewModel] = month.days
-                .map { CatalogDayViewModel(model: $0, selected: $0 == selectedDay) }
+            let entries: [CatalogDayViewModel] = items(for: month,
+                                                       selectedDay: selectedDay)
 
             snapshot.appendSections([section])
             snapshot.appendItems(entries, toSection: section)
@@ -87,8 +93,27 @@ extension MonthCatalogViewModel: MonthCatalogViewModelInterface {
     }
 
     func didSelect(item: CatalogDayViewModel) {
-        guard let entry = item.model.models.first else { return }
+        guard let entry = item.model.day?.models.median(roundingRule: .toNearestOrEven) else { return }
         coordinator.close()
         selectedItemSubject.send(entry)
+    }
+}
+
+private extension MonthCatalogViewModel {
+    func items(for month: DateCatalog<EPICImage>.Month,
+               selectedDay: DateCatalog<EPICImage>.Day?)
+    -> [CatalogDayViewModel]
+    {
+        let firstWeekdayIndex = month.firstWeekdayIndex
+
+        return (0 ..< (7 * 5))
+            .map { index in
+                let dayNumber = index - firstWeekdayIndex + 1
+                let day = month.days.first(where: { $0.components.day == dayNumber })
+                return CatalogDayViewModel(model: .init(month: month,
+                                                        day: day,
+                                                        index: index,
+                                                        selectedDay: selectedDay))
+            }
     }
 }

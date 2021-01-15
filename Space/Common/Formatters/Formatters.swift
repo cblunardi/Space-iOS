@@ -1,7 +1,7 @@
 import Foundation
 
 struct Formatters {
-    static let calendar: Calendar = .init(identifier: .iso8601)
+    static let calendar: Calendar = .autoupdatingCurrent
 
     static let dateFormatter: DateFormatter = buildDateFormatter()
     static func buildDateFormatter() -> DateFormatter {

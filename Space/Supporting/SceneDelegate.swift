@@ -10,6 +10,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError()
         }
 
+        window.tintColor = Colors.accent
+
         appCoordinator.start(in: window)
     }
 }

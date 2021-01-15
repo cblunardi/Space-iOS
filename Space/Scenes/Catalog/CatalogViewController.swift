@@ -64,6 +64,7 @@ private extension CatalogViewController {
                                                   for: indexPath) as? TitleHeaderView
 
             view?.bind(viewModel: headerViewModel)
+            view?.setTitle(color: Colors.palette2)
 
             return view
         }

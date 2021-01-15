@@ -55,3 +55,11 @@ extension RandomAccessCollection {
         return self[index]
     }
 }
+
+extension RandomAccessCollection where Index == Int {
+    func median(roundingRule: FloatingPointRoundingRule) -> Element? {
+        let average: Float = (Float(startIndex) + Float(endIndex)) * 0.5
+        let averageIndex: Index = Int(average.rounded(roundingRule))
+        return self[safe: averageIndex]
+    }
+}

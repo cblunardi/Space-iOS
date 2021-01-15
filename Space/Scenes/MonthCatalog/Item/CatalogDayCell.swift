@@ -8,6 +8,7 @@ final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
 
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var label: UILabel!
+    @IBOutlet private var imageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,7 @@ final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
         self.viewModel = viewModel
 
         label.text = viewModel.text
+        imageView.image = viewModel.image
 
         containerView.backgroundColor = viewModel.backgroundColor
     }

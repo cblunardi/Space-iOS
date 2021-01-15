@@ -5,8 +5,17 @@ import UIKit
 struct CatalogDayViewModel: ViewModel, Identifiable, Hashable {
     private let timeFormatter: DateFormatter = Formatters.shortTimeFormatter
 
-    let model: DateCatalog<EPICImage>.Day
-    let selected: Bool
+    let model: Model
+}
+
+extension CatalogDayViewModel {
+    struct Model: Hashable {
+        let month: DateCatalog<EPICImage>.Month
+        let day: DateCatalog<EPICImage>.Day?
+        let index: Int
+
+        let selectedDay: DateCatalog<EPICImage>.Day?
+    }
 }
 
 extension CatalogDayViewModel {
@@ -15,10 +24,24 @@ extension CatalogDayViewModel {
     }
 
     var text: String? {
-        model.localizedDate
+        model.day?.localizedDate
+    }
+
+    var image: UIImage? {
+        isValidDay && !hasDay ? UIImage(systemName: "eye.slash") : .none
     }
 
     var backgroundColor: UIColor {
-        selected ? .systemRed : .darkGray
+        model.month.color(for: model.index, selectedDay: model.selectedDay)
+    }
+}
+
+private extension CatalogDayViewModel {
+    var isValidDay: Bool {
+        model.month.isDayIndexValid(model.index)
+    }
+
+    var hasDay: Bool {
+        model.month.day(from: model.index) != .none
     }
 }

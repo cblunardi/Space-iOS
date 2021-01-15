@@ -54,22 +54,28 @@ extension DateCatalog.Entry where Model == EPICImage {
 private extension DateComponents {
     static func downToYear(from date: Date, calendar: Calendar = Formatters.calendar) -> DateComponents {
         .init(calendar: calendar,
+              timeZone: .current,
               era: calendar.component(.era, from: date),
-              year: calendar.component(.year, from: date))
+              year: calendar.component(.year, from: date),
+              month: 1)
     }
 
     static func downToMonth(from date: Date, calendar: Calendar = Formatters.calendar) -> DateComponents {
         .init(calendar: calendar,
+              timeZone: .current,
               era: calendar.component(.era, from: date),
               year: calendar.component(.year, from: date),
-              month: calendar.component(.month, from: date))
+              month: calendar.component(.month, from: date),
+              day: 1)
     }
 
     static func downToDay(from date: Date, calendar: Calendar = Formatters.calendar) -> DateComponents {
         .init(calendar: calendar,
+              timeZone: .current,
               era: calendar.component(.era, from: date),
               year: calendar.component(.year, from: date),
               month: calendar.component(.month, from: date),
-              day: calendar.component(.day, from: date))
+              day: calendar.component(.day, from: date),
+              hour: 0)
     }
 }
