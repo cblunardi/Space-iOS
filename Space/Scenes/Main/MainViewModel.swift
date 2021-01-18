@@ -68,7 +68,7 @@ extension MainViewModel {
         state.value.receive(entries: entries)
 
         entries
-            .around(index: entries.endIndex, distance: 2)
+            .around(index: entries.endIndex, distance: 3)
             .compactMap { URL(string: $0.uri) }
             .forEach(dependencies.imageService.prefetch(from:))
     }
