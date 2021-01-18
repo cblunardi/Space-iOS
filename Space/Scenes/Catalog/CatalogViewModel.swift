@@ -56,6 +56,12 @@ extension CatalogViewModel {
             .eraseToAnyPublisher()
     }
 
+    var loading: AnyPublisher<Bool, Never> {
+        stateSubject
+            .map(\.loading)
+            .eraseToAnyPublisher()
+    }
+
     func load() {
         guard stateSubject.value.loading == false else { return }
 

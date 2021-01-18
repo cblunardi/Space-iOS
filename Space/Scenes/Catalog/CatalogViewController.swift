@@ -1,16 +1,18 @@
 import Combine
+import Lottie
 import UIKit
 
-final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable {
+final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardLoadable, LoadableView {
     typealias DataSource = UICollectionViewDiffableDataSource<CatalogViewModel.Section, CatalogMonthViewModel>
-
-    private lazy var dataSource = makeDataSource()
-
-    private var subscriptions: Set<AnyCancellable> = .init()
 
     var viewModel: CatalogViewModel!
 
+    private lazy var dataSource = makeDataSource()
+    private var subscriptions: Set<AnyCancellable> = .init()
+
     @IBOutlet private var collectionView: UICollectionView!
+
+    private(set) lazy var loadingView: AnimationView = makeLoadingView(in: view)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,12 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
                                                   at: .centeredVertically,
                                                   animated: false)
             }
+            .store(in: &subscriptions)
+
+        viewModel.loading
+            .assignWeakly(to: \.isLoading,
+                          on: self,
+                          animationDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
         viewModel.load()
