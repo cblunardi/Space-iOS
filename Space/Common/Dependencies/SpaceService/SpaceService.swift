@@ -3,6 +3,7 @@ import Foundation
 
 protocol SpaceServiceProtocol {
     func retrieveEPIC() -> AnyPublisher<[EPICImage], Error>
+    func retrieveEPICLatest() -> AnyPublisher<EPICImage, Error>
 }
 
 final class SpaceService: SpaceServiceProtocol {
@@ -35,6 +36,23 @@ final class SpaceService: SpaceServiceProtocol {
             .perform(request: request)
             .map(\.data)
             .decode(type: [EPICImage].self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+
+    func retrieveEPICLatest() -> AnyPublisher<EPICImage, Swift.Error> {
+        let components = self.components.setting(\.path, to: "/epic/latest")
+        guard let url = components.url else {
+            return Fail(error: Error.urlConstruction)
+                .eraseToAnyPublisher()
+        }
+
+        let request = URLRequest(url: url)
+            .setting(\.httpMethod, to: "GET")
+
+        return dependencies.urlSessionService
+            .perform(request: request)
+            .map(\.data)
+            .decode(type: EPICImage.self, decoder: decoder)
             .eraseToAnyPublisher()
     }
 }

@@ -3,6 +3,27 @@ import Foundation
 struct Formatters {
     static let calendar: Calendar = .current
 
+    static let shortFormatter: DateFormatter = buildShortFormatter()
+    static func buildShortFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("dMMM")
+        return formatter
+    }
+
+    static let mediumFormatter: DateFormatter = buildMediumFormatter()
+    static func buildMediumFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("dMMMhh")
+        return formatter
+    }
+
+    static let longFormatter: DateFormatter = buildLongFormatter()
+    static func buildLongFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("dMMMYYYYhhmm")
+        return formatter
+    }
+
     static let dateFormatter: DateFormatter = buildDateFormatter()
     static func buildDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()

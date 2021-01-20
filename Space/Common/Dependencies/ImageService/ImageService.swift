@@ -61,7 +61,8 @@ private extension ImageService {
     func download(from url: URL) -> AnyPublisher<UIImage, Swift.Error> {
        dependencies.urlSessionService
             .perform(request: .init(url: url))
-            .map { UIImage(data: $0.data) }
+            .validateHTTP()
+            .map(UIImage.init(data:))
             .mapError { $0 as Swift.Error}
             .unwrap(or: Error.imageDecoding)
             .share()
