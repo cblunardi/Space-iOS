@@ -135,6 +135,8 @@ extension MainViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: UIC.Anims.imageTransitionDuration) {
             self.titleLabel.alpha = isZoomed ? 0 : 1
             self.subtitleLabel.alpha = isZoomed ? 0 : 1
+            self.catalogButton.alpha = isZoomed ? 0 : 1
+            self.catalogButton.isUserInteractionEnabled = isZoomed == false
         }
     }
 }
