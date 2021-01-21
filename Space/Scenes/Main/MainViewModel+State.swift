@@ -5,14 +5,14 @@ extension MainViewModel {
     struct State: Mutable, Equatable {
         var entries: Loadable<[EPICImage], Never>
 
-        var panningEntry: EPICImage?
-        var currentEntry: EPICImage?
+        var currentIndex: Int?
+        var panningIndex: Int?
     }
 }
 
 extension MainViewModel.State {
     static var initial: MainViewModel.State {
-        .init(entries: .reset, currentEntry: .none)
+        .init(entries: .reset, currentIndex: .none, panningIndex: .none)
     }
 
     var isInitial: Bool {
@@ -23,12 +23,37 @@ extension MainViewModel.State {
         entries.loading
     }
 
-    mutating func receive(entries: [EPICImage]) {
-        self.entries.receive(entries.sorted())
-
-        if currentEntry == .none {
-            currentEntry = entries.first
-        }
+    var currentEntry: EPICImage? {
+        currentIndex.flatMap { entries.availableValue?[safe: $0] }
     }
 
+    var panningEntry: EPICImage? {
+        panningIndex.flatMap { entries.availableValue?[safe: $0] }
+    }
+
+    mutating func receive(entries: [EPICImage]) {
+        self.entries.receive(entries)
+
+        if currentIndex == .none {
+            currentIndex = entries.startIndex
+        }
+
+        prefetch(index: entries.startIndex)
+    }
+
+    mutating func select(_ entry: EPICImage) {
+        currentIndex = entries.availableValue?.firstIndex(of: entry)
+        panningIndex = .none
+
+        guard let index = currentIndex else { return }
+        prefetch(index: index)
+    }
+
+    func prefetch(index: Int, distance: Int = 5) {
+        entries
+            .availableValue?
+            .around(index: index, distance: distance)
+            .compactMap { URL(string: $0.uri) }
+            .forEach(dependencies.imageService.prefetch(from:))
+    }
 }

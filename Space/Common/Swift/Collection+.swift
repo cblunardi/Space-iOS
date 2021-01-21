@@ -28,10 +28,18 @@ extension Collection {
     }
 }
 
-extension RandomAccessCollection {
+extension Collection {
+    func slice(safeRange: PartialRangeUpTo<Index>) -> SubSequence {
+        let upperBound: Index = Swift.min(endIndex, safeRange.upperBound)
+
+        return self[startIndex..<upperBound]
+    }
+}
+
+extension Collection where Index == Int {
     func slice(safeRange: Range<Index>) -> SubSequence {
         let lowerBound: Index = Swift.max(startIndex, safeRange.lowerBound)
-        let upperBound: Index = Swift.min(endIndex, safeRange.upperBound)
+        let upperBound: Index = Swift.min(endIndex - 1, safeRange.upperBound)
 
         return self[lowerBound..<upperBound]
     }
@@ -42,24 +50,31 @@ extension RandomAccessCollection {
         return self[lowerBound..<endIndex]
     }
 
-    func slice(safeRange: PartialRangeUpTo<Index>) -> SubSequence {
-        let upperBound: Index = Swift.min(endIndex, safeRange.upperBound)
+    func slice(safeRange: ClosedRange<Index>) -> SubSequence {
+        let lowerBound: Index = Swift.max(startIndex, safeRange.lowerBound)
+        let upperBound: Index = Swift.min(endIndex - 1, safeRange.upperBound)
 
-        return self[startIndex..<upperBound]
+        return self[lowerBound...upperBound]
     }
 }
 
-extension RandomAccessCollection {
+extension Collection {
     subscript(safe index: Index) -> Element? {
         guard indices.contains(index) else { return nil }
         return self[index]
     }
 }
 
-extension RandomAccessCollection where Index == Int {
+extension Collection where Index == Int {
     func median(roundingRule: FloatingPointRoundingRule = .toNearestOrEven) -> Element? {
         let average: Float = (Float(startIndex) + Float(endIndex)) * 0.5
         let averageIndex: Index = Int(average.rounded(roundingRule))
         return self[safe: averageIndex]
+    }
+}
+
+extension Collection where Index == Int {
+    func around(index: Index, distance: Index) -> SubSequence {
+        slice(safeRange: (index - distance) ... (index + distance))
     }
 }

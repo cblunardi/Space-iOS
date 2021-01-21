@@ -66,11 +66,6 @@ extension MainViewModel {
 
     private func receiveInitial(entries: [EPICImage]) {
         state.value.receive(entries: entries)
-
-        entries
-            .around(index: entries.endIndex, distance: 3)
-            .compactMap { URL(string: $0.uri) }
-            .forEach(dependencies.imageService.prefetch(from:))
     }
 }
 
@@ -81,8 +76,12 @@ extension MainViewModel {
         coordinator.showCatalog(model: .init(entries: model,
                                              selectedEntry: state.value.currentEntry))
             .selectedItem
-            .sink { [weak self] in self?.state.value.currentEntry = $0 }
+            .sink { [weak self] in self?.didSelect(entry: $0) }
             .store(in: &subscriptions)
+    }
+
+    private func didSelect(entry: EPICImage) {
+        state.value.select(entry)
     }
 }
 

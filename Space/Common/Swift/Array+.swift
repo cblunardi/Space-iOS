@@ -12,12 +12,6 @@ extension Array {
     }
 }
 
-extension Array where Element: Equatable {
-    func around(index: Index, distance: Int) -> ArraySlice<Element> {
-        slice(safeRange: (index - distance) ..< (index + distance))
-    }
-}
-
 extension Array where Element: Hashable {
     func unique() -> Array<Element> {
         var existence: Set<Element> = .init()

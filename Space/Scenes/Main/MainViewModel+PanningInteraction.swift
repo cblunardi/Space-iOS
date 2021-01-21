@@ -5,31 +5,27 @@ extension MainViewModel {
     func didRecognize(relativeTranslation: Double) {
         assert((-1...1).contains(relativeTranslation))
 
+        let state = self.state.value
+
         guard
-            let currentImageDate = state.value.currentEntry?.date,
+            let index = state.currentIndex ?? state.panningIndex,
+            let currentImageDate = state.currentEntry?.date,
             let targetDate = currentImageDate.advanced(by: relativeTranslation * 12),
-            let bestEntryMatch = state.value.entries.availableValue?.entryClosest(to: targetDate)
+            let bestMatchIndex = state.entries.availableValue?.closestIndex(to: targetDate,
+                                                                            indexHint: index)
         else {
             return
         }
 
-        guard state.value.panningEntry != bestEntryMatch else { return }
-        state.value.panningEntry = bestEntryMatch
+        guard state.panningIndex != bestMatchIndex else { return }
+        self.state.value.panningIndex = bestMatchIndex
 
-        guard
-            let entries = state.value.entries.availableValue,
-            let index = entries.firstIndex(of: bestEntryMatch) else {
-            return
-        }
-
-        entries.around(index: index, distance: 5)
-            .compactMap { URL(string: $0.uri) }
-            .forEach(dependencies.imageService.prefetch(from:))
+        self.state.value.prefetch(index: bestMatchIndex, distance: 5)
     }
 
     func didFinishPanning() {
-        state.value.currentEntry = state.value.panningEntry
-        state.value.panningEntry = .none
+        state.value.currentIndex = state.value.panningIndex
+        state.value.panningIndex = .none
     }
 }
 
@@ -53,10 +49,16 @@ private extension Date {
 }
 
 private extension Array where Element == EPICImage {
-    func entryClosest(to date: Date) -> EPICImage? {
-        self.min(by: {
-            abs($0.date.timeIntervalSince(date))
-                < abs($1.date.timeIntervalSince(date))
-        })
+    private var searchDistance: Int { 12 }
+
+    func closestIndex(to date: Date, indexHint: Index) -> Int? {
+        around(index: indexHint, distance: searchDistance)
+            .enumerated()
+            .min(by: { nearest($0.element, $1.element, to: date) })
+            .map { Swift.max(startIndex, indexHint - searchDistance) + $0.offset }
+    }
+
+    private func nearest(_ lhs: EPICImage, _ rhs: EPICImage, to date: Date) -> Bool {
+        abs(lhs.date.timeIntervalSince(date)) < abs(rhs.date.timeIntervalSince(date))
     }
 }
