@@ -6,6 +6,13 @@ extension Future {
                               on context: Context)
     where Context: Scheduler
     {
+        self.init(execute: execute, on: context)
+    }
+
+    convenience init<Context>(execute: @escaping () -> Output,
+                              on context: Context)
+    where Context: Scheduler
+    {
         self.init { promise in
             context.schedule {
                 promise(.success(execute()))

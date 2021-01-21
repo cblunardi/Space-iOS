@@ -6,6 +6,7 @@ protocol CatalogViewModelInterface {
 }
 
 final class CatalogViewModel: ViewModel {
+    private let yearFormatter: DateFormatter = Formatters.yearFormatter
     private let workingQueue: DispatchQueue = .global(qos: .userInitiated)
 
     private let stateSubject: CurrentValueSubject<Loadable<State, Never>, Never> = .init(.reset)
@@ -49,16 +50,9 @@ extension CatalogViewModel {
 
     var snapshot: AnyPublisher<SnapshotAdapter, Never> {
         stateSubject
-            .receive(on: workingQueue)
+            .receive(on: DispatchQueue.diffing)
             .compactMap { $0.availableValue }
             .compactMap { [weak self] in self?.snapshotAdapter(from: $0) }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
-
-    var loading: AnyPublisher<Bool, Never> {
-        stateSubject
-            .map(\.loading)
             .eraseToAnyPublisher()
     }
 

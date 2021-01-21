@@ -125,6 +125,7 @@
 		B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */; };
 		B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1525A523E70016CDC6 /* ImageService.swift */; };
 		B8E7FF2125A527DE0016CDC6 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */; };
+		B8EAD01825B9E5DB007EE441 /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EAD01725B9E5DB007EE441 /* DispatchQueue+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +262,7 @@
 		B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+PanningInteraction.swift"; sourceTree = "<group>"; };
 		B8E7FF1525A523E70016CDC6 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
+		B8EAD01725B9E5DB007EE441 /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,6 +607,7 @@
 		B8C1585D25AA01C8003F40CF /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				B8EAD01725B9E5DB007EE441 /* DispatchQueue+.swift */,
 				B8C1585E25AA01D4003F40CF /* URL+.swift */,
 			);
 			path = Foundation;
@@ -1050,6 +1053,7 @@
 				B83144FB259CB50D0075D898 /* Dependencies.swift in Sources */,
 				B8E7FE8E25A3E6390016CDC6 /* CGPoint+.swift in Sources */,
 				B8C158F425ACDEBE003F40CF /* MonthCatalogCoordinator.swift in Sources */,
+				B8EAD01825B9E5DB007EE441 /* DispatchQueue+.swift in Sources */,
 				B8E7FF0225A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift in Sources */,
 				B831455C259D057B0075D898 /* CustomLocalisedError.swift in Sources */,
 				B8E2C67425B073AC00F87D0E /* DateCatalog.swift in Sources */,
