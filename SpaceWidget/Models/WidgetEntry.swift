@@ -40,8 +40,7 @@ private extension String {
     static func title(date: Date, family: WidgetFamily) -> String {
         let formatter: DateFormatter
         switch family {
-        case .systemSmall: formatter = Formatters.shortFormatter
-        case .systemMedium: formatter = Formatters.mediumFormatter
+        case .systemSmall, .systemMedium: formatter = Formatters.mediumFormatter
         case .systemLarge: formatter = Formatters.longFormatter
         @unknown default: formatter = Formatters.mediumFormatter
         }
