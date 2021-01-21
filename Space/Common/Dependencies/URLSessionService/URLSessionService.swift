@@ -23,6 +23,7 @@ final class URLSessionService: URLSessionServiceProtocol {
 
         return session
             .dataTaskPublisher(for: decoratedRequest)
+            .retry(3)
             .eraseToAnyPublisher()
     }
 }
@@ -32,8 +33,9 @@ private extension URLSession {
         let configuration: URLSessionConfiguration = .default
         configuration.requestCachePolicy = .useProtocolCachePolicy
         configuration.waitsForConnectivity = true
-        configuration.httpMaximumConnectionsPerHost = 8
         configuration.httpShouldUsePipelining = true
+        configuration.networkServiceType = .responsiveData
+        configuration.timeoutIntervalForResource = 30.0
         configuration.urlCache = .init(memoryCapacity: 32 * .mega,
                                        diskCapacity: 8 * .giga)
         return URLSession(configuration: configuration)
