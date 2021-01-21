@@ -90,7 +90,7 @@ extension CatalogViewModel {
             .map { state.catalog.years[$0.year].months[$0.month].days[$0.day] }
 
         for year in state.catalog.years {
-            guard let yearDate = year.localizedDate else { continue }
+            let yearDate = yearFormatter.string(from: year.date)
 
             let items: [CatalogMonthViewModel] = year.months
                 .map { .init(month: $0, selectedDay: selectedDay) }

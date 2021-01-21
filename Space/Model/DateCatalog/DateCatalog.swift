@@ -6,28 +6,52 @@ struct DateCatalog<Model> where Model: Hashable {
 
 extension DateCatalog {
     struct Year: Hashable {
-        let components: DateComponents
+        let dateComponents: DateComponents
+        let date: Date
+
         let months: [Month]
+
+        func hash(into hasher: inout Hasher) {
+            dateComponents.hash(into: &hasher)
+        }
     }
 }
 
 extension DateCatalog {
     struct Month: Hashable {
-        let components: DateComponents
+        let dateComponents: DateComponents
+        let date: Date
+
         let days: [Day]
+
+        func hash(into hasher: inout Hasher) {
+            dateComponents.hash(into: &hasher)
+        }
     }
 }
 
 extension DateCatalog {
     struct Day: Hashable {
-        let components: DateComponents
+        let dateComponents: DateComponents
+        let date: Date
+
         let entries: [Entry]
+
+        func hash(into hasher: inout Hasher) {
+            dateComponents.hash(into: &hasher)
+        }
     }
 }
 
 extension DateCatalog {
     struct Entry: Hashable {
+        let dateComponents: DateComponents
         let date: Date
+
         let model: Model
+
+        func hash(into hasher: inout Hasher) {
+            dateComponents.hash(into: &hasher)
+        }
     }
 }

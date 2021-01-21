@@ -6,6 +6,8 @@ protocol MonthCatalogViewModelInterface {
 }
 
 final class MonthCatalogViewModel: ViewModel {
+    private let yearFormatter: DateFormatter = Formatters.yearFormatter
+    private let monthFormatter: DateFormatter = Formatters.longMonthFormatter
     private let selectedItemSubject: PassthroughSubject<EPICImage, Never> = .init()
 
     let coordinator: MonthCatalogCoordinatorProtocol
@@ -44,12 +46,14 @@ extension MonthCatalogViewModel {
         let selectedIndex: IndexPath?
     }
 
-    var snapshot: SnapshotAdapter {
-        snapshotAdapter(from: model)
+    var snapshot: AnyPublisher<SnapshotAdapter, Never> {
+        Future(execute: { [unowned self] in self.snapshotAdapter(from: self.model) },
+               on: DispatchQueue.diffing)
+            .eraseToAnyPublisher()
     }
 
     var title: String? {
-        model.focusedYear.localizedDate
+        yearFormatter.string(from: model.focusedYear.date)
     }
 
     func supplementaryViewViewModel(of kind: String,
@@ -73,14 +77,10 @@ extension MonthCatalogViewModel {
             .focusedYear
             .months
             .firstIndex(of: model.focused)
-            .map { IndexPath(row: model.focused.dayNumbers?.median() ?? .zero, section: $0) }
+            .map { IndexPath(row: model.focused.daysRange?.median() ?? .zero, section: $0) }
 
         for month in model.focusedYear.months {
-            guard
-                let section = month.date
-                    .flatMap(Formatters.longMonthFormatter.string(from:))
-                    .map(Section.init(date:))
-            else { continue }
+            let section = Section(date: monthFormatter.string(from: month.date))
 
             let entries: [CatalogDayViewModel] = items(for: month,
                                                        selectedDay: selectedDay)
@@ -110,16 +110,25 @@ private extension MonthCatalogViewModel {
                selectedDay: DateCatalog<EPICImage>.Day?)
     -> [CatalogDayViewModel]
     {
-        let firstWeekdayIndex = month.firstWeekdayIndex
-
-        return (0 ..< (7 * 5))
+        (0 ..< (month.weeksRange?.count ?? 7))
+            .mapped(by: 7)
             .map { index in
-                let dayNumber = index - firstWeekdayIndex + 1
-                let day = month.days.first(where: { $0.components.day == dayNumber })
-                return CatalogDayViewModel(model: .init(month: month,
-                                                        day: day,
-                                                        index: index,
-                                                        selectedDay: selectedDay))
+                .init(model: .init(month: month,
+                                   day: month.day(from: index),
+                                   index: index,
+                                   selectedDay: selectedDay))
             }
+    }
+}
+
+private extension Range where Bound: AdditiveArithmetic {
+    func offset(by amount: Bound) -> Self {
+        lowerBound + amount ..< upperBound + amount
+    }
+}
+
+private extension Range where Bound: Numeric {
+    func mapped(by amount: Bound) -> Self {
+        lowerBound * amount ..< upperBound * amount
     }
 }

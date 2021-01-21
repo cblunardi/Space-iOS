@@ -24,13 +24,17 @@ final class MonthCatalogViewController: UIViewController, ViewModelOwner, Storyb
 
         title = viewModel.title
 
-        let adapter = viewModel.snapshot
-        dataSource.apply(adapter.snapshot)
+        viewModel.snapshot
+            .sink { [weak self] adapter in
+                self?.dataSource.apply(adapter.snapshot)
 
-        guard let indexPath = adapter.selectedIndex else { return }
-        collectionView.scrollToItem(at: indexPath,
-                                    at: .centeredVertically,
-                                    animated: false)
+                guard let indexPath = adapter.selectedIndex else { return }
+                RunLoop.main.perform {
+                    self?.collectionView.scrollToItem(at: indexPath,
+                                                      at: .centeredVertically,
+                                                      animated: false)
+                }
+            }.store(in: &subscriptions)
     }
 }
 
@@ -108,7 +112,6 @@ private extension UICollectionViewCompositionalLayout {
                                                       heightDimension: .estimated(75))
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
                                                          subitems: [item])
-        group.contentInsets = .init(top: 4, leading: 4, bottom:4, trailing: 4)
 
         let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(50))
@@ -117,6 +120,7 @@ private extension UICollectionViewCompositionalLayout {
                                                                         alignment: .topLeading)
 
         let section: NSCollectionLayoutSection = .init(group: group)
+        section.interGroupSpacing = 4.0
         section.boundarySupplementaryItems = [header]
         section.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 

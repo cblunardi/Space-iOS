@@ -3,6 +3,8 @@ import Foundation
 import UIKit
 
 struct CatalogDayViewModel: ViewModel, Identifiable, Hashable {
+    let formatter: DateFormatter = Formatters.dayFormatter
+
     let model: Model
 }
 
@@ -22,7 +24,7 @@ extension CatalogDayViewModel {
     }
 
     var text: String? {
-        model.day?.localizedDate
+        model.day.flatMap { formatter.string(from: $0.date) }
     }
 
     var image: UIImage? {

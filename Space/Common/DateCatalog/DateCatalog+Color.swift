@@ -1,34 +1,24 @@
 import UIKit
 
 extension DateCatalog.Month {
-    var dayNumbers: Range<Int>? {
-        guard
-            let calendar = components.calendar,
-            let date = date
-        else {
-            return nil
-        }
+    var weeksRange: Range<Int>? {
+        Formatters.calendar.range(of: .weekOfMonth, in: .month, for: date)
+    }
 
-        return calendar.range(of: .day, in: .month, for: date)
+    var daysRange: Range<Int>? {
+        Formatters.calendar.range(of: .day, in: .month, for: date)
     }
 
     var firstWeekdayIndex: Int {
-        guard
-            let date = self.date,
-            let firstWeekDay = components.calendar?.component(.weekday, from: date)
-        else {
-            return .zero
-        }
-
-        return firstWeekDay - 1
+        Formatters.calendar.component(.weekday, from: date) - 1
     }
 
     func isDayIndexValid(_ dayIndex: Int) -> Bool {
-        dayNumbers?.contains(dayNumber(from: dayIndex)) == true
+        daysRange?.contains(dayNumber(from: dayIndex)) == true
     }
 
     func day(from dayIndex: Int) -> DateCatalog.Day? {
-        days.first(where: { $0.components.day == dayNumber(from: dayIndex) })
+        days.first(where: { $0.dateComponents.day == dayNumber(from: dayIndex) })
     }
 
     func color(for dayIndex: Int, selectedDay: DateCatalog.Day? = .none) -> UIColor {
@@ -50,6 +40,6 @@ extension DateCatalog.Month {
 
 private extension DateCatalog.Month {
     func dayNumber(from dayIndex: Int) -> Int {
-        dayIndex - firstWeekdayIndex + 1
+        2 + dayIndex - firstWeekdayIndex
     }
 }

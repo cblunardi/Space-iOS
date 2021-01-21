@@ -4,6 +4,8 @@ import UIKit
 final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
     static let reuseIdentifier = "CatalogMonthCell"
 
+    private static let roundedMaskLayer: CALayer = makeRoundedMaskLayer()
+
     var viewModel: CatalogMonthViewModel!
 
     @IBOutlet private var containerView: UIView!
@@ -18,17 +20,9 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        let maskedLayer = Self.roundedMaskLayer
         items.forEach {
-            $0.clipsToBounds = true
-            $0.backgroundColor = .clear
-        }
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        items.forEach {
-            $0.layer.cornerRadius = $0.frame.width / 2
+            $0.layer.mask = maskedLayer
         }
     }
 
@@ -40,5 +34,15 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
         items
             .enumerated()
             .forEach { $0.element.backgroundColor = viewModel.color(for: $0.offset) }
+    }
+}
+
+private extension CatalogMonthCell {
+    static func makeRoundedMaskLayer() -> CAShapeLayer {
+        let layer: CAShapeLayer = .init()
+        layer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 1, height: 1)).cgPath
+        layer.fillColor = UIColor.white.cgColor
+        layer.backgroundColor = UIColor.clear.cgColor
+        return layer
     }
 }
