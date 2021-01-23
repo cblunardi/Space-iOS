@@ -10,18 +10,6 @@ final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
     @IBOutlet private var label: UILabel!
     @IBOutlet private var imageView: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        containerView.clipsToBounds = true
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        containerView.layer.cornerRadius = frame.width / 2
-    }
-
     func bind(viewModel: CatalogDayViewModel) {
         self.viewModel = viewModel
 
