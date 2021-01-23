@@ -126,6 +126,7 @@
 		B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF1525A523E70016CDC6 /* ImageService.swift */; };
 		B8E7FF2125A527DE0016CDC6 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */; };
 		B8EAD01825B9E5DB007EE441 /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EAD01725B9E5DB007EE441 /* DispatchQueue+.swift */; };
+		B8EAD1EB25BB00F7007EE441 /* UIImage+Transparency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EAD1EA25BB00F7007EE441 /* UIImage+Transparency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +264,7 @@
 		B8E7FF1525A523E70016CDC6 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		B8E7FF2025A527DE0016CDC6 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
 		B8EAD01725B9E5DB007EE441 /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
+		B8EAD1EA25BB00F7007EE441 /* UIImage+Transparency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Transparency.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -822,6 +824,7 @@
 		B8E7FE7325A3B12D0016CDC6 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B8EAD1EA25BB00F7007EE441 /* UIImage+Transparency.swift */,
 				B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */,
 				B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */,
 				B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */,
@@ -1046,6 +1049,7 @@
 				B8E2C67E25B0768200F87D0E /* DateCatalog+EPIC.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E2C68625B07EFB00F87D0E /* Future+.swift in Sources */,
+				B8EAD1EB25BB00F7007EE441 /* UIImage+Transparency.swift in Sources */,
 				B8E7FE7725A3B1C20016CDC6 /* AppCoordinator.swift in Sources */,
 				B83144EE259CA7A80075D898 /* StoryboardLoadable.swift in Sources */,
 				B8C158AD25AC8D18003F40CF /* UIConstants.swift in Sources */,
