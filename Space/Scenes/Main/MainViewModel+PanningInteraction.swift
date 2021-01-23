@@ -20,7 +20,7 @@ extension MainViewModel {
         guard state.panningIndex != bestMatchIndex else { return }
         self.state.value.panningIndex = bestMatchIndex
 
-        self.state.value.prefetch(index: bestMatchIndex, distance: 5)
+        self.state.value.prefetch(index: bestMatchIndex, distance: 7)
     }
 
     func didFinishPanning() {

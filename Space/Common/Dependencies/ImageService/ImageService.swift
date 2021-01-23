@@ -110,7 +110,7 @@ fileprivate final class Request {
 
 private extension ImageService {
     func cacheRequest(_ request: Request, with key: URL) {
-        requestCache.setObject(request, forKey: key as NSURL, cost: 2048 * 2048 * 4 * 2)
+        requestCache.setObject(request, forKey: key as NSURL, cost: 2048 * 2048 * 4)
     }
 
     func cachedRequest(with key: URL) -> Request? {
@@ -125,8 +125,8 @@ private extension ImageService {
 private extension NSCache where KeyType == NSURL, ObjectType == Request {
     static func configured() -> NSCache<NSURL, Request> {
         let cache: NSCache<NSURL, Request> = .init()
-        cache.totalCostLimit = 1 * .giga
-        cache.countLimit = 50
+        cache.totalCostLimit = 512 * .mega
+        cache.countLimit = 100
         return cache
     }
 }

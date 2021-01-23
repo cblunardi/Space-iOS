@@ -5,6 +5,8 @@ protocol SpaceServiceProtocol {
     func retrieveAll() -> AnyPublisher<[EPICImage], Error>
     func retrieveLatest() -> AnyPublisher<EPICImage, Error>
     func retrievePage(_ request: PageRequest) -> AnyPublisher<PageResponse<EPICImage>, Error>
+
+    func imageURL(for name: String) -> URL?
 }
 
 final class SpaceService: SpaceServiceProtocol {
@@ -34,6 +36,12 @@ final class SpaceService: SpaceServiceProtocol {
     func retrievePage(_ request: PageRequest) -> AnyPublisher<PageResponse<EPICImage>, Swift.Error> {
         retrieve(query: request.asQueryItems,
                  path: "/epic")
+    }
+
+    func imageURL(for name: String) -> URL? {
+        components
+            .setting(\.path, to: "/epic/preview/" + name + ".jpg")
+            .url
     }
 }
 

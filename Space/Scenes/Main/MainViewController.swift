@@ -19,6 +19,10 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
 
     private(set) lazy var loadingView: AnimationView = makeLoadingView(in: view)
 
+    override var prefersStatusBarHidden: Bool {
+        scrollView.isZooming
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -51,12 +55,13 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
 
         viewModel.currentImage
             .combineLatest(publisher(for: \.view.frame))
-            .map { image, frame -> CGFloat in
-                let imageSize = image?.size ?? .init(width: 1, height: 1)
-                let imageHeight = frame.width / imageSize.aspectRatio
-                return (frame.height - imageHeight) / 2.0
+            .map { image, frame -> UIEdgeInsets in
+                let imageSize: CGSize = image?.size ?? .init(width: 1, height: 1)
+                let imageHeight: CGFloat = frame.width / imageSize.aspectRatio
+                let inset: CGFloat = (frame.height - imageHeight) / 2.0
+                return .init(top: inset,  left: .zero,  bottom: inset,  right: .zero)
             }
-            .assignWeakly(to: \.scrollView.contentInset.top, on: self)
+            .assignWeakly(to: \.scrollView.contentInset, on: self)
             .store(in: &subscriptions)
 
         viewModel.currentTitle
@@ -137,6 +142,7 @@ extension MainViewController: UIScrollViewDelegate {
             self.subtitleLabel.alpha = isZoomed ? 0 : 1
             self.catalogButton.alpha = isZoomed ? 0 : 1
             self.catalogButton.isUserInteractionEnabled = isZoomed == false
+            self.setNeedsStatusBarAppearanceUpdate()
         }
     }
 }
