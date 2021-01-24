@@ -11,6 +11,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         window.tintColor = Colors.accent
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Colors.accent]
 
         appCoordinator.start(in: window)
     }
