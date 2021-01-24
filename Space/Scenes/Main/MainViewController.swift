@@ -16,11 +16,15 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var catalogButton: UIButton!
+    @IBOutlet private var hintLabel: UILabel!
+
+    private lazy var scrollViewZooming: CurrentValueSubject<Bool, Never> =
+        .init(scrollView.isZooming)
 
     private(set) lazy var loadingView: AnimationView = makeLoadingView(in: view)
 
     override var prefersStatusBarHidden: Bool {
-        scrollView.isZooming
+        scrollViewZooming.value
     }
 
     override func viewDidLoad() {
@@ -30,8 +34,6 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     }
 
     func bind(viewModel: MainViewModel) {
-        subscriptions.removeAll()
-
         viewModel
             .currentImage
             .assignWeakly(to: \.image,
@@ -77,15 +79,44 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
+        viewModel.hintLabelVisible
+            .combineLatest(scrollViewZooming)
+            .map { visible, zooming in visible && (zooming == false) }
+            .map { $0 ? 1.0 : 0.0 }
+            .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
         viewModel.load()
     }
 }
 
 private extension MainViewController {
     func configure() {
-        titleLabel.text = .none
-        subtitleLabel.text = .none
         scrollView.delegate = self
+
+        scrollViewZooming
+            .map { $0 ? 0.0 : 1.0 }
+            .assignWeakly(to: \.alpha, on: titleLabel, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
+        scrollViewZooming
+            .map { $0 ? 0.0 : 1.0 }
+            .assignWeakly(to: \.alpha, on: subtitleLabel, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
+        scrollViewZooming
+            .map { $0 ? 0.0 : 1.0 }
+            .assignWeakly(to: \.alpha, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
+        scrollViewZooming
+            .map(!)
+            .assignWeakly(to: \.isEnabled, on: panGestureRecognizer)
+            .store(in: &subscriptions)
+
+        scrollViewZooming
+            .sink { [weak self] _ in self?.setNeedsStatusBarAppearanceUpdate() }
+            .store(in: &subscriptions)
     }
 
     @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
@@ -101,6 +132,7 @@ private extension MainViewController {
                                                 size: self.scrollView.frame.size)
 
             self.scrollView.setZoomScale(zoomScale, animated: false)
+            self.scrollViewDidZoom(self.scrollView)
 
             guard zoomScale != self.scrollView.minimumZoomScale else { return }
             self.scrollView.scrollRectToVisible(zoomedViewPort, animated: false)
@@ -135,14 +167,8 @@ extension MainViewController: UIScrollViewDelegate {
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         let isZoomed = scrollView.zoomScale != scrollView.minimumZoomScale
-        panGestureRecognizer.isEnabled = isZoomed == false
 
-        UIView.animate(withDuration: UIC.Anims.imageTransitionDuration) {
-            self.titleLabel.alpha = isZoomed ? 0 : 1
-            self.subtitleLabel.alpha = isZoomed ? 0 : 1
-            self.catalogButton.alpha = isZoomed ? 0 : 1
-            self.catalogButton.isUserInteractionEnabled = isZoomed == false
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
+        guard scrollViewZooming.value != isZoomed else { return }
+        scrollViewZooming.send(isZoomed)
     }
 }

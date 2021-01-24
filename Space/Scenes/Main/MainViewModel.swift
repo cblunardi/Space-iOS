@@ -3,8 +3,8 @@ import Foundation
 import UIKit
 
 final class MainViewModel: ViewModel {
-    private lazy var dateFormatter: DateFormatter = Formatters.buildDateFormatter()
-    private lazy var timeFormatter: DateFormatter = Formatters.buildTimeFormatter()
+    private lazy var dateFormatter: DateFormatter = Formatters.dateFormatter
+    private lazy var timeFormatter: DateFormatter = Formatters.timeFormatter
 
     let coordinator: MainCoordinatorProtocol
 
@@ -45,6 +45,24 @@ extension MainViewModel {
     var catalogButtonVisible: AnyPublisher<Bool, Never> {
         state
             .map { $0.isLoading == false }
+            .eraseToAnyPublisher()
+    }
+
+    var hintLabelVisible: AnyPublisher<Bool, Never> {
+        let hasImage = currentImage
+            .map { $0 != nil }
+            .filter { $0 }
+            .first()
+
+        let enable = hasImage
+            .map { _ in true }
+            .delay(for: .seconds(1), scheduler: RunLoop.main)
+
+        let disable = hasImage
+            .map { _ in false }
+            .delay(for: .seconds(5), scheduler: RunLoop.main)
+
+        return Publishers.Merge3(Just(false), enable, disable)
             .eraseToAnyPublisher()
     }
 }
