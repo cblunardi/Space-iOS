@@ -13,4 +13,3 @@ struct PageRequest {
     let page: Int
     let per: Int
 }
-

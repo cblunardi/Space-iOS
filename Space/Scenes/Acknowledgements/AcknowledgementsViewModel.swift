@@ -10,14 +10,14 @@ final class AcknowledgementsViewModel: ViewModel {
 private extension AcknowledgementsViewModel {
     var nasa: String {
         """
-        NASA, for granting free and open usage of the NASA Open APIs.
+        \(Localized.acknowledgementsNasa())
         https://api.nasa.gov
         """
     }
 
     var epic: String {
         """
-        NASA, NOAA and NASA ASDC for granting free and open usage of EPIC onboard NOAA's DSCOVR spacecraft.
+        \(Localized.acknowledgementsEpic())
         https://epic.gsfc.nasa.gov/about
         https://epic.gsfc.nasa.gov/about/epic
         https://www.nesdis.noaa.gov/content/dscovr-deep-space-climate-observatory
@@ -26,28 +26,28 @@ private extension AcknowledgementsViewModel {
 
     var vapor: String {
         """
-        The Open Source Community for Vapor, a Web Framework for Swift.
+        \(Localized.acknowledgementsVapor())
         http://github.com/vapor/vapor
         """
     }
 
     var lottie: String {
         """
-        AirBnB for Lottie, a native animation renderer.
+        \(Localized.acknowledgementsLottie())
         https://github.com/airbnb/lottie-ios
         """
     }
 
     var animation: String {
         """
-        Wan Souza, for the amazing Earth-Moon Loading Animation.
+        \(Localized.acknowledgementsAnimation())
         https://lottiefiles.com/44415-orbit-loader-flat
         """
     }
 
     var logo: String {
         """
-        Photo3idea_studio and FlatIcon, for the amazing App Icon
+        \(Localized.acknowledgementsLogo())
         https://www.flaticon.com/authors/photo3idea-studio
         """
     }

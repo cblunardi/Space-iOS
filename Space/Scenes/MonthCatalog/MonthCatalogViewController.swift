@@ -43,8 +43,8 @@ private extension MonthCatalogViewController {
     func makeDataSource() -> DataSource {
         let dataSource: DataSource = .init(collectionView: collectionView) { collection, indexPath, item in
             let cell = collection
-                .dequeueReusableCell(withReuseIdentifier: CatalogDayCell.reuseIdentifier,
-                                     for: indexPath) as? CatalogDayCell
+                .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.catalogDayCell,
+                                     for: indexPath)
             cell?.bind(viewModel: item)
             return cell
         }
@@ -73,10 +73,9 @@ private extension MonthCatalogViewController {
     }
 
     func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CatalogDayCell", bundle: .main),
-                                forCellWithReuseIdentifier: CatalogDayCell.reuseIdentifier)
+        collectionView.register(R.nib.catalogDayCell)
 
-        collectionView.register(UINib(nibName: "TitleHeaderView", bundle: .main),
+        collectionView.register(UINib(resource: R.nib.titleHeaderView),
                                 forSupplementaryViewOfKind: "Header",
                                 withReuseIdentifier: TitleHeaderView.reuseIdentifier)
 

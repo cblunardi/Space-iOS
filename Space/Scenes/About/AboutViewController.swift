@@ -28,32 +28,32 @@ private extension AboutViewController {
     func configure() {
         setupCloseButton()
 
-        collectionView.register(UINib(nibName: "AboutHeaderCell",
-                                      bundle: .main),
-                                forCellWithReuseIdentifier: AboutHeaderCell.reuseIdentifier)
+        collectionView.register(R.nib.aboutHeaderCell)
 
         collectionView.dataSource = dataSource
         collectionView.delegate = self
-        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: .init(appearance: .insetGrouped))
+
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout
+            .list(using: .init(appearance: .insetGrouped))
     }
 
     func configuredDataSource() -> DataSource {
         let optionRegistration = makeOptionRegistration()
         let footerRegistration = makeFooterRegistration()
 
-        let dataSource: DataSource = .init(collectionView: collectionView) { (cV, indexPath, item) -> UICollectionViewCell? in
+        let dataSource: DataSource = .init(collectionView: collectionView) { (collectionView, indexPath, item) in
             switch item {
             case .header:
-                return cV
-                    .dequeueReusableCell(withReuseIdentifier: AboutHeaderCell.reuseIdentifier,
+                return collectionView
+                    .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.aboutHeaderCell,
                                          for: indexPath)
             case let .option(option):
-                return cV
+                return collectionView
                     .dequeueConfiguredReusableCell(using: optionRegistration,
                                                    for: indexPath,
                                                    item: option)
             case let .footer(footer):
-                return cV
+                return collectionView
                     .dequeueConfiguredReusableCell(using: footerRegistration,
                                                    for: indexPath,
                                                    item: footer)
@@ -66,7 +66,7 @@ private extension AboutViewController {
     private func makeOptionRegistration()
     -> UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Option>
     {
-        .init { (cell, indexPath, item) in
+        .init { (cell, _, item) in
             var content = cell.defaultContentConfiguration()
             content.textProperties.color = Colors.palette2
             content.text = item.title
@@ -78,13 +78,12 @@ private extension AboutViewController {
     private func makeFooterRegistration()
     -> UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Footer>
     {
-        .init { (cell, indexPath, item) in
+        .init { (cell, _, item) in
             var content = cell.defaultContentConfiguration()
             content.textProperties.color = Colors.palette2
             content.text = item.text
             content.image = item.image
             cell.contentConfiguration = content
-//            cell.backgroundConfiguration = UIBackgroundConfiguration.clear()
         }
     }
 }

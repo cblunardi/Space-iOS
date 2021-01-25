@@ -35,6 +35,34 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     }
 
     func bind(viewModel: MainViewModel) {
+        bindImage(viewModel: viewModel)
+
+        viewModel.currentTitle
+            .assignWeakly(to: \.titleLabel.text, on: self)
+            .store(in: &subscriptions)
+
+        viewModel.currentSubtitle
+            .assignWeakly(to: \.subtitleLabel.text, on: self)
+            .store(in: &subscriptions)
+
+        viewModel.catalogButtonVisible
+            .map(!)
+            .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
+        viewModel.hintLabelVisible
+            .combineLatest(scrollViewZooming)
+            .map { visible, zooming in visible && (zooming == false) }
+            .map { $0 ? 1.0 : 0.0 }
+            .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.imageTransitionDuration)
+            .store(in: &subscriptions)
+
+        hintLabel.text = viewModel.hintLabelTitle
+
+        viewModel.load()
+    }
+
+    private func bindImage(viewModel: MainViewModel) {
         viewModel
             .currentImage
             .assignWeakly(to: \.image,
@@ -62,32 +90,10 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
                 let imageSize: CGSize = image?.size ?? .init(width: 1, height: 1)
                 let imageHeight: CGFloat = frame.width / imageSize.aspectRatio
                 let inset: CGFloat = (frame.height - imageHeight) / 2.0
-                return .init(top: inset,  left: .zero,  bottom: inset,  right: .zero)
+                return .init(top: inset, left: .zero, bottom: inset, right: .zero)
             }
             .assignWeakly(to: \.scrollView.contentInset, on: self)
             .store(in: &subscriptions)
-
-        viewModel.currentTitle
-            .assignWeakly(to: \.titleLabel.text, on: self)
-            .store(in: &subscriptions)
-
-        viewModel.currentSubtitle
-            .assignWeakly(to: \.subtitleLabel.text, on: self)
-            .store(in: &subscriptions)
-
-        viewModel.catalogButtonVisible
-            .map(!)
-            .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
-            .store(in: &subscriptions)
-
-        viewModel.hintLabelVisible
-            .combineLatest(scrollViewZooming)
-            .map { visible, zooming in visible && (zooming == false) }
-            .map { $0 ? 1.0 : 0.0 }
-            .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.imageTransitionDuration)
-            .store(in: &subscriptions)
-
-        viewModel.load()
     }
 }
 
@@ -136,7 +142,7 @@ private extension MainViewController {
         let panTranslation = panGestureRecognizer.translation(in: mainImageView).x
         guard panTranslation.isFinite else { return }
 
-        viewModel.didRecognize(relativeTranslation: Double(panTranslation / mainImageView.frame.width)) 
+        viewModel.didRecognize(relativeTranslation: Double(panTranslation / mainImageView.frame.width))
 
         guard panGestureRecognizer.state == .ended else { return }
         viewModel.didFinishPanning()

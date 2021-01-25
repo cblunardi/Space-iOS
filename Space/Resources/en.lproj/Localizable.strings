@@ -1,0 +1,25 @@
+// MARK: - Main Scene
+"main-hint-text" = "Swipe left or right to rotate";
+
+// MARK: - About Scene
+"about-title" = "About";
+
+"about-option-dscovr-title" = "About DSCOVR";
+"about-option-epic-title" = "About EPIC";
+"about-option-acknowledgements-title" = "Acknowledgements";
+
+"about-footer-open-source-title" = "Space is build with Swift and is available open-source";
+"about-footer-author-title" = "This is a hobby project maintened by Caio Brigagão Lunardi";
+
+// MARK: - Acknowledgements Scene
+"acknowledgements-title" = "Acknowledgements";
+
+"acknowledgements-nasa" = "NASA, for granting free and open usage of the NASA Open APIs.";
+"acknowledgements-epic" = "NASA, NOAA and NASA ASDC for granting free and open usage of EPIC onboard NOAA's DSCOVR spacecraft.";
+"acknowledgements-vapor" = "The Open Source Community for Vapor, a Web Framework for Swift.";
+"acknowledgements-lottie" = "AirBnB for Lottie, a native animation renderer.";
+"acknowledgements-animation" = "Wan Souza, for the amazing Earth-Moon Loading Animation.";
+"acknowledgements-logo" = "Photo3idea_studio and FlatIcon, for the amazing App Icon";
+
+// MARK: - Catalog Scene
+"catalog-title" = "Catalog";
