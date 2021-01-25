@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4dP-ll-5ns">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="yzm-qs-nhl">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="4dP-ll-5ns" customClass="MainViewController" customModule="Space" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hpj-Z3-qKp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-sK-I05">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pER-iz-h7u">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pER-iz-h7u" secondAttribute="height" multiplier="1:1" id="aFz-ja-cZl"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="pER-iz-h7u" firstAttribute="trailing" secondItem="DzQ-CM-g2u" secondAttribute="trailing" id="7I6-SS-jXT"/>
+                                    <constraint firstItem="pER-iz-h7u" firstAttribute="leading" secondItem="DzQ-CM-g2u" secondAttribute="leading" id="96F-TU-dcL"/>
+                                    <constraint firstItem="pER-iz-h7u" firstAttribute="bottom" secondItem="DzQ-CM-g2u" secondAttribute="bottom" id="Lfz-eP-ePA"/>
+                                    <constraint firstItem="pER-iz-h7u" firstAttribute="top" secondItem="DzQ-CM-g2u" secondAttribute="top" id="PRE-g2-h7y"/>
+                                    <constraint firstItem="pER-iz-h7u" firstAttribute="width" secondItem="6Tn-sK-I05" secondAttribute="width" id="XMK-EP-gDO"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="DzQ-CM-g2u"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="5aB-AM-uDg"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="exe-tY-18h" appends="YES" id="WZ2-dA-mCd"/>
+                                    <outletCollection property="gestureRecognizers" destination="67D-4k-KA0" appends="YES" id="h0A-j3-GMY"/>
+                                </connections>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left or right to rotate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deN-Bt-USy">
+                                <rect key="frame" x="15" y="741.5" width="384" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="Palette-2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FUY-p5-B9n">
+                                <rect key="frame" x="15" y="59" width="384" height="57.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-BP-2FM">
+                                        <rect key="frame" x="0.0" y="9.5" width="40" height="39"/>
+                                        <state key="normal" image="info.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            </preferredSymbolConfiguration>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAboutPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="jvL-Wf-K3b"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
+                                        <rect key="frame" x="50" y="0.0" width="284" height="57.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th January, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3fR-pz-Bt3">
+                                                <rect key="frame" x="34.5" y="0.0" width="215" height="33.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:35:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="be0-cN-3aL">
+                                                <rect key="frame" x="104.5" y="33.5" width="75.5" height="24"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kl2-vl-NN8">
+                                        <rect key="frame" x="344" y="9.5" width="40" height="39"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="calendar.circle" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            </preferredSymbolConfiguration>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCatalogPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="ltT-Yy-Z9A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ROU-H0-vB9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tn-sK-I05" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leading" id="3vG-DP-QYc"/>
+                            <constraint firstAttribute="trailing" secondItem="6Tn-sK-I05" secondAttribute="trailing" id="OCm-Ol-s6R"/>
+                            <constraint firstAttribute="bottom" secondItem="6Tn-sK-I05" secondAttribute="bottom" id="Ofg-Sz-mZH"/>
+                            <constraint firstItem="6Tn-sK-I05" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="top" id="YNt-RF-qBu"/>
+                            <constraint firstItem="deN-Bt-USy" firstAttribute="leading" secondItem="ROU-H0-vB9" secondAttribute="leading" constant="15" id="Zm2-TM-v2h"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="bSO-lG-w9P"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="top" secondItem="ROU-H0-vB9" secondAttribute="top" constant="15" id="lel-O0-Fjw"/>
+                            <constraint firstItem="ROU-H0-vB9" firstAttribute="bottom" secondItem="deN-Bt-USy" secondAttribute="bottom" constant="100" id="rhg-se-WuR"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="leading" secondItem="ROU-H0-vB9" secondAttribute="leading" constant="15" id="wux-mF-NzS"/>
+                            <constraint firstItem="deN-Bt-USy" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="x48-gu-2yf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="catalogButton" destination="Kl2-vl-NN8" id="dAT-h1-Ly5"/>
+                        <outlet property="headerStackView" destination="FUY-p5-B9n" id="Z7S-GG-e2O"/>
+                        <outlet property="hintLabel" destination="deN-Bt-USy" id="kLR-oa-V7a"/>
+                        <outlet property="mainImageView" destination="pER-iz-h7u" id="cYe-rI-gwp"/>
+                        <outlet property="mainImageViewAspectConstraint" destination="aFz-ja-cZl" id="wf4-kj-Fvr"/>
+                        <outlet property="panGestureRecognizer" destination="67D-4k-KA0" id="X7P-py-wlj"/>
+                        <outlet property="scrollView" destination="6Tn-sK-I05" id="gmY-vE-Ts7"/>
+                        <outlet property="subtitleLabel" destination="be0-cN-3aL" id="Py5-gg-r9S"/>
+                        <outlet property="tapGestureRecognizer" destination="exe-tY-18h" id="C60-7F-37m"/>
+                        <outlet property="titleLabel" destination="3fR-pz-Bt3" id="siU-eY-Mjh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLR-9I-y8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="exe-tY-18h">
+                    <connections>
+                        <action selector="didRecognizeTapGesture:" destination="4dP-ll-5ns" id="O44-AE-pvx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="67D-4k-KA0">
+                    <connections>
+                        <action selector="didRecognizePanGesture:" destination="4dP-ll-5ns" id="gwa-YV-Wwt"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="224.63768115942031" y="130.58035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.17299999296665192" green="0.45100000500679016" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Palette-2">
+            <color red="0.39599999785423279" green="0.42699998617172241" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
