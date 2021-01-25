@@ -28,9 +28,7 @@ private extension AboutViewController {
     func configure() {
         setupCloseButton()
 
-        collectionView.register(UINib(nibName: "AboutHeaderCell",
-                                      bundle: .main),
-                                forCellWithReuseIdentifier: AboutHeaderCell.reuseIdentifier)
+        collectionView.register(R.nib.aboutHeaderCell)
 
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -47,7 +45,7 @@ private extension AboutViewController {
             switch item {
             case .header:
                 return collectionView
-                    .dequeueReusableCell(withReuseIdentifier: AboutHeaderCell.reuseIdentifier,
+                    .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.aboutHeaderCell,
                                          for: indexPath)
             case let .option(option):
                 return collectionView
@@ -86,7 +84,6 @@ private extension AboutViewController {
             content.text = item.text
             content.image = item.image
             cell.contentConfiguration = content
-//            cell.backgroundConfiguration = UIBackgroundConfiguration.clear()
         }
     }
 }

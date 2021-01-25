@@ -57,6 +57,8 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
+        hintLabel.text = viewModel.hintLabelTitle
+
         viewModel.load()
     }
 

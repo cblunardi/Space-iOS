@@ -425,6 +425,302 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 15 localization keys.
+    struct localizable {
+      /// en translation: About
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutTitle = Rswift.StringResource(key: "about-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: About DSCOVR
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutOptionDscovrTitle = Rswift.StringResource(key: "about-option-dscovr-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: About EPIC
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutOptionEpicTitle = Rswift.StringResource(key: "about-option-epic-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Acknowledgements
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutOptionAcknowledgementsTitle = Rswift.StringResource(key: "about-option-acknowledgements-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Acknowledgements
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsTitle = Rswift.StringResource(key: "acknowledgements-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: AirBnB for Lottie, a native animation renderer.
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsLottie = Rswift.StringResource(key: "acknowledgements-lottie", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Catalog
+      ///
+      /// Locales: en, it, pt-BR
+      static let catalogTitle = Rswift.StringResource(key: "catalog-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: NASA, NOAA and NASA ASDC for granting free and open usage of EPIC onboard NOAA's DSCOVR spacecraft.
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsEpic = Rswift.StringResource(key: "acknowledgements-epic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: NASA, for granting free and open usage of the NASA Open APIs.
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsNasa = Rswift.StringResource(key: "acknowledgements-nasa", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Photo3idea_studio and FlatIcon, for the amazing App Icon
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsLogo = Rswift.StringResource(key: "acknowledgements-logo", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Space is build with Swift and is available open-source
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutFooterOpenSourceTitle = Rswift.StringResource(key: "about-footer-open-source-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Swipe left or right to rotate
+      ///
+      /// Locales: en, it, pt-BR
+      static let mainHintText = Rswift.StringResource(key: "main-hint-text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: The Open Source Community for Vapor, a Web Framework for Swift.
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsVapor = Rswift.StringResource(key: "acknowledgements-vapor", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: This is a hobby project maintened by Caio Brigagão Lunardi
+      ///
+      /// Locales: en, it, pt-BR
+      static let aboutFooterAuthorTitle = Rswift.StringResource(key: "about-footer-author-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+      /// en translation: Wan Souza, for the amazing Earth-Moon Loading Animation.
+      ///
+      /// Locales: en, it, pt-BR
+      static let acknowledgementsAnimation = Rswift.StringResource(key: "acknowledgements-animation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it", "pt-BR"], comment: nil)
+
+      /// en translation: About
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-title"
+        }
+
+        return NSLocalizedString("about-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: About DSCOVR
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutOptionDscovrTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-option-dscovr-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-option-dscovr-title"
+        }
+
+        return NSLocalizedString("about-option-dscovr-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: About EPIC
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutOptionEpicTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-option-epic-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-option-epic-title"
+        }
+
+        return NSLocalizedString("about-option-epic-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Acknowledgements
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutOptionAcknowledgementsTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-option-acknowledgements-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-option-acknowledgements-title"
+        }
+
+        return NSLocalizedString("about-option-acknowledgements-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Acknowledgements
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-title"
+        }
+
+        return NSLocalizedString("acknowledgements-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: AirBnB for Lottie, a native animation renderer.
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsLottie(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-lottie", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-lottie"
+        }
+
+        return NSLocalizedString("acknowledgements-lottie", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Catalog
+      ///
+      /// Locales: en, it, pt-BR
+      static func catalogTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("catalog-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "catalog-title"
+        }
+
+        return NSLocalizedString("catalog-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: NASA, NOAA and NASA ASDC for granting free and open usage of EPIC onboard NOAA's DSCOVR spacecraft.
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsEpic(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-epic", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-epic"
+        }
+
+        return NSLocalizedString("acknowledgements-epic", bundle: bundle, comment: "")
+      }
+
+      /// en translation: NASA, for granting free and open usage of the NASA Open APIs.
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsNasa(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-nasa", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-nasa"
+        }
+
+        return NSLocalizedString("acknowledgements-nasa", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Photo3idea_studio and FlatIcon, for the amazing App Icon
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsLogo(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-logo", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-logo"
+        }
+
+        return NSLocalizedString("acknowledgements-logo", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Space is build with Swift and is available open-source
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutFooterOpenSourceTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-footer-open-source-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-footer-open-source-title"
+        }
+
+        return NSLocalizedString("about-footer-open-source-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Swipe left or right to rotate
+      ///
+      /// Locales: en, it, pt-BR
+      static func mainHintText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("main-hint-text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "main-hint-text"
+        }
+
+        return NSLocalizedString("main-hint-text", bundle: bundle, comment: "")
+      }
+
+      /// en translation: The Open Source Community for Vapor, a Web Framework for Swift.
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsVapor(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-vapor", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-vapor"
+        }
+
+        return NSLocalizedString("acknowledgements-vapor", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This is a hobby project maintened by Caio Brigagão Lunardi
+      ///
+      /// Locales: en, it, pt-BR
+      static func aboutFooterAuthorTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("about-footer-author-title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "about-footer-author-title"
+        }
+
+        return NSLocalizedString("about-footer-author-title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Wan Souza, for the amazing Earth-Moon Loading Animation.
+      ///
+      /// Locales: en, it, pt-BR
+      static func acknowledgementsAnimation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("acknowledgements-animation", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "acknowledgements-animation"
+        }
+
+        return NSLocalizedString("acknowledgements-animation", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()

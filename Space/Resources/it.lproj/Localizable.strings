@@ -1,0 +1,25 @@
+// MARK: - Main Scene
+"main-hint-text" = "Scorri a destra e sinistra per ruotare";
+
+// MARK: - About Scene
+"about-title" = "Informazioni";
+
+"about-option-dscovr-title" = "Riguardo a DSCOVR";
+"about-option-epic-title" = "Riguardo a EPIC";
+"about-option-acknowledgements-title" = "Ringraziamenti";
+
+"about-footer-open-source-title" = "Space è stata costruita con Swift ed è un progetto open-source";
+"about-footer-author-title" = "Questo è un progetto hobby mantenuto da Caio Brigagão Lunardi";
+
+// MARK: - Acknowledgements Scene
+"acknowledgements-title" = "Ringraziamenti";
+
+"acknowledgements-nasa" = "NASA, per la resa pubblica, gratuita ed aperta delle NASA Open APIs.";
+"acknowledgements-epic" = "NASA, NOAA e NASA ASDC, per la resa pubblica, gratuita ed aperta del catalogo di immagini dell'esperimento EPIC a bordo del veicolo spaziale DSCOVR.";
+"acknowledgements-vapor" = "La communità Open Source, per Vapor, un Framework Web per Swift.";
+"acknowledgements-lottie" = "AirBnB, per Lottie, un motore grafico avanzato per animazioni.";
+"acknowledgements-animation" = "Wan Souza, per la splendida animazione Terra-Luna.";
+"acknowledgements-logo" = "Photo3idea_studio e FlatIcon, per la splendida icona dell'app Space.";
+
+// MARK: - Catalog Scene
+"catalog-title" = "Catalogo";

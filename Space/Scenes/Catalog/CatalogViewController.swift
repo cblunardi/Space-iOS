@@ -78,10 +78,9 @@ private extension CatalogViewController {
     }
 
     func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CatalogMonthCell", bundle: .main),
-                                forCellWithReuseIdentifier: CatalogMonthCell.reuseIdentifier)
+        collectionView.register(R.nib.catalogMonthCell)
 
-        collectionView.register(UINib(nibName: "TitleHeaderView", bundle: .main),
+        collectionView.register(UINib(resource: R.nib.titleHeaderView),
                                 forSupplementaryViewOfKind: TitleHeaderView.kind,
                                 withReuseIdentifier: TitleHeaderView.reuseIdentifier)
 

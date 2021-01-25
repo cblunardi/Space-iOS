@@ -60,10 +60,14 @@ extension MainViewModel {
 
         let disable = hasImage
             .map { _ in false }
-            .delay(for: .seconds(5), scheduler: RunLoop.main)
+            .delay(for: .seconds(7), scheduler: RunLoop.main)
 
         return Publishers.Merge3(Just(false), enable, disable)
             .eraseToAnyPublisher()
+    }
+
+    var hintLabelTitle: String {
+        Localized.mainHintText()
     }
 }
 
