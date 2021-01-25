@@ -38,13 +38,8 @@ private extension AboutViewController {
     }
 
     func configuredDataSource() -> DataSource {
-        let optionRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Option> = .init { (cell, indexPath, item) in
-            var content = cell.defaultContentConfiguration()
-            content.textProperties.color = Colors.palette2
-            content.text = item.title
-            content.image = item.image
-            cell.contentConfiguration = content
-        }
+        let optionRegistration = makeOptionRegistration()
+        let footerRegistration = makeFooterRegistration()
 
         let dataSource: DataSource = .init(collectionView: collectionView) { (cV, indexPath, item) -> UICollectionViewCell? in
             switch item {
@@ -52,15 +47,45 @@ private extension AboutViewController {
                 return cV
                     .dequeueReusableCell(withReuseIdentifier: AboutHeaderCell.reuseIdentifier,
                                          for: indexPath)
-            case let .option(cellVM):
+            case let .option(option):
                 return cV
                     .dequeueConfiguredReusableCell(using: optionRegistration,
                                                    for: indexPath,
-                                                   item: cellVM)
+                                                   item: option)
+            case let .footer(footer):
+                return cV
+                    .dequeueConfiguredReusableCell(using: footerRegistration,
+                                                   for: indexPath,
+                                                   item: footer)
             }
         }
 
         return dataSource
+    }
+
+    private func makeOptionRegistration()
+    -> UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Option>
+    {
+        .init { (cell, indexPath, item) in
+            var content = cell.defaultContentConfiguration()
+            content.textProperties.color = Colors.palette2
+            content.text = item.title
+            content.image = item.image
+            cell.contentConfiguration = content
+        }
+    }
+
+    private func makeFooterRegistration()
+    -> UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Footer>
+    {
+        .init { (cell, indexPath, item) in
+            var content = cell.defaultContentConfiguration()
+            content.textProperties.color = Colors.palette2
+            content.text = item.text
+            content.image = item.image
+            cell.contentConfiguration = content
+//            cell.backgroundConfiguration = UIBackgroundConfiguration.clear()
+        }
     }
 }
 

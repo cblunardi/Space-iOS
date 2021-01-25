@@ -22,6 +22,10 @@ private extension AboutViewModel {
         snapshot.appendItems(Option.allCases.map { Item.option($0) },
                              toSection: .options)
 
+        snapshot.appendSections([.footer])
+        snapshot.appendItems(Footer.allCases.map { Item.footer($0) },
+                             toSection: .footer)
+
         return snapshot
     }
 }
@@ -39,6 +43,12 @@ extension AboutViewModel {
                 .map(dependencies.appService.open(url:))
         case .option(.acknowledgements):
             coordinator.showAcknowledgements()
+        case .footer(.author):
+            URL(string: "https://www.linkedin.com/in/cblunardi/")
+                .map(dependencies.appService.open(url:))
+        case .footer(.openSource):
+            URL(string: "https://github.com/cblunardi/space-ios")
+                .map(dependencies.appService.open(url:))
         }
     }
 }
@@ -55,6 +65,7 @@ extension AboutViewModel {
     enum Item: Hashable {
         case header
         case option(Option)
+        case footer(Footer)
     }
 
     enum Option: Hashable, CaseIterable {
@@ -75,6 +86,25 @@ extension AboutViewModel {
             case .aboutDSCVR: return UIImage(systemName: "sun.max")
             case .aboutEPIC: return UIImage(systemName: "camera.circle")
             case .acknowledgements: return UIImage(systemName: "info.circle")
+            }
+        }
+    }
+
+    enum Footer: Hashable, CaseIterable {
+        case openSource
+        case author
+
+        var text: String {
+            switch self {
+            case .openSource: return "Space is build with Swift and is available open-source"
+            case .author: return "This is a hobbist project from Caio Brigagão Lunardi"
+            }
+        }
+
+        var image: UIImage? {
+            switch self {
+            case .openSource: return UIImage(systemName: "swift")
+            case .author: return UIImage(systemName: "figure.wave.circle")
             }
         }
     }
