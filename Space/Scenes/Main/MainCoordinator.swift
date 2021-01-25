@@ -21,9 +21,10 @@ struct MainCoordinator: Coordinator, MainCoordinatorProtocol {
 
     func showAbout() {
         let viewController: AboutViewController = .instantiate()
-        let viewModel: AboutViewModel = .init()
+        let coordinator: AboutCoordinator = .init(root: viewController)
+        let viewModel: AboutViewModel = .init(coordinator: coordinator)
         viewController.viewModel = viewModel
 
-        present(viewController)
+        coordinator.viewController.map { present($0) }
     }
 }

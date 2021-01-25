@@ -42,7 +42,11 @@
 		B8A75FF325BDAE2800541B03 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */; };
 		B8A75FFF25BDB11900541B03 /* AboutHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */; };
 		B8A7600425BDB13100541B03 /* AboutHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */; };
-		B8A7600925BDB14000541B03 /* AboutHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7600825BDB14000541B03 /* AboutHeaderViewModel.swift */; };
+		B8A7603825BE48B900541B03 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7603725BE48B900541B03 /* AboutCoordinator.swift */; };
+		B8A7604125BE490E00541B03 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604025BE490E00541B03 /* AppService.swift */; };
+		B8A7604825BE4AFB00541B03 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604025BE490E00541B03 /* AppService.swift */; };
+		B8A7605225BE4B5200541B03 /* AppService+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7605125BE4B5200541B03 /* AppService+.swift */; };
+		B8A7605625BE4B7E00541B03 /* AppService+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */; };
 		B8C1585225A9FF07003F40CF /* EPICImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585125A9FF07003F40CF /* EPICImage.swift */; };
 		B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585925A9FF87003F40CF /* SpaceService.swift */; };
 		B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585E25AA01D4003F40CF /* URL+.swift */; };
@@ -206,7 +210,10 @@
 		B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeaderCell.swift; sourceTree = "<group>"; };
 		B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutHeaderCell.xib; sourceTree = "<group>"; };
-		B8A7600825BDB14000541B03 /* AboutHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeaderViewModel.swift; sourceTree = "<group>"; };
+		B8A7603725BE48B900541B03 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
+		B8A7604025BE490E00541B03 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+Widget.swift"; sourceTree = "<group>"; };
+		B8A7605125BE4B5200541B03 /* AppService+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+.swift"; sourceTree = "<group>"; };
 		B8C1585125A9FF07003F40CF /* EPICImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImage.swift; sourceTree = "<group>"; };
 		B8C1585925A9FF87003F40CF /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
 		B8C1585E25AA01D4003F40CF /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
@@ -452,6 +459,7 @@
 			children = (
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
+				B8A7603F25BE490100541B03 /* AppService */,
 				B8E7FF1425A523BE0016CDC6 /* ImageService */,
 				B8C1584D25A9FEE3003F40CF /* SpaceService */,
 				B831454A259CD7E60075D898 /* URLSessionService */,
@@ -607,6 +615,7 @@
 			isa = PBXGroup;
 			children = (
 				B8A75FE825BDAE1100541B03 /* About.storyboard */,
+				B8A7603725BE48B900541B03 /* AboutCoordinator.swift */,
 				B8A75FED25BDAE2000541B03 /* AboutViewController.swift */,
 				B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */,
 				B8A75FFA25BDAF1300541B03 /* Header */,
@@ -618,10 +627,19 @@
 			isa = PBXGroup;
 			children = (
 				B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */,
-				B8A7600825BDB14000541B03 /* AboutHeaderViewModel.swift */,
 				B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		B8A7603F25BE490100541B03 /* AppService */ = {
+			isa = PBXGroup;
+			children = (
+				B8A7604025BE490E00541B03 /* AppService.swift */,
+				B8A7605125BE4B5200541B03 /* AppService+.swift */,
+				B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */,
+			);
+			path = AppService;
 			sourceTree = "<group>";
 		};
 		B8C1584D25A9FEE3003F40CF /* SpaceService */ = {
@@ -1113,6 +1131,7 @@
 				B8E7FEB425A48A340016CDC6 /* MainViewModel+State.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8E2C6AA25B0C21F00F87D0E /* TitleHeaderViewModel.swift in Sources */,
+				B8A7604125BE490E00541B03 /* AppService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
 				B8E2C66825AF8F9B00F87D0E /* CatalogMonthViewModel.swift in Sources */,
 				B8E2C66C25AF8F9B00F87D0E /* CatalogViewController.swift in Sources */,
@@ -1125,9 +1144,10 @@
 				B8E2C66725AF8F9B00F87D0E /* CatalogMonthCell.swift in Sources */,
 				B8C1588125AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
-				B8A7600925BDB14000541B03 /* AboutHeaderViewModel.swift in Sources */,
 				B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */,
+				B8A7603825BE48B900541B03 /* AboutCoordinator.swift in Sources */,
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
+				B8A7605225BE4B5200541B03 /* AppService+.swift in Sources */,
 				B8E2C66425AF8F9B00F87D0E /* CatalogCoordinator.swift in Sources */,
 				B8E2C66525AF8F9B00F87D0E /* CatalogViewModel.swift in Sources */,
 				B8E2C6FF25B21EED00F87D0E /* Animations.swift in Sources */,
@@ -1170,7 +1190,9 @@
 				B8C6629325B84DC5002066B9 /* Publisher+MapCombining.swift in Sources */,
 				B8E2C95225B6216600F87D0E /* Integer+Byte.swift in Sources */,
 				B8E2C93D25B6212400F87D0E /* SpaceService.swift in Sources */,
+				B8A7605625BE4B7E00541B03 /* AppService+Widget.swift in Sources */,
 				B8E2C95625B6217000F87D0E /* Mutable.swift in Sources */,
+				B8A7604825BE4AFB00541B03 /* AppService.swift in Sources */,
 				B8E2C95A25B621B800F87D0E /* URL+.swift in Sources */,
 				B8C662B625B981A5002066B9 /* WidgetEntry.swift in Sources */,
 				B8E2C94E25B6215C00F87D0E /* Collection+.swift in Sources */,

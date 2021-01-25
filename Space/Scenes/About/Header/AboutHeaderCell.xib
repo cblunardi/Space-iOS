@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,47 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="358" height="606"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KLe-NQ-6kX">
-                        <rect key="frame" x="16" y="44" width="326" height="554"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wva-c4-o74">
-                                <rect key="frame" x="73.5" y="0.0" width="179" height="179"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wva-c4-o74" secondAttribute="height" multiplier="1:1" id="dsU-dD-ifK"/>
-                                </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AYs-hq-V38">
-                                <rect key="frame" x="0.0" y="194" width="326" height="360"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" name="AccentColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
-                            </textView>
-                        </subviews>
-                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wva-c4-o74">
+                        <rect key="frame" x="89.5" y="54" width="179" height="179"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wva-c4-o74" secondAttribute="height" multiplier="1:1" id="dsU-dD-ifK"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wva-c4-o74" firstAttribute="width" secondItem="AHM-Q7-kCC" secondAttribute="width" multiplier="0.5" id="GbJ-wM-ulW"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="KLe-NQ-6kX" secondAttribute="bottom" priority="999" id="MWB-k3-aVu"/>
-                    <constraint firstItem="KLe-NQ-6kX" firstAttribute="top" secondItem="AHM-Q7-kCC" secondAttribute="topMargin" id="Qjp-jd-V5Q"/>
-                    <constraint firstItem="KLe-NQ-6kX" firstAttribute="leading" secondItem="AHM-Q7-kCC" secondAttribute="leadingMargin" id="RVE-m3-fX7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="KLe-NQ-6kX" secondAttribute="trailing" id="e2S-vK-EOK"/>
+                    <constraint firstItem="wva-c4-o74" firstAttribute="centerX" secondItem="AHM-Q7-kCC" secondAttribute="centerX" id="LPY-Ho-vED"/>
+                    <constraint firstItem="wva-c4-o74" firstAttribute="width" secondItem="AHM-Q7-kCC" secondAttribute="width" multiplier="0.5" id="MO3-ph-RGx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wva-c4-o74" secondAttribute="bottom" priority="999" constant="10" id="gAO-gC-2gu"/>
+                    <constraint firstItem="wva-c4-o74" firstAttribute="top" secondItem="AHM-Q7-kCC" secondAttribute="topMargin" constant="10" id="hHL-Ws-1N0"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="358" height="606"/>
             <connections>
                 <outlet property="animationContainerView" destination="wva-c4-o74" id="vVb-Av-b0t"/>
-                <outlet property="textView" destination="AYs-hq-V38" id="hMg-Dq-zaU"/>
             </connections>
             <point key="canvasLocation" x="-260.86956521739131" y="352.90178571428572"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <namedColor name="AccentColor">
-            <color red="0.17299999296665192" green="0.45100000500679016" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
