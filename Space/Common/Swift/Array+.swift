@@ -13,7 +13,7 @@ extension Array {
 }
 
 extension Array where Element: Hashable {
-    func unique() -> Array<Element> {
+    func unique() -> [Element] {
         var existence: Set<Element> = .init()
 
         return filter { element in
@@ -28,7 +28,7 @@ extension Array where Element: Hashable {
 }
 
 extension Optional {
-    mutating func makeAndAppend<Element>(_ element: Element) where Wrapped == Array<Element> {
+    mutating func makeAndAppend<Element>(_ element: Element) where Wrapped == [Element] {
         self = (self ?? []) + [element]
     }
 }

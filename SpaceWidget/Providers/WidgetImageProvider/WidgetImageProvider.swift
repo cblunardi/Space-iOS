@@ -10,13 +10,13 @@ struct WidgetImageProvider: TimelineProvider {
         .placeholder(family: context.family)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         getLatest(in: context)
             .sink { completion($0) }
             .store(in: &Self.subscriptions)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         getLatest(in: context)
             .sink { self.receive($0, completion: completion) }
             .store(in: &Self.subscriptions)

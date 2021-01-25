@@ -1,0 +1,14 @@
+excluded:
+  - R.generated.swift
+  - Pods
+
+disabled_rules:
+  - opening_brace
+
+identifier_name:
+  excluded:
+    - id
+
+nesting:
+  type_level:
+    warning: 3

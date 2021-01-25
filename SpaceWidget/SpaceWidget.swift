@@ -1,7 +1,7 @@
 import WidgetKit
 import SwiftUI
 
-struct SpaceWidgetEntryView : View {
+struct SpaceWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
 
     var entry: WidgetImageProvider.Entry

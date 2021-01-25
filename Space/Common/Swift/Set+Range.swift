@@ -11,5 +11,3 @@ extension Set where Element: Hashable & Comparable & Strideable, Element.Stride 
         self = elements
     }
 }
-
-

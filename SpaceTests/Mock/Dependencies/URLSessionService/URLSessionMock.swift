@@ -14,7 +14,8 @@ final class URLSessionMock: URLSession {
     }
 
     override func dataTask(with request: URLRequest,
-                           completionHandler: @escaping DataTaskCompletionHandler) -> URLSessionDataTask
+                           completionHandler: @escaping DataTaskCompletionHandler)
+    -> URLSessionDataTask
     {
         dataTaskBehaviour(request, completionHandler)
     }
