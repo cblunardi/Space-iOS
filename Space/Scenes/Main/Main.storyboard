@@ -43,61 +43,76 @@
                                     <outletCollection property="gestureRecognizers" destination="67D-4k-KA0" appends="YES" id="h0A-j3-GMY"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kl2-vl-NN8">
-                                <rect key="frame" x="359" y="59" width="40" height="39"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="calendar.circle" catalog="system" symbolScale="default"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                    </preferredSymbolConfiguration>
-                                </state>
-                                <connections>
-                                    <action selector="showCatalogPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="ltT-Yy-Z9A"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left or right to rotate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deN-Bt-USy">
                                 <rect key="frame" x="15" y="741.5" width="384" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="Palette-4"/>
+                                <color key="textColor" name="Palette-2"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
-                                <rect key="frame" x="99.5" y="50" width="215" height="57.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FUY-p5-B9n">
+                                <rect key="frame" x="15" y="59" width="384" height="57.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th January, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3fR-pz-Bt3">
-                                        <rect key="frame" x="0.0" y="0.0" width="215" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:35:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="be0-cN-3aL">
-                                        <rect key="frame" x="70" y="33.5" width="75.5" height="24"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-BP-2FM">
+                                        <rect key="frame" x="0.0" y="9.5" width="40" height="39"/>
+                                        <state key="normal" image="info.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            </preferredSymbolConfiguration>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAboutPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="jvL-Wf-K3b"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-ck-bfB">
+                                        <rect key="frame" x="50" y="0.0" width="284" height="57.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th January, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3fR-pz-Bt3">
+                                                <rect key="frame" x="34.5" y="0.0" width="215" height="33.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:35:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="be0-cN-3aL">
+                                                <rect key="frame" x="104.5" y="33.5" width="75.5" height="24"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kl2-vl-NN8">
+                                        <rect key="frame" x="344" y="9.5" width="40" height="39"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="calendar.circle" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            </preferredSymbolConfiguration>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCatalogPressed:" destination="4dP-ll-5ns" eventType="touchUpInside" id="ltT-Yy-Z9A"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ROU-H0-vB9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8kC-ck-bfB" firstAttribute="centerY" secondItem="Kl2-vl-NN8" secondAttribute="centerY" id="06F-o3-Skn"/>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="leading" secondItem="hpj-Z3-qKp" secondAttribute="leading" id="3vG-DP-QYc"/>
                             <constraint firstAttribute="trailing" secondItem="6Tn-sK-I05" secondAttribute="trailing" id="OCm-Ol-s6R"/>
                             <constraint firstAttribute="bottom" secondItem="6Tn-sK-I05" secondAttribute="bottom" id="Ofg-Sz-mZH"/>
                             <constraint firstItem="6Tn-sK-I05" firstAttribute="top" secondItem="hpj-Z3-qKp" secondAttribute="top" id="YNt-RF-qBu"/>
-                            <constraint firstItem="8kC-ck-bfB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ROU-H0-vB9" secondAttribute="leading" constant="15" id="YqT-JP-OHE"/>
                             <constraint firstItem="deN-Bt-USy" firstAttribute="leading" secondItem="ROU-H0-vB9" secondAttribute="leading" constant="15" id="Zm2-TM-v2h"/>
-                            <constraint firstItem="ROU-H0-vB9" firstAttribute="trailing" secondItem="Kl2-vl-NN8" secondAttribute="trailing" constant="15" id="dnE-IT-Yht"/>
-                            <constraint firstItem="8kC-ck-bfB" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="mdc-gc-t3g"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="bSO-lG-w9P"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="top" secondItem="ROU-H0-vB9" secondAttribute="top" constant="15" id="lel-O0-Fjw"/>
                             <constraint firstItem="ROU-H0-vB9" firstAttribute="bottom" secondItem="deN-Bt-USy" secondAttribute="bottom" constant="100" id="rhg-se-WuR"/>
-                            <constraint firstItem="Kl2-vl-NN8" firstAttribute="top" secondItem="ROU-H0-vB9" secondAttribute="top" constant="15" id="sdE-4k-Bbd"/>
+                            <constraint firstItem="FUY-p5-B9n" firstAttribute="leading" secondItem="ROU-H0-vB9" secondAttribute="leading" constant="15" id="wux-mF-NzS"/>
                             <constraint firstItem="deN-Bt-USy" firstAttribute="centerX" secondItem="hpj-Z3-qKp" secondAttribute="centerX" id="x48-gu-2yf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="catalogButton" destination="Kl2-vl-NN8" id="dD4-56-sKO"/>
+                        <outlet property="catalogButton" destination="Kl2-vl-NN8" id="dAT-h1-Ly5"/>
+                        <outlet property="headerStackView" destination="FUY-p5-B9n" id="Z7S-GG-e2O"/>
                         <outlet property="hintLabel" destination="deN-Bt-USy" id="kLR-oa-V7a"/>
                         <outlet property="mainImageView" destination="pER-iz-h7u" id="cYe-rI-gwp"/>
                         <outlet property="mainImageViewAspectConstraint" destination="aFz-ja-cZl" id="wf4-kj-Fvr"/>
@@ -125,11 +140,12 @@
     </scenes>
     <resources>
         <image name="calendar.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.17299999296665192" green="0.45100000500679016" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Palette-4">
-            <color red="0.60399997234344482" green="0.38400000333786011" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Palette-2">
+            <color red="0.39599999785423279" green="0.42699998617172241" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

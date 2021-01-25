@@ -2,6 +2,7 @@ import UIKit
 
 protocol MainCoordinatorProtocol {
     func showCatalog(model: CatalogViewModel.Model) -> CatalogViewModelInterface
+    func showAbout()
 }
 
 struct MainCoordinator: Coordinator, MainCoordinatorProtocol {
@@ -16,5 +17,14 @@ struct MainCoordinator: Coordinator, MainCoordinatorProtocol {
         coordinator.viewController.map { present($0) }
 
         return viewModel
+    }
+
+    func showAbout() {
+        let viewController: AboutViewController = .instantiate()
+        let coordinator: AboutCoordinator = .init(root: viewController)
+        let viewModel: AboutViewModel = .init(coordinator: coordinator)
+        viewController.viewModel = viewModel
+
+        coordinator.viewController.map { present($0) }
     }
 }

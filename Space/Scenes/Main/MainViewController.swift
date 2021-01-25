@@ -13,6 +13,7 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var mainImageViewAspectConstraint: NSLayoutConstraint!
     @IBOutlet private var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var panGestureRecognizer: UIPanGestureRecognizer!
+    @IBOutlet private var headerStackView: UIStackView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var catalogButton: UIButton!
@@ -96,17 +97,7 @@ private extension MainViewController {
 
         scrollViewZooming
             .map { $0 ? 0.0 : 1.0 }
-            .assignWeakly(to: \.alpha, on: titleLabel, animationDuration: UIC.Anims.imageTransitionDuration)
-            .store(in: &subscriptions)
-
-        scrollViewZooming
-            .map { $0 ? 0.0 : 1.0 }
-            .assignWeakly(to: \.alpha, on: subtitleLabel, animationDuration: UIC.Anims.imageTransitionDuration)
-            .store(in: &subscriptions)
-
-        scrollViewZooming
-            .map { $0 ? 0.0 : 1.0 }
-            .assignWeakly(to: \.alpha, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
+            .assignWeakly(to: \.alpha, on: headerStackView, animationDuration: UIC.Anims.imageTransitionDuration)
             .store(in: &subscriptions)
 
         scrollViewZooming
@@ -153,6 +144,10 @@ private extension MainViewController {
 
     @IBAction func showCatalogPressed(_ sender: UIButton) {
         viewModel.showCatalogPressed()
+    }
+
+    @IBAction func showAboutPressed(_ sender: UIButton) {
+        viewModel.showAboutPressed()
     }
 }
 

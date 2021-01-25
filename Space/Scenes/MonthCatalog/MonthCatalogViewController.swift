@@ -14,6 +14,7 @@ final class MonthCatalogViewController: UIViewController, ViewModelOwner, Storyb
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupCollectionView()
 
         bind(viewModel: viewModel)

@@ -37,6 +37,20 @@
 		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
 		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
 		B83145EA259E732C0075D898 /* EPICImage+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E9259E732C0075D898 /* EPICImage+Mock.swift */; };
+		B8A75FE925BDAE1100541B03 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A75FE825BDAE1100541B03 /* About.storyboard */; };
+		B8A75FEE25BDAE2000541B03 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FED25BDAE2000541B03 /* AboutViewController.swift */; };
+		B8A75FF325BDAE2800541B03 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */; };
+		B8A75FFF25BDB11900541B03 /* AboutHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */; };
+		B8A7600425BDB13100541B03 /* AboutHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */; };
+		B8A7603825BE48B900541B03 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7603725BE48B900541B03 /* AboutCoordinator.swift */; };
+		B8A7604125BE490E00541B03 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604025BE490E00541B03 /* AppService.swift */; };
+		B8A7604825BE4AFB00541B03 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604025BE490E00541B03 /* AppService.swift */; };
+		B8A7605225BE4B5200541B03 /* AppService+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7605125BE4B5200541B03 /* AppService+.swift */; };
+		B8A7605625BE4B7E00541B03 /* AppService+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */; };
+		B8A7605E25BE4C5400541B03 /* UIViewController+SetupModalClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */; };
+		B8A7627525BEE15B00541B03 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */; };
+		B8A7627D25BEE18B00541B03 /* AcknowledgementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */; };
+		B8A7628225BEE1B200541B03 /* Acknowledgements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */; };
 		B8C1585225A9FF07003F40CF /* EPICImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585125A9FF07003F40CF /* EPICImage.swift */; };
 		B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585925A9FF87003F40CF /* SpaceService.swift */; };
 		B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585E25AA01D4003F40CF /* URL+.swift */; };
@@ -195,6 +209,19 @@
 		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
 		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
 		B83145E9259E732C0075D898 /* EPICImage+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImage+Mock.swift"; sourceTree = "<group>"; };
+		B8A75FE825BDAE1100541B03 /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		B8A75FED25BDAE2000541B03 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeaderCell.swift; sourceTree = "<group>"; };
+		B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutHeaderCell.xib; sourceTree = "<group>"; };
+		B8A7603725BE48B900541B03 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
+		B8A7604025BE490E00541B03 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+Widget.swift"; sourceTree = "<group>"; };
+		B8A7605125BE4B5200541B03 /* AppService+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+.swift"; sourceTree = "<group>"; };
+		B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SetupModalClose.swift"; sourceTree = "<group>"; };
+		B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
+		B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewModel.swift; sourceTree = "<group>"; };
+		B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Acknowledgements.storyboard; sourceTree = "<group>"; };
 		B8C1585125A9FF07003F40CF /* EPICImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImage.swift; sourceTree = "<group>"; };
 		B8C1585925A9FF87003F40CF /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
 		B8C1585E25AA01D4003F40CF /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
@@ -351,9 +378,11 @@
 		B83144B0259C9BE50075D898 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B8A75FE725BDAE0300541B03 /* About */,
+				B8A7627325BEE14700541B03 /* Acknowledgements */,
 				B8E2C65725AF8F9B00F87D0E /* Catalog */,
-				B8C1588625AC8715003F40CF /* MonthCatalog */,
 				B83144B3259C9C2D0075D898 /* Main */,
+				B8C1588625AC8715003F40CF /* MonthCatalog */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -439,6 +468,7 @@
 			children = (
 				B83144FA259CB50D0075D898 /* Dependencies.swift */,
 				B83144F4259CB4E60075D898 /* DependenciesContainer.swift */,
+				B8A7603F25BE490100541B03 /* AppService */,
 				B8E7FF1425A523BE0016CDC6 /* ImageService */,
 				B8C1584D25A9FEE3003F40CF /* SpaceService */,
 				B831454A259CD7E60075D898 /* URLSessionService */,
@@ -588,6 +618,47 @@
 				B83145E9259E732C0075D898 /* EPICImage+Mock.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B8A75FE725BDAE0300541B03 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				B8A75FE825BDAE1100541B03 /* About.storyboard */,
+				B8A7603725BE48B900541B03 /* AboutCoordinator.swift */,
+				B8A75FED25BDAE2000541B03 /* AboutViewController.swift */,
+				B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */,
+				B8A75FFA25BDAF1300541B03 /* Header */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		B8A75FFA25BDAF1300541B03 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				B8A75FFE25BDB11900541B03 /* AboutHeaderCell.swift */,
+				B8A7600325BDB13100541B03 /* AboutHeaderCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		B8A7603F25BE490100541B03 /* AppService */ = {
+			isa = PBXGroup;
+			children = (
+				B8A7604025BE490E00541B03 /* AppService.swift */,
+				B8A7605125BE4B5200541B03 /* AppService+.swift */,
+				B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */,
+			);
+			path = AppService;
+			sourceTree = "<group>";
+		};
+		B8A7627325BEE14700541B03 /* Acknowledgements */ = {
+			isa = PBXGroup;
+			children = (
+				B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */,
+				B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */,
+				B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */,
+			);
+			path = Acknowledgements;
 			sourceTree = "<group>";
 		};
 		B8C1584D25A9FEE3003F40CF /* SpaceService */ = {
@@ -828,6 +899,7 @@
 				B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */,
 				B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */,
 				B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */,
+				B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -988,11 +1060,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E2C66D25AF8F9B00F87D0E /* Catalog.storyboard in Resources */,
+				B8A7628225BEE1B200541B03 /* Acknowledgements.storyboard in Resources */,
+				B8A7600425BDB13100541B03 /* AboutHeaderCell.xib in Resources */,
 				B8C1588825AC8727003F40CF /* MonthCatalog.storyboard in Resources */,
 				B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */,
 				B8C1589B25AC8885003F40CF /* CatalogDayCell.xib in Resources */,
 				B8E2C6FA25B21E4C00F87D0E /* EarthMoonAnimation.json in Resources */,
 				B83144C4259C9F7E0075D898 /* Main.storyboard in Resources */,
+				B8A75FE925BDAE1100541B03 /* About.storyboard in Resources */,
 				B831447C259C999B0075D898 /* Assets.xcassets in Resources */,
 				B8E2C6A925B0C21F00F87D0E /* TitleHeaderView.xib in Resources */,
 				B8E2C66625AF8F9B00F87D0E /* CatalogMonthCell.xib in Resources */,
@@ -1033,12 +1108,15 @@
 				B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */,
 				B8C6628F25B84DBD002066B9 /* Publisher+MapCombining.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
+				B8A7627525BEE15B00541B03 /* AcknowledgementsViewController.swift in Sources */,
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B8C1589525AC887B003F40CF /* CatalogDayCell.swift in Sources */,
 				B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */,
 				B8C158F025ACD9CE003F40CF /* Reference.swift in Sources */,
+				B8A7627D25BEE18B00541B03 /* AcknowledgementsViewModel.swift in Sources */,
 				B8C1589025AC8763003F40CF /* MonthCatalogViewModel.swift in Sources */,
+				B8A75FFF25BDB11900541B03 /* AboutHeaderCell.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
@@ -1047,6 +1125,7 @@
 				B8C6629825B867EB002066B9 /* Page.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
 				B8E2C67E25B0768200F87D0E /* DateCatalog+EPIC.swift in Sources */,
+				B8A75FEE25BDAE2000541B03 /* AboutViewController.swift in Sources */,
 				B83144F5259CB4E60075D898 /* DependenciesContainer.swift in Sources */,
 				B8E2C68625B07EFB00F87D0E /* Future+.swift in Sources */,
 				B8EAD1EB25BB00F7007EE441 /* UIImage+Transparency.swift in Sources */,
@@ -1071,10 +1150,12 @@
 				B8E2C69425B0B58700F87D0E /* DateCatalog+Search.swift in Sources */,
 				B8E7FEAC25A487330016CDC6 /* Integer+Byte.swift in Sources */,
 				B8E2C6BD25B0CF0300F87D0E /* Colors.swift in Sources */,
+				B8A7605E25BE4C5400541B03 /* UIViewController+SetupModalClose.swift in Sources */,
 				B8E7FE6825A3A2B30016CDC6 /* MainViewModel.swift in Sources */,
 				B8E7FEB425A48A340016CDC6 /* MainViewModel+State.swift in Sources */,
 				B831454C259CD8050075D898 /* URLSessionService.swift in Sources */,
 				B8E2C6AA25B0C21F00F87D0E /* TitleHeaderViewModel.swift in Sources */,
+				B8A7604125BE490E00541B03 /* AppService.swift in Sources */,
 				B8314591259D12600075D898 /* Mutable.swift in Sources */,
 				B8E2C66825AF8F9B00F87D0E /* CatalogMonthViewModel.swift in Sources */,
 				B8E2C66C25AF8F9B00F87D0E /* CatalogViewController.swift in Sources */,
@@ -1083,11 +1164,14 @@
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
 				B8E2C6A825B0C21F00F87D0E /* TitleHeaderView.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
+				B8A75FF325BDAE2800541B03 /* AboutViewModel.swift in Sources */,
 				B8E2C66725AF8F9B00F87D0E /* CatalogMonthCell.swift in Sources */,
 				B8C1588125AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift in Sources */,
 				B83144E0259CA7290075D898 /* ViewModel.swift in Sources */,
 				B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */,
+				B8A7603825BE48B900541B03 /* AboutCoordinator.swift in Sources */,
 				B8314596259E11DF0075D898 /* Combine+URLRequestValidation.swift in Sources */,
+				B8A7605225BE4B5200541B03 /* AppService+.swift in Sources */,
 				B8E2C66425AF8F9B00F87D0E /* CatalogCoordinator.swift in Sources */,
 				B8E2C66525AF8F9B00F87D0E /* CatalogViewModel.swift in Sources */,
 				B8E2C6FF25B21EED00F87D0E /* Animations.swift in Sources */,
@@ -1130,7 +1214,9 @@
 				B8C6629325B84DC5002066B9 /* Publisher+MapCombining.swift in Sources */,
 				B8E2C95225B6216600F87D0E /* Integer+Byte.swift in Sources */,
 				B8E2C93D25B6212400F87D0E /* SpaceService.swift in Sources */,
+				B8A7605625BE4B7E00541B03 /* AppService+Widget.swift in Sources */,
 				B8E2C95625B6217000F87D0E /* Mutable.swift in Sources */,
+				B8A7604825BE4AFB00541B03 /* AppService.swift in Sources */,
 				B8E2C95A25B621B800F87D0E /* URL+.swift in Sources */,
 				B8C662B625B981A5002066B9 /* WidgetEntry.swift in Sources */,
 				B8E2C94E25B6215C00F87D0E /* Collection+.swift in Sources */,

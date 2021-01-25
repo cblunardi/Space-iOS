@@ -98,6 +98,10 @@ extension MainViewModel {
             .store(in: &subscriptions)
     }
 
+    func showAboutPressed() {
+        coordinator.showAbout()
+    }
+
     private func didSelect(entry: EPICImage) {
         state.value.select(entry)
     }
