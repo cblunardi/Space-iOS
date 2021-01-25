@@ -58,8 +58,8 @@ struct SpaceWidget: Widget {
         StaticConfiguration(kind: kind, provider: WidgetImageProvider()) { entry in
             SpaceWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("EPIC Earth View")
-        .description("Enjoy the beauty of the latest Earth photos taken from NASA's DSCOVR Spacecraft as soon as they are received from Space.")
+        .configurationDisplayName(Localized.widgetDisplayName())
+        .description(Localized.widgetDescription())
         .supportedFamilies([.systemSmall, .systemLarge])
     }
 }

@@ -1,22 +1,28 @@
 platform :ios, '14.0'
 
-target 'Space' do
-  use_frameworks!
+def common_pods
 
   pod 'R.swift'
   pod 'SwiftLint'
 
+end
+
+target 'Space' do
+
+  use_frameworks!
+
+  common_pods
+
   target 'SpaceTests' do
     inherit! :search_paths
-    # Pods for testing
   end
 
 end
 
 target 'SpaceWidgetExtension' do
-  # Comment the next line if you don't want to use dynamic frameworks
+
   use_frameworks!
 
-  # Pods for SpaceWidgetExtension
+  common_pods
 
 end
