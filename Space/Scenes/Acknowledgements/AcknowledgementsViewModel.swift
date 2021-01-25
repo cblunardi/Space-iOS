@@ -2,7 +2,7 @@ final class AcknowledgementsViewModel: ViewModel {
     let title: String = "Acknowledgements"
 
     var text: String {
-        [nasa, epic, vapor, lottie, animation]
+        [nasa, epic, vapor, lottie, animation, logo]
             .joined(separator: "\n\n--------------\n\n")
     }
 }
@@ -42,6 +42,13 @@ private extension AcknowledgementsViewModel {
         """
         Wan Souza, for the amazing Earth-Moon Loading Animation.
         https://lottiefiles.com/44415-orbit-loader-flat
+        """
+    }
+
+    var logo: String {
+        """
+        Photo3idea_studio and FlatIcon, for the amazing App Icon
+        https://www.flaticon.com/authors/photo3idea-studio
         """
     }
 }

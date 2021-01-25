@@ -102,29 +102,44 @@ extension MonthCatalogViewController: UICollectionViewDelegate {
 
 private extension UICollectionViewCompositionalLayout {
     static func build() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout.init { (_, environment) -> NSCollectionLayoutSection? in
 
-        let itemSize: NSCollectionLayoutSize =
-            .init(widthDimension: .fractionalWidth(1 / 7),
-                  heightDimension: .fractionalWidth(1 / 7))
-        let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
-        item.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
+            let relativeSize: CGFloat
+            switch environment.traitCollection.horizontalSizeClass {
+            case .compact, .unspecified:
+                relativeSize = 1.0
+            case .regular:
+                relativeSize = 0.75
+            @unknown default:
+                relativeSize = 1.0
+            }
 
-        let groupSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(75))
-        let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
-                                                         subitems: [item])
+            let itemSize: NSCollectionLayoutSize =
+                .init(widthDimension: .fractionalWidth(1 / 7),
+                      heightDimension: .fractionalWidth(1 / 7))
+            let item: NSCollectionLayoutItem = .init(layoutSize: itemSize)
+            item.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
 
-        let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(50))
-        let header: NSCollectionLayoutBoundarySupplementaryItem = .init(layoutSize: headerSize,
-                                                                        elementKind: "Header",
-                                                                        alignment: .topLeading)
+            let groupSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(relativeSize),
+                                                          heightDimension: .estimated(75))
+            let group: NSCollectionLayoutGroup = .horizontal(layoutSize: groupSize,
+                                                             subitems: [item])
+            group.edgeSpacing = .init(leading: .flexible(4.0),
+                                      top: nil,
+                                      trailing: .flexible(4.0),
+                                      bottom: nil)
 
-        let section: NSCollectionLayoutSection = .init(group: group)
-        section.interGroupSpacing = 4.0
-        section.boundarySupplementaryItems = [header]
-        section.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+            let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(relativeSize),
+                                                           heightDimension: .estimated(50))
+            let header: NSCollectionLayoutBoundarySupplementaryItem = .init(layoutSize: headerSize,
+                                                                            elementKind: "Header",
+                                                                            alignment: .topLeading)
 
-        return .init(section: section)
+            let section: NSCollectionLayoutSection = .init(group: group)
+            section.boundarySupplementaryItems = [header]
+            section.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+
+            return section
+        }
     }
 }
