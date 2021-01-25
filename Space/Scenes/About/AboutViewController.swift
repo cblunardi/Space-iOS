@@ -16,6 +16,8 @@ final class AboutViewController: UIViewController, StoryboardLoadable, ViewModel
     }
 
     func bind(viewModel: AboutViewModel) {
+        title = viewModel.title
+
         dataSource.apply(viewModel.snapshot)
     }
 }

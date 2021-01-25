@@ -4,6 +4,7 @@ final class AboutViewModel: ViewModel {
     private(set) lazy var snapshot: SnapshotType = makeSnapshot()
 
     let coordinator: AboutCoordinatorProtocol
+    let title: String = "About"
 
     init(coordinator: AboutCoordinatorProtocol) {
         self.coordinator = coordinator
@@ -38,8 +39,6 @@ extension AboutViewModel {
                 .map(dependencies.appService.open(url:))
         case .option(.acknowledgements):
             coordinator.showAcknowledgements()
-        case .option(.aboutSpace):
-            coordinator.showAboutSpace()
         }
     }
 }
@@ -62,14 +61,12 @@ extension AboutViewModel {
         case aboutDSCVR
         case aboutEPIC
         case acknowledgements
-        case aboutSpace
 
         var title: String {
             switch self {
             case .aboutDSCVR: return "About DSCVR"
             case .aboutEPIC: return "About EPIC"
             case .acknowledgements: return "Acknowledgements"
-            case .aboutSpace: return "About Space"
             }
         }
 
@@ -78,7 +75,6 @@ extension AboutViewModel {
             case .aboutDSCVR: return UIImage(systemName: "sun.max")
             case .aboutEPIC: return UIImage(systemName: "camera.circle")
             case .acknowledgements: return UIImage(systemName: "info.circle")
-            case .aboutSpace: return UIImage(systemName: "app")
             }
         }
     }

@@ -1,18 +1,17 @@
 import UIKit
 
 protocol AboutCoordinatorProtocol {
-    func showAboutSpace()
     func showAcknowledgements()
 }
 
 struct AboutCoordinator: NavigationCoordinator, AboutCoordinatorProtocol {
     var viewControllerReference: WeakReference<UINavigationController>
 
-    func showAboutSpace() {
-
-    }
-
     func showAcknowledgements() {
-        
+        let viewController: AcknowledgementsViewController = .instantiate()
+        let viewModel: AcknowledgementsViewModel = .init()
+        viewController.viewModel = viewModel
+
+        push(viewController)
     }
 }

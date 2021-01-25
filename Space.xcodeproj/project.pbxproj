@@ -48,6 +48,9 @@
 		B8A7605225BE4B5200541B03 /* AppService+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7605125BE4B5200541B03 /* AppService+.swift */; };
 		B8A7605625BE4B7E00541B03 /* AppService+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */; };
 		B8A7605E25BE4C5400541B03 /* UIViewController+SetupModalClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */; };
+		B8A7627525BEE15B00541B03 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */; };
+		B8A7627D25BEE18B00541B03 /* AcknowledgementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */; };
+		B8A7628225BEE1B200541B03 /* Acknowledgements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */; };
 		B8C1585225A9FF07003F40CF /* EPICImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585125A9FF07003F40CF /* EPICImage.swift */; };
 		B8C1585A25A9FF87003F40CF /* SpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585925A9FF87003F40CF /* SpaceService.swift */; };
 		B8C1585F25AA01D4003F40CF /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1585E25AA01D4003F40CF /* URL+.swift */; };
@@ -216,6 +219,9 @@
 		B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+Widget.swift"; sourceTree = "<group>"; };
 		B8A7605125BE4B5200541B03 /* AppService+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppService+.swift"; sourceTree = "<group>"; };
 		B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SetupModalClose.swift"; sourceTree = "<group>"; };
+		B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
+		B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewModel.swift; sourceTree = "<group>"; };
+		B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Acknowledgements.storyboard; sourceTree = "<group>"; };
 		B8C1585125A9FF07003F40CF /* EPICImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICImage.swift; sourceTree = "<group>"; };
 		B8C1585925A9FF87003F40CF /* SpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceService.swift; sourceTree = "<group>"; };
 		B8C1585E25AA01D4003F40CF /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
@@ -373,9 +379,10 @@
 			isa = PBXGroup;
 			children = (
 				B8A75FE725BDAE0300541B03 /* About */,
+				B8A7627325BEE14700541B03 /* Acknowledgements */,
 				B8E2C65725AF8F9B00F87D0E /* Catalog */,
-				B8C1588625AC8715003F40CF /* MonthCatalog */,
 				B83144B3259C9C2D0075D898 /* Main */,
+				B8C1588625AC8715003F40CF /* MonthCatalog */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -642,6 +649,16 @@
 				B8A7604C25BE4B4100541B03 /* AppService+Widget.swift */,
 			);
 			path = AppService;
+			sourceTree = "<group>";
+		};
+		B8A7627325BEE14700541B03 /* Acknowledgements */ = {
+			isa = PBXGroup;
+			children = (
+				B8A7628125BEE1B200541B03 /* Acknowledgements.storyboard */,
+				B8A7627425BEE15B00541B03 /* AcknowledgementsViewController.swift */,
+				B8A7627C25BEE18B00541B03 /* AcknowledgementsViewModel.swift */,
+			);
+			path = Acknowledgements;
 			sourceTree = "<group>";
 		};
 		B8C1584D25A9FEE3003F40CF /* SpaceService */ = {
@@ -1043,6 +1060,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E2C66D25AF8F9B00F87D0E /* Catalog.storyboard in Resources */,
+				B8A7628225BEE1B200541B03 /* Acknowledgements.storyboard in Resources */,
 				B8A7600425BDB13100541B03 /* AboutHeaderCell.xib in Resources */,
 				B8C1588825AC8727003F40CF /* MonthCatalog.storyboard in Resources */,
 				B83144CA259C9F950075D898 /* LaunchScreen.storyboard in Resources */,
@@ -1090,11 +1108,13 @@
 				B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */,
 				B8C6628F25B84DBD002066B9 /* Publisher+MapCombining.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
+				B8A7627525BEE15B00541B03 /* AcknowledgementsViewController.swift in Sources */,
 				B8E7FE8625A3D9850016CDC6 /* CGSize+.swift in Sources */,
 				B8E7FE6C25A3AA000016CDC6 /* Publisher+MapFlatMap.swift in Sources */,
 				B8C1589525AC887B003F40CF /* CatalogDayCell.swift in Sources */,
 				B8C158B325AC90D7003F40CF /* Collection+.swift in Sources */,
 				B8C158F025ACD9CE003F40CF /* Reference.swift in Sources */,
+				B8A7627D25BEE18B00541B03 /* AcknowledgementsViewModel.swift in Sources */,
 				B8C1589025AC8763003F40CF /* MonthCatalogViewModel.swift in Sources */,
 				B8A75FFF25BDB11900541B03 /* AboutHeaderCell.swift in Sources */,
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
