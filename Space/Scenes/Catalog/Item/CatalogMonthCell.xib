@@ -363,7 +363,7 @@
                             <constraint firstItem="k8h-Zk-MgK" firstAttribute="leading" secondItem="0Mw-cK-4XO" secondAttribute="leadingMargin" id="5gs-8N-eIC"/>
                             <constraint firstItem="gBD-Xv-FxX" firstAttribute="top" secondItem="0Mw-cK-4XO" secondAttribute="topMargin" id="Bnn-5C-va5"/>
                             <constraint firstItem="gBD-Xv-FxX" firstAttribute="leading" secondItem="0Mw-cK-4XO" secondAttribute="leadingMargin" id="O6m-gK-nMj"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="k8h-Zk-MgK" secondAttribute="bottom" priority="999" id="oVk-0P-z2F"/>
+                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="k8h-Zk-MgK" secondAttribute="bottom" priority="999" id="oVk-0P-z2F"/>
                             <constraint firstItem="k8h-Zk-MgK" firstAttribute="top" secondItem="gBD-Xv-FxX" secondAttribute="bottom" constant="10" id="tzS-HH-mf8"/>
                         </constraints>
                     </view>
