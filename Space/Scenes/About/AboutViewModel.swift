@@ -44,7 +44,7 @@ extension AboutViewModel {
         case .option(.acknowledgements):
             coordinator.showAcknowledgements()
         case .footer(.author):
-            URL(string: "https://www.linkedin.com/in/cblunardi/")
+            URL(string: "https://www.linkedin.com/in/cblunardi")
                 .map(dependencies.appService.open(url:))
         case .footer(.openSource):
             URL(string: "https://github.com/cblunardi/space-ios")
