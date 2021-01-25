@@ -14,6 +14,8 @@ final class CatalogViewController: UIViewController, ViewModelOwner, StoryboardL
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupCloseButton()
         setupCollectionView()
 
         bind(viewModel: viewModel)

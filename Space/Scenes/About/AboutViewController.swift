@@ -24,6 +24,8 @@ private extension AboutViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<AboutViewModel.Section, AboutViewModel.Item>
 
     func configure() {
+        setupCloseButton()
+
         collectionView.register(UINib(nibName: "AboutHeaderCell",
                                       bundle: .main),
                                 forCellWithReuseIdentifier: AboutHeaderCell.reuseIdentifier)
@@ -36,6 +38,7 @@ private extension AboutViewController {
     func configuredDataSource() -> DataSource {
         let optionRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, AboutViewModel.Option> = .init { (cell, indexPath, item) in
             var content = cell.defaultContentConfiguration()
+            content.textProperties.color = Colors.palette2
             content.text = item.title
             content.image = item.image
             cell.contentConfiguration = content
@@ -71,6 +74,8 @@ extension AboutViewController: UICollectionViewDelegate {
 
         viewModel.didSelect(item)
 
-        collectionView.deselectItem(at: indexPath, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
     }
 }
