@@ -24,3 +24,6 @@ Secrets.swift
 
 # CocoaPods
 Pods/
+
+# Auto-generated files
+*.generated.swift
