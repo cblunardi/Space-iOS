@@ -20,6 +20,8 @@ final class MainViewModel: ViewModel {
 
     init(coordinator: MainCoordinatorProtocol) {
         self.coordinator = coordinator
+
+        configure()
     }
 }
 
@@ -27,6 +29,7 @@ extension MainViewModel {
     var currentEntry: AnyPublisher<EPICImage?, Never> {
         state
             .map { $0.panningEntry ?? $0.currentEntry }
+            .removeDuplicates()
             .eraseToAnyPublisher()
     }
 
@@ -44,7 +47,7 @@ extension MainViewModel {
 
     var catalogButtonVisible: AnyPublisher<Bool, Never> {
         state
-            .map { $0.isLoading == false }
+            .map(\.loaded)
             .eraseToAnyPublisher()
     }
 
@@ -73,7 +76,7 @@ extension MainViewModel {
 
 extension MainViewModel {
     func load() {
-        guard state.value.isLoading == false else { return }
+        guard state.value.entries.loading == false else { return }
 
         state.value.entries.reload()
 
@@ -108,6 +111,15 @@ extension MainViewModel {
 
     private func didSelect(entry: EPICImage) {
         state.value.select(entry)
+    }
+}
+
+private extension MainViewModel {
+    func configure() {
+        Timer.publish(every: 30 * .secondsInMinute, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak self] _ in self?.load() }
+            .store(in: &subscriptions)
     }
 }
 

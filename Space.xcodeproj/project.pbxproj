@@ -98,7 +98,7 @@
 		B8E2C67425B073AC00F87D0E /* DateCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C67325B073AC00F87D0E /* DateCatalog.swift */; };
 		B8E2C67A25B074B500F87D0E /* DateCatalog+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C67925B074B500F87D0E /* DateCatalog+.swift */; };
 		B8E2C67E25B0768200F87D0E /* DateCatalog+EPIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C67D25B0768200F87D0E /* DateCatalog+EPIC.swift */; };
-		B8E2C68225B0780700F87D0E /* Integer+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C68125B0780700F87D0E /* Integer+Time.swift */; };
+		B8E2C68225B0780700F87D0E /* Number+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C68125B0780700F87D0E /* Number+Time.swift */; };
 		B8E2C68625B07EFB00F87D0E /* Future+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C68525B07EFB00F87D0E /* Future+.swift */; };
 		B8E2C69425B0B58700F87D0E /* DateCatalog+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C69325B0B58700F87D0E /* DateCatalog+Search.swift */; };
 		B8E2C6A825B0C21F00F87D0E /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2C6A525B0C21F00F87D0E /* TitleHeaderView.swift */; };
@@ -279,7 +279,7 @@
 		B8E2C67325B073AC00F87D0E /* DateCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCatalog.swift; sourceTree = "<group>"; };
 		B8E2C67925B074B500F87D0E /* DateCatalog+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateCatalog+.swift"; sourceTree = "<group>"; };
 		B8E2C67D25B0768200F87D0E /* DateCatalog+EPIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateCatalog+EPIC.swift"; sourceTree = "<group>"; };
-		B8E2C68125B0780700F87D0E /* Integer+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+Time.swift"; sourceTree = "<group>"; };
+		B8E2C68125B0780700F87D0E /* Number+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Time.swift"; sourceTree = "<group>"; };
 		B8E2C68525B07EFB00F87D0E /* Future+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Future+.swift"; sourceTree = "<group>"; };
 		B8E2C69325B0B58700F87D0E /* DateCatalog+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateCatalog+Search.swift"; sourceTree = "<group>"; };
 		B8E2C6A525B0C21F00F87D0E /* TitleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
@@ -978,7 +978,7 @@
 			isa = PBXGroup;
 			children = (
 				B8E7FEAB25A487330016CDC6 /* Integer+Byte.swift */,
-				B8E2C68125B0780700F87D0E /* Integer+Time.swift */,
+				B8E2C68125B0780700F87D0E /* Number+Time.swift */,
 			);
 			path = Dimensions;
 			sourceTree = "<group>";
@@ -1356,7 +1356,7 @@
 				B83144D1259CA4A50075D898 /* Coordinator.swift in Sources */,
 				B8E7FF1625A523E70016CDC6 /* ImageService.swift in Sources */,
 				B8314477259C99990075D898 /* MainViewController.swift in Sources */,
-				B8E2C68225B0780700F87D0E /* Integer+Time.swift in Sources */,
+				B8E2C68225B0780700F87D0E /* Number+Time.swift in Sources */,
 				B8E2C70525B21F6A00F87D0E /* UIView+AutoLayout.swift in Sources */,
 				B8C6629825B867EB002066B9 /* Page.swift in Sources */,
 				B8314473259C99990075D898 /* AppDelegate.swift in Sources */,
@@ -1630,7 +1630,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B524284DDA;
 				INFOPLIST_FILE = Space/Supporting/Info.plist;
@@ -1641,7 +1641,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cblunardi-space.space";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Space App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "Space Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1724,7 +1724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B524284DDA;
 				INFOPLIST_FILE = SpaceWidget/Supporting/Info.plist;
@@ -1736,7 +1736,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cblunardi-space.space.widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Space Widget App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "Space Widget Development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

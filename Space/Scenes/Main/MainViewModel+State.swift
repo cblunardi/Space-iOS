@@ -19,8 +19,8 @@ extension MainViewModel.State {
         self == .initial
     }
 
-    var isLoading: Bool {
-        entries.loading
+    var loaded: Bool {
+        entries.loaded
     }
 
     var currentEntry: EPICImage? {
@@ -32,13 +32,16 @@ extension MainViewModel.State {
     }
 
     mutating func receive(entries: [EPICImage]) {
+        let previousEntry: EPICImage? = currentEntry
+
         self.entries.receive(entries)
 
-        if currentIndex == .none {
-            currentIndex = entries.startIndex
-        }
+        currentIndex = previousEntry.map(entries.firstIndex(of:))
+            ?? entries.startIndex
 
-        prefetch(index: entries.startIndex)
+        panningIndex = .none
+
+        currentIndex.map { prefetch(index: $0) }
     }
 
     mutating func select(_ entry: EPICImage) {

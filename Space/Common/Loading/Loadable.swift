@@ -28,9 +28,9 @@ extension Loadable {
 
     var loaded: Bool {
         switch self {
-        case .loaded:
+        case .loaded, .reloading:
             return true
-        case .reset, .loading, .reloading, .failure:
+        case .reset, .loading, .failure:
             return false
         }
     }
