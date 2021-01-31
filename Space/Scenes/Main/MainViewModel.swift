@@ -152,7 +152,7 @@ extension MainViewModel {
         switch completion {
         case .failure:
             coordinator.showAlert(
-                .init(message: R.string.localizable.mainDownloadFailure())
+                .init(message: R.string.localizable.alertGenericErrorMessage())
             )
 
             state.value.sharing = false

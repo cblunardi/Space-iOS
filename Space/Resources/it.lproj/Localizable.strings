@@ -1,6 +1,5 @@
 // MARK: - Main Scene
 "main-hint-text" = "Scorri a destra e sinistra per ruotare";
-"main-download-failure" = "Qualcosa è andato storto.\nRiprova più tardi.";
 "main-share-body" = "Questo è il Pianeta Terra 🌍 fotografato il %1$@ dal Satellite DSCOVR della NASA 🛰.\nScopri di più su %2$@.";
 
 // MARK: - About Scene
@@ -28,3 +27,4 @@
 
 // MARK: - Alert
 "alert-default-action" = "👍";
+"alert-generic-error-message" = "Qualcosa è andato storto.\nRiprova più tardi.";
