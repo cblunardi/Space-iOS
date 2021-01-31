@@ -50,17 +50,15 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .store(in: &subscriptions)
 
         viewModel.catalogButtonVisible
-            .map(!)
-            .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.defaultDuration)
+            .assignWeakly(to: \.isVisible, on: catalogButton, animationDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
-        viewModel.downloadButtonVisible
-            .map(!)
-            .assignWeakly(to: \.isHidden, on: shareButton, animationDuration: UIC.Anims.defaultDuration)
+        viewModel.shareButtonVisible
+            .assignWeakly(to: \.isVisible, on: shareButton)
             .store(in: &subscriptions)
 
-        viewModel.isSharing
-            .assignWeakly(to: \.shareButtonLoading, on: self)
+        viewModel.shareActivityIndicatorVisible
+            .assignWeakly(to: \.animating, on: shareActivityIndicator)
             .store(in: &subscriptions)
 
         viewModel.hintLabelVisible
@@ -76,23 +74,20 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     }
 
     private func bindImage(viewModel: MainViewModel) {
-        viewModel
-            .currentImage
+        viewModel.currentImage
             .assignWeakly(to: \.image,
                           on: mainImageView,
                           crossDissolveDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
-        viewModel
-            .currentImage
+        viewModel.currentImage
             .map { $0?.size.aspectRatio }
             .replaceNil(with: 1.0)
             .assignWeakly(to: \.mainImageViewAspectConstraint.constant, on: self)
             .store(in: &subscriptions)
 
-        viewModel
-            .currentImage
-            .map { $0 == nil }
+        viewModel.imageLoading
+            .print()
             .assignWeakly(to: \.isLoading, on: self, animationDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
@@ -172,20 +167,6 @@ private extension MainViewController {
 
     @IBAction func sharePressed(_ sender: UIButton) {
         viewModel.sharePressed()
-    }
-}
-
-private extension MainViewController {
-    var shareButtonLoading: Bool {
-        get {
-            shareButton.isHidden
-        }
-        set {
-            shareButton.isHidden = newValue
-            shareActivityIndicator.isHidden = newValue == false
-            guard newValue else { return }
-            shareActivityIndicator.startAnimating()
-        }
     }
 }
 

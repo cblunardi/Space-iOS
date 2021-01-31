@@ -38,6 +38,10 @@
 		B83145B1259E23B10075D898 /* Set+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B0259E23B10075D898 /* Set+Range.swift */; };
 		B83145B7259E25A40075D898 /* Set+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145B6259E25A40075D898 /* Set+.swift */; };
 		B83145EA259E732C0075D898 /* EPICImage+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83145E9259E732C0075D898 /* EPICImage+Mock.swift */; };
+		B84B6A4E25C6FC3800A262FB /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B6A4D25C6FC3800A262FB /* UIActivityIndicatorView+.swift */; };
+		B84B6A5625C6FCAF00A262FB /* UIView+isVisible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B6A5525C6FCAF00A262FB /* UIView+isVisible.swift */; };
+		B84B6A5E25C7041900A262FB /* MainViewModel+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B6A5D25C7041900A262FB /* MainViewModel+Share.swift */; };
+		B84B6A6325C7046B00A262FB /* MainViewModel+Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B6A6225C7046B00A262FB /* MainViewModel+Catalog.swift */; };
 		B8A75FE925BDAE1100541B03 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A75FE825BDAE1100541B03 /* About.storyboard */; };
 		B8A75FEE25BDAE2000541B03 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FED25BDAE2000541B03 /* AboutViewController.swift */; };
 		B8A75FF325BDAE2800541B03 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */; };
@@ -231,6 +235,10 @@
 		B83145B0259E23B10075D898 /* Set+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Range.swift"; sourceTree = "<group>"; };
 		B83145B6259E25A40075D898 /* Set+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+.swift"; sourceTree = "<group>"; };
 		B83145E9259E732C0075D898 /* EPICImage+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EPICImage+Mock.swift"; sourceTree = "<group>"; };
+		B84B6A4D25C6FC3800A262FB /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
+		B84B6A5525C6FCAF00A262FB /* UIView+isVisible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+isVisible.swift"; sourceTree = "<group>"; };
+		B84B6A5D25C7041900A262FB /* MainViewModel+Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Share.swift"; sourceTree = "<group>"; };
+		B84B6A6225C7046B00A262FB /* MainViewModel+Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Catalog.swift"; sourceTree = "<group>"; };
 		B8A75FE825BDAE1100541B03 /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		B8A75FED25BDAE2000541B03 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B8A75FF225BDAE2800541B03 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
@@ -470,6 +478,8 @@
 				B8E7FE6725A3A2B30016CDC6 /* MainViewModel.swift */,
 				B8E7FF0125A4B1530016CDC6 /* MainViewModel+PanningInteraction.swift */,
 				B8E7FEB325A48A340016CDC6 /* MainViewModel+State.swift */,
+				B84B6A5D25C7041900A262FB /* MainViewModel+Share.swift */,
+				B84B6A6225C7046B00A262FB /* MainViewModel+Catalog.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -974,9 +984,11 @@
 		B8E7FE7325A3B12D0016CDC6 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B84B6A4D25C6FC3800A262FB /* UIActivityIndicatorView+.swift */,
 				B8EAD1EA25BB00F7007EE441 /* UIImage+Transparency.swift */,
 				B8C1588025AC807E003F40CF /* UIView+AssignWeaklyAnimating.swift */,
 				B8E2C70425B21F6A00F87D0E /* UIView+AutoLayout.swift */,
+				B84B6A5525C6FCAF00A262FB /* UIView+isVisible.swift */,
 				B8E2C70825B2220A00F87D0E /* UIView+Loading.swift */,
 				B8A7605D25BE4C5400541B03 /* UIViewController+SetupModalClose.swift */,
 			);
@@ -1372,12 +1384,15 @@
 				B8E7FECD25A49EDC0016CDC6 /* Loadable+Combine.swift in Sources */,
 				B8E2C67A25B074B500F87D0E /* DateCatalog+.swift in Sources */,
 				B8C1589F25AC8892003F40CF /* CatalogDayViewModel.swift in Sources */,
+				B84B6A6325C7046B00A262FB /* MainViewModel+Catalog.swift in Sources */,
 				B8E7FE7025A3B05A0016CDC6 /* Publisher+AssignWeakly.swift in Sources */,
 				B8C158BF25ACA01F003F40CF /* NavigationCoordinator.swift in Sources */,
 				B83144D7259CA4F80075D898 /* WeakReference.swift in Sources */,
 				B8C158EA25ACC33B003F40CF /* ImageService+.swift in Sources */,
+				B84B6A5625C6FCAF00A262FB /* UIView+isVisible.swift in Sources */,
 				B83145B7259E25A40075D898 /* Set+.swift in Sources */,
 				B8C1FDA425BF59D500761D77 /* Rswift+.swift in Sources */,
+				B84B6A5E25C7041900A262FB /* MainViewModel+Share.swift in Sources */,
 				B8C158A625AC8A71003F40CF /* Formatters.swift in Sources */,
 				B8C6628F25B84DBD002066B9 /* Publisher+MapCombining.swift in Sources */,
 				B8314558259CDC9F0075D898 /* Array+.swift in Sources */,
@@ -1440,6 +1455,7 @@
 				B83144E7259CA74C0075D898 /* ViewModelOwner.swift in Sources */,
 				B8FBB19325C4940F0059AE11 /* ShareModel.swift in Sources */,
 				B8FBB17F25C490B80059AE11 /* Coordinator+Alert.swift in Sources */,
+				B84B6A4E25C6FC3800A262FB /* UIActivityIndicatorView+.swift in Sources */,
 				B8E2C6A825B0C21F00F87D0E /* TitleHeaderView.swift in Sources */,
 				B8314532259CBE4A0075D898 /* String+.swift in Sources */,
 				B8A75FF325BDAE2800541B03 /* AboutViewModel.swift in Sources */,

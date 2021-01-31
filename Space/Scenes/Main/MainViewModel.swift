@@ -14,8 +14,9 @@ final class MainViewModel: ViewModel {
 
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         currentEntry
-            .flatMapLatestImage()
-            .share()
+            .retrieveImage()
+            .multicast { CurrentValueSubject(nil) }
+            .autoconnect()
             .eraseToAnyPublisher()
 
     init(coordinator: MainCoordinatorProtocol) {
@@ -45,21 +46,28 @@ extension MainViewModel {
             .eraseToAnyPublisher()
     }
 
+    var imageLoading: AnyPublisher<Bool, Never> {
+        currentImage
+            .map { $0 == nil }
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
     var catalogButtonVisible: AnyPublisher<Bool, Never> {
         state
-            .map { $0.loading == false }
+            .map(\.entries.loaded)
             .removeDuplicates()
             .eraseToAnyPublisher()
     }
 
-    var downloadButtonVisible: AnyPublisher<Bool, Never> {
+    var shareButtonVisible: AnyPublisher<Bool, Never> {
         state
-            .map { $0.currentEntry != nil }
+            .map { $0.sharing  == false && $0.currentEntry != nil }
             .removeDuplicates()
             .eraseToAnyPublisher()
     }
 
-    var isSharing: AnyPublisher<Bool, Never> {
+    var shareActivityIndicatorVisible: AnyPublisher<Bool, Never> {
         state
             .map(\.sharing)
             .removeDuplicates()
@@ -96,86 +104,29 @@ extension MainViewModel {
 
         state.value.entries.reload()
 
-        dependencies
-            .spaceService
+        dependencies.spaceService
             .retrieveAll()
             .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.receiveInitial(entries: $0) })
-            .store(in: &subscriptions)
-    }
-
-    private func receiveInitial(entries: [EPICImage]) {
-        state.value.receive(entries: entries)
-    }
-}
-
-extension MainViewModel {
-    func showCatalogPressed() {
-        guard let model = state.value.entries.availableValue else { return }
-
-        coordinator.showCatalog(model: .init(entries: model,
-                                             selectedEntry: state.value.currentEntry))
-            .selectedItem
-            .sink { [weak self] in self?.didSelect(entry: $0) }
-            .store(in: &subscriptions)
-    }
-
-    func showAboutPressed() {
-        coordinator.showAbout()
-    }
-
-    private func didSelect(entry: EPICImage) {
-        state.value.select(entry)
-    }
-}
-
-extension MainViewModel {
-    func sharePressed() {
-        guard
-            state.value.sharing == false,
-            let entry = state.value.currentEntry,
-            let url = URL(string: entry.originalImageURI)
-        else { return }
-
-        state.value.sharing = true
-
-        dependencies.imageService
-            .retrieve(from: url)
-            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] in self?.handle($0) },
-                  receiveValue: { [weak self] in self?.handle($0) })
+                  receiveValue: { [weak self] in self?.receive($0) })
             .store(in: &subscriptions)
+    }
+
+    private func receive(_ entries: [EPICImage]) {
+        state.value.receive(entries: entries)
     }
 
     private func handle(_ completion: Subscribers.Completion<Error>) {
-        switch completion {
-        case .failure:
-            coordinator.showAlert(
-                .init(message: R.string.localizable.alertGenericErrorMessage())
-            )
+        guard case .failure = completion else { return }
 
-            state.value.sharing = false
+        state.value.entries = .reset
 
-        case .finished:
-            break
+        let action: UIAlertAction = .init(title: Localized.mainFailureRetryAction(),
+                                          style: .default,
+                                          handler: { _ in self.load() })
 
-        }
-    }
-
-    private func handle(_ image: UIImage) {
-        coordinator
-            .showShare(buildShareModel(with: image),
-                       completion: { self.state.value.sharing = false })
-    }
-
-    private func buildShareModel(with image: UIImage) -> ShareModel {
-        let text: String? = state.value.currentEntry
-            .map(\.date)
-            .map(Formatters.buildLongFormatter().string(from:))
-            .map { Localized.mainShareBody($0, URLConstants.appStore) }
-
-        return .init(image: image, text: text)
+        coordinator.showAlert(.init(message: Localized.mainFailureMessage(),
+                                    actions: [action]))
     }
 }
 
@@ -189,10 +140,10 @@ private extension MainViewModel {
 }
 
 private extension Publisher where Output == EPICImage?, Failure == Never {
-    func flatMapLatestImage() -> AnyPublisher<UIImage?, Never> {
+    func retrieveImage() -> AnyPublisher<UIImage?, Never> {
         map { entry -> AnyPublisher<UIImage?, Never> in
             entry
-                .flatMap({ URL(string: $0.previewImageURI) })
+                .flatMap { URL(string: $0.previewImageURI) }
                 .map(dependencies.imageService.retrieveAndProcess(from:))
                 ?? Just(nil).eraseToAnyPublisher()
         }
