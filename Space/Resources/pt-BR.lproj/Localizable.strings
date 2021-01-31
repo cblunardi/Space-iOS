@@ -1,5 +1,7 @@
 // MARK: - Main Scene
 "main-hint-text" = "Deslize à direita e à esquerda para rotacionar";
+"main-download-failure" = "Algo deu errado.\nTente novamente mais tarde.";
+"main-share-body" = "Este é o Planeta Terra 🌍 fotografado em %1$@ pelo Satélite DSCOVR NASA 🛰.\nFind more on %2$@.";
 
 // MARK: - About Scene
 "about-title" = "Sobre";
@@ -23,3 +25,6 @@
 
 // MARK: - Catalog Scene
 "catalog-title" = "Acervo";
+
+// MARK: - Alert
+"alert-default-action" = "👍";

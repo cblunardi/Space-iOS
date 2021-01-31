@@ -6,7 +6,8 @@ protocol SpaceServiceProtocol {
     func retrieveLatest() -> AnyPublisher<EPICImage, Error>
     func retrievePage(_ request: PageRequest) -> AnyPublisher<PageResponse<EPICImage>, Error>
 
-    func imageURL(for name: String) -> URL?
+    func previewImageURL(for name: String) -> URL?
+    func originalImageURL(for name: String) -> URL?
 }
 
 final class SpaceService: SpaceServiceProtocol {
@@ -14,7 +15,7 @@ final class SpaceService: SpaceServiceProtocol {
     private let decoder: JSONDecoder = .configured
 
     init(scheme: String = "https",
-         host: String = "d2quyyen2nzp5v.cloudfront.net",
+         host: String = URLConstants.backendHost,
          port: Int? = nil)
     {
         var components = URLComponents()
@@ -38,9 +39,15 @@ final class SpaceService: SpaceServiceProtocol {
                  path: "/epic")
     }
 
-    func imageURL(for name: String) -> URL? {
+    func previewImageURL(for name: String) -> URL? {
         components
             .setting(\.path, to: "/epic/preview/" + name + ".jpg")
+            .url
+    }
+
+    func originalImageURL(for name: String) -> URL? {
+        components
+            .setting(\.path, to: "/epic/" + name + ".png")
             .url
     }
 }
