@@ -1,37 +1,17 @@
 import UIKit
 
-final class ShareModel: NSObject {
-    private let all: [Any]
-    private let text: String?
-    private let image: UIImage?
-
-    init(image: UIImage? = .none, text: String? = .none) {
-        let all: [Any?] = [image, text]
-
-        self.image  =  image
-        self.text = text
-        self.all = all.compactMap { $0 }
-    }
+enum ShareModel {
+    case text(String)
+    case image(UIImage)
 }
 
-extension ShareModel: UIActivityItemSource {
-    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController)
-    -> Any
-    {
-        image as Any
-    }
-
-    func activityViewController(_ activityViewController: UIActivityViewController,
-                                itemForActivityType activityType: UIActivity.ActivityType?)
-    -> Any?
-    {
-        image as Any
-    }
-
-    func activityViewController(_ activityViewController: UIActivityViewController,
-                                subjectForActivityType activityType: UIActivity.ActivityType?)
-    -> String
-    {
-        text ?? .empty
+extension ShareModel {
+    var items: [Any] {
+        switch self {
+        case let .image(image):
+            return [image]
+        case let .text(text):
+            return [text]
+        }
     }
 }

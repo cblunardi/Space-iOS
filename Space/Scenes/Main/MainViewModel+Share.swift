@@ -36,16 +36,7 @@ extension MainViewModel {
 
     private func handle(_ image: UIImage) {
         coordinator
-            .showShare(buildShareModel(with: image),
+            .showShare(.image(image),
                        completion: { self.state.value.sharing = false })
-    }
-
-    private func buildShareModel(with image: UIImage) -> ShareModel {
-        let text: String? = state.value.currentEntry
-            .map(\.date)
-            .map(Formatters.buildLongFormatter().string(from:))
-            .map { Localized.mainShareBody($0, URLConstants.appStore) }
-
-        return .init(image: image, text: text)
     }
 }

@@ -1,6 +1,5 @@
 // MARK: - Main Scene
 "main-hint-text" = "Swipe left or right to rotate";
-"main-share-body" = "This is Planet Earth 🌍 pictured as of %1$@ by the NASA DSCOVR Spacecraft 🛰.\nFind more on %2$@.";
 "main-failure-message" = "Something went wrong.";
 "main-failure-retry-action" = "Try again! 🚀";
 
