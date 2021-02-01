@@ -87,7 +87,6 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .store(in: &subscriptions)
 
         viewModel.imageLoading
-            .print()
             .assignWeakly(to: \.isLoading, on: self, animationDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 

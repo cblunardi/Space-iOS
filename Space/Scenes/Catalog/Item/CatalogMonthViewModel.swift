@@ -6,8 +6,16 @@ struct CatalogMonthViewModel: ViewModel, Identifiable, Hashable {
     let formatter: DateFormatter = Formatters.monthFormatter
 
     let month: DateCatalog<EPICImage>.Month
+    let calendarDays: [DateCatalog<EPICImage>.CalendarDay]
+}
 
-    let selectedDay: DateCatalog<EPICImage>.Day?
+extension CatalogMonthViewModel {
+    init(month: DateCatalog<EPICImage>.Month,
+         selectedDay: DateCatalog<EPICImage>.Day?)
+    {
+        self.month = month
+        calendarDays = month.calendarDays(selectedDay: selectedDay)
+    }
 }
 
 extension CatalogMonthViewModel {
@@ -20,6 +28,6 @@ extension CatalogMonthViewModel {
     }
 
     func color(for dayIndex: Int) -> UIColor {
-        month.color(for: dayIndex, selectedDay: selectedDay)
+        calendarDays[safe: dayIndex]?.color ?? .clear
     }
 }
