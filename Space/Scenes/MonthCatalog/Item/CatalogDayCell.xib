@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,43 +18,39 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jb-je-ZCC">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="VPT-3O-pWa">
-                                <rect key="frame" x="5.5" y="15.5" width="39.5" height="19.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QdF-ke-7OK">
-                                <rect key="frame" x="8" y="8" width="34" height="34"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" name="AccentColor"/>
-                        <constraints>
-                            <constraint firstItem="QdF-ke-7OK" firstAttribute="top" secondItem="1Jb-je-ZCC" secondAttribute="top" constant="8" id="9bP-Fg-dsp"/>
-                            <constraint firstItem="VPT-3O-pWa" firstAttribute="centerY" secondItem="1Jb-je-ZCC" secondAttribute="centerY" id="Pcd-2W-Bhk"/>
-                            <constraint firstItem="QdF-ke-7OK" firstAttribute="leading" secondItem="1Jb-je-ZCC" secondAttribute="leading" constant="8" id="Rfd-B2-d49"/>
-                            <constraint firstItem="QdF-ke-7OK" firstAttribute="centerX" secondItem="1Jb-je-ZCC" secondAttribute="centerX" id="n3f-jf-psA"/>
-                            <constraint firstItem="VPT-3O-pWa" firstAttribute="centerX" secondItem="1Jb-je-ZCC" secondAttribute="centerX" id="tXl-Wf-Yr3"/>
-                            <constraint firstItem="QdF-ke-7OK" firstAttribute="centerY" secondItem="1Jb-je-ZCC" secondAttribute="centerY" id="wTy-BV-X3N"/>
-                        </constraints>
-                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbV-WC-UWZ">
+                        <rect key="frame" x="0.0" y="0.5" width="50" height="49"/>
+                        <imageReference key="image" image="circle.fill" catalog="system" renderingMode="template"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="VPT-3O-pWa">
+                        <rect key="frame" x="5.5" y="15.5" width="39.5" height="19.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QdF-ke-7OK">
+                        <rect key="frame" x="8" y="8" width="34" height="34"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="1Jb-je-ZCC" secondAttribute="bottom" id="DId-ht-iWf"/>
-                    <constraint firstAttribute="trailing" secondItem="1Jb-je-ZCC" secondAttribute="trailing" id="Dwt-Nf-qd2"/>
-                    <constraint firstItem="1Jb-je-ZCC" firstAttribute="top" secondItem="jpA-DO-Lt6" secondAttribute="top" id="JBk-66-PcD"/>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="top" constant="4" id="Stc-2u-3eX"/>
-                    <constraint firstItem="1Jb-je-ZCC" firstAttribute="leading" secondItem="jpA-DO-Lt6" secondAttribute="leading" id="gyc-gA-e1p"/>
-                    <constraint firstItem="VPT-3O-pWa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="leading" constant="4" id="pIk-mr-XWP"/>
+                    <constraint firstItem="xbV-WC-UWZ" firstAttribute="leading" secondItem="jpA-DO-Lt6" secondAttribute="leading" id="1Sj-lH-U0x"/>
+                    <constraint firstItem="xbV-WC-UWZ" firstAttribute="top" secondItem="jpA-DO-Lt6" secondAttribute="top" id="3b3-2z-add"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="top" constant="4" id="BzL-SC-ogD"/>
+                    <constraint firstItem="QdF-ke-7OK" firstAttribute="leading" secondItem="jpA-DO-Lt6" secondAttribute="leading" constant="8" id="G5L-hu-rw6"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="centerX" secondItem="jpA-DO-Lt6" secondAttribute="centerX" id="H26-XG-J6a"/>
+                    <constraint firstItem="QdF-ke-7OK" firstAttribute="centerX" secondItem="jpA-DO-Lt6" secondAttribute="centerX" id="Ywg-Wr-lt2"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="centerY" secondItem="jpA-DO-Lt6" secondAttribute="centerY" id="bV8-1n-mMo"/>
+                    <constraint firstItem="QdF-ke-7OK" firstAttribute="centerY" secondItem="jpA-DO-Lt6" secondAttribute="centerY" id="fcb-km-l21"/>
+                    <constraint firstAttribute="bottom" secondItem="xbV-WC-UWZ" secondAttribute="bottom" id="iqU-j3-vdh"/>
+                    <constraint firstAttribute="trailing" secondItem="xbV-WC-UWZ" secondAttribute="trailing" id="pfu-VA-qgL"/>
+                    <constraint firstItem="QdF-ke-7OK" firstAttribute="top" secondItem="jpA-DO-Lt6" secondAttribute="top" constant="8" id="szv-9Z-EwR"/>
+                    <constraint firstItem="VPT-3O-pWa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpA-DO-Lt6" secondAttribute="leading" constant="4" id="wGh-U5-4e1"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="59" height="62"/>
             <connections>
-                <outlet property="containerView" destination="1Jb-je-ZCC" id="enQ-Tk-AVz"/>
+                <outlet property="backgroundImageView" destination="xbV-WC-UWZ" id="1Ew-oV-In5"/>
                 <outlet property="imageView" destination="QdF-ke-7OK" id="j8n-rs-Oef"/>
                 <outlet property="label" destination="VPT-3O-pWa" id="es8-Vr-gfg"/>
             </connections>
@@ -62,9 +58,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.17299999296665192" green="0.45100000500679016" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

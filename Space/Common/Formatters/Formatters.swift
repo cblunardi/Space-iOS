@@ -1,11 +1,12 @@
 import Foundation
 
 struct Formatters {
-    static let calendar: Calendar = .current
+    static let calendar: Calendar = .init(identifier: .gregorian)
 
     static let shortFormatter: DateFormatter = buildShortFormatter()
     static func buildShortFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("dMMM")
         return formatter
     }
@@ -13,6 +14,7 @@ struct Formatters {
     static let mediumFormatter: DateFormatter = buildMediumFormatter()
     static func buildMediumFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("dMMMhh")
         return formatter
     }
@@ -20,6 +22,7 @@ struct Formatters {
     static let longFormatter: DateFormatter = buildLongFormatter()
     static func buildLongFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("dMMMYYYYhhmm")
         return formatter
     }
@@ -27,6 +30,7 @@ struct Formatters {
     static let dateFormatter: DateFormatter = buildDateFormatter()
     static func buildDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("ddMMYYYY")
         return formatter
     }
@@ -34,6 +38,7 @@ struct Formatters {
     static let timeFormatter: DateFormatter = buildTimeFormatter()
     static func buildTimeFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("hhmm")
         return formatter
     }
@@ -41,6 +46,7 @@ struct Formatters {
     static let yearFormatter: DateFormatter = buildYearFormatter()
     static func buildYearFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("yyyy")
         return formatter
     }
@@ -48,6 +54,7 @@ struct Formatters {
     static let monthFormatter: DateFormatter = buildMonthFormatter()
     static func buildMonthFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("MMM")
         return formatter
     }
@@ -55,6 +62,7 @@ struct Formatters {
     static let longMonthFormatter: DateFormatter = buildLongMonthFormatter()
     static func buildLongMonthFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("MMMM")
         return formatter
     }
@@ -62,6 +70,7 @@ struct Formatters {
     static let dayFormatter: DateFormatter = buildDayFormatter()
     static func buildDayFormatter() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.calendar = calendar
         formatter.setLocalizedDateFormatFromTemplate("d")
         return formatter
     }

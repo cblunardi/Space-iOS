@@ -17,8 +17,12 @@ extension Coordinator {
         self.init(viewControllerReference: WeakReference(viewController))
     }
 
-    func present(_ viewControllerToPresent: UIViewController) {
-        viewController?.present(viewControllerToPresent, animated: true)
+    func present(_ viewControllerToPresent: UIViewController,
+                 completion: (() -> Void)? = nil)
+    {
+        viewController?.present(viewControllerToPresent,
+                                animated: true,
+                                completion: completion)
     }
 
     func close() {

@@ -1,5 +1,7 @@
 // MARK: - Main Scene
 "main-hint-text" = "Scorri a destra e sinistra per ruotare";
+"main-failure-message" = "Qualcosa è andato storto.";
+"main-failure-retry-action" = "Riprova! 🚀";
 
 // MARK: - About Scene
 "about-title" = "Informazioni";
@@ -23,3 +25,7 @@
 
 // MARK: - Catalog Scene
 "catalog-title" = "Catalogo";
+
+// MARK: - Alert
+"alert-default-action" = "👍";
+"alert-generic-error-message" = "Qualcosa è andato storto.\nRiprova più tardi.";

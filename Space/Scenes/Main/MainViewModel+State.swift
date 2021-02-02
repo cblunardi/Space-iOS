@@ -7,19 +7,24 @@ extension MainViewModel {
 
         var currentIndex: Int?
         var panningIndex: Int?
+
+        var sharing: Bool
     }
 }
 
 extension MainViewModel.State {
     static var initial: MainViewModel.State {
-        .init(entries: .reset, currentIndex: .none, panningIndex: .none)
+        .init(entries: .reset,
+              currentIndex: .none,
+              panningIndex: .none,
+              sharing: false)
     }
 
     var isInitial: Bool {
         self == .initial
     }
 
-    var isLoading: Bool {
+    var loading: Bool {
         entries.loading
     }
 
@@ -32,13 +37,14 @@ extension MainViewModel.State {
     }
 
     mutating func receive(entries: [EPICImage]) {
+        let previousEntry: EPICImage? = currentEntry
+
         self.entries.receive(entries)
 
-        if currentIndex == .none {
-            currentIndex = entries.startIndex
-        }
+        currentIndex = previousEntry.map(entries.firstIndex(of:))
+            ?? entries.startIndex
 
-        prefetch(index: entries.startIndex)
+        currentIndex.map { prefetch(index: $0) }
     }
 
     mutating func select(_ entry: EPICImage) {
@@ -53,7 +59,7 @@ extension MainViewModel.State {
         entries
             .availableValue?
             .around(index: index, distance: distance)
-            .compactMap { URL(string: $0.uri) }
+            .compactMap { URL(string: $0.previewImageURI) }
             .forEach(dependencies.imageService.prefetch(from:))
     }
 }

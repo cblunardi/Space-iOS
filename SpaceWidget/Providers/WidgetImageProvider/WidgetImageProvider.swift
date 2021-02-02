@@ -44,7 +44,7 @@ private extension WidgetImageProvider {
         dependencies.spaceService
             .retrieveLatest()
             .first()
-            .compactMap { image in URL(string: image.uri).map { (image, $0) } }
+            .compactMap { image in URL(string: image.previewImageURI).map { (image, $0) } }
             .flatMapTuple { dependencies.imageService.retrieve(from: $0.1) }
             .map { WidgetEntry(epic: $0.1.0, image: $0.0, family: context.family) }
             .catch { Just(WidgetEntry(result: .failure($0))) }

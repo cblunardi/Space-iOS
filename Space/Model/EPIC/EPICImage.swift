@@ -14,7 +14,11 @@ extension EPICImage: Comparable {
 }
 
 extension EPICImage {
-    var uri: String {
-        dependencies.spaceService.imageURL(for: name)?.absoluteString ?? ""
+    var previewImageURI: String {
+        dependencies.spaceService.previewImageURL(for: name)?.absoluteString ?? ""
+    }
+
+    var originalImageURI: String {
+        dependencies.spaceService.originalImageURL(for: name)?.absoluteString ?? ""
     }
 }

@@ -1,5 +1,7 @@
 // MARK: - Main Scene
 "main-hint-text" = "Deslize à direita e à esquerda para rotacionar";
+"main-failure-message" = "Algo deu errado.";
+"main-failure-retry-action" = "Tentar novamente! 🚀";
 
 // MARK: - About Scene
 "about-title" = "Sobre";
@@ -23,3 +25,7 @@
 
 // MARK: - Catalog Scene
 "catalog-title" = "Acervo";
+
+// MARK: - Alert
+"alert-default-action" = "👍";
+"alert-generic-error-message" = "Algo deu errado.\nTente novamente mais tarde.";

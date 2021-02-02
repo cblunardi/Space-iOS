@@ -8,6 +8,6 @@ struct UIConstants {
     struct Animations {
         private init() {}
 
-        static let imageTransitionDuration: TimeInterval = 0.2
+        static let defaultDuration: TimeInterval = 0.2
     }
 }

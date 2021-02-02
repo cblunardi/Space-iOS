@@ -1,5 +1,7 @@
 // MARK: - Main Scene
 "main-hint-text" = "Swipe left or right to rotate";
+"main-failure-message" = "Something went wrong.";
+"main-failure-retry-action" = "Try again! 🚀";
 
 // MARK: - About Scene
 "about-title" = "About";
@@ -23,3 +25,7 @@
 
 // MARK: - Catalog Scene
 "catalog-title" = "Catalog";
+
+// MARK: - Alert
+"alert-default-action" = "👍";
+"alert-generic-error-message" = "Something went wrong.\nPlease try again later.";

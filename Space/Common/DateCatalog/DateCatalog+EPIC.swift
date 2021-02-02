@@ -95,7 +95,7 @@ private extension DateCatalog.Day where Model == EPICImage {
 private extension DateCatalog.Entry where Model == EPICImage {
     init(entry: EPICImage) {
         let components: DateComponents = Formatters.calendar
-            .dateComponents([.year, .month, .day, .hour, .minute],
+            .dateComponents([.timeZone, .year, .month, .day, .hour, .minute],
                             from: entry.date)
         self.init(dateComponents: components, date: entry.date, model: entry)
     }

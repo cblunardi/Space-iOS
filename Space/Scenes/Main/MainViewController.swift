@@ -13,11 +13,15 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     @IBOutlet private var mainImageViewAspectConstraint: NSLayoutConstraint!
     @IBOutlet private var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var panGestureRecognizer: UIPanGestureRecognizer!
-    @IBOutlet private var headerStackView: UIStackView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
-    @IBOutlet private var catalogButton: UIButton!
     @IBOutlet private var hintLabel: UILabel!
+    @IBOutlet private var catalogButton: UIButton!
+    @IBOutlet private var settingsButton: UIButton!
+    @IBOutlet private var shareButton: UIButton!
+    @IBOutlet private var shareActivityIndicator: UIActivityIndicatorView!
+
+    @IBOutlet private var overlayViews: [UIView]!
 
     private lazy var scrollViewZooming: CurrentValueSubject<Bool, Never> =
         .init(scrollView.isZooming)
@@ -46,15 +50,22 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
             .store(in: &subscriptions)
 
         viewModel.catalogButtonVisible
-            .map(!)
-            .assignWeakly(to: \.isHidden, on: catalogButton, animationDuration: UIC.Anims.imageTransitionDuration)
+            .assignWeakly(to: \.isVisible, on: catalogButton, animationDuration: UIC.Anims.defaultDuration)
+            .store(in: &subscriptions)
+
+        viewModel.shareButtonVisible
+            .assignWeakly(to: \.isVisible, on: shareButton)
+            .store(in: &subscriptions)
+
+        viewModel.shareActivityIndicatorVisible
+            .assignWeakly(to: \.animating, on: shareActivityIndicator)
             .store(in: &subscriptions)
 
         viewModel.hintLabelVisible
             .combineLatest(scrollViewZooming)
             .map { visible, zooming in visible && (zooming == false) }
             .map { $0 ? 1.0 : 0.0 }
-            .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.imageTransitionDuration)
+            .assignWeakly(to: \.alpha, on: hintLabel, animationDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
         hintLabel.text = viewModel.hintLabelTitle
@@ -63,25 +74,20 @@ final class MainViewController: UIViewController, StoryboardLoadable, ViewModelO
     }
 
     private func bindImage(viewModel: MainViewModel) {
-        viewModel
-            .currentImage
+        viewModel.currentImage
             .assignWeakly(to: \.image,
                           on: mainImageView,
-                          crossDissolveDuration: UIC.Anims.imageTransitionDuration)
+                          crossDissolveDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
-        viewModel
-            .currentImage
+        viewModel.currentImage
             .map { $0?.size.aspectRatio }
             .replaceNil(with: 1.0)
             .assignWeakly(to: \.mainImageViewAspectConstraint.constant, on: self)
             .store(in: &subscriptions)
 
-        viewModel
-            .currentImage
-            .map { $0 == nil }
-            .removeDuplicates()
-            .assignWeakly(to: \.isLoading, on: self, animationDuration: UIC.Anims.imageTransitionDuration)
+        viewModel.imageLoading
+            .assignWeakly(to: \.isLoading, on: self, animationDuration: UIC.Anims.defaultDuration)
             .store(in: &subscriptions)
 
         viewModel.currentImage
@@ -101,10 +107,12 @@ private extension MainViewController {
     func configure() {
         scrollView.delegate = self
 
-        scrollViewZooming
-            .map { $0 ? 0.0 : 1.0 }
-            .assignWeakly(to: \.alpha, on: headerStackView, animationDuration: UIC.Anims.imageTransitionDuration)
-            .store(in: &subscriptions)
+        overlayViews.forEach { view in
+            scrollViewZooming
+                .map { $0 ? 0.0 : 1.0 }
+                .assignWeakly(to: \.alpha, on: view, animationDuration: UIC.Anims.defaultDuration)
+                .store(in: &subscriptions)
+        }
 
         scrollViewZooming
             .map(!)
@@ -154,6 +162,10 @@ private extension MainViewController {
 
     @IBAction func showAboutPressed(_ sender: UIButton) {
         viewModel.showAboutPressed()
+    }
+
+    @IBAction func sharePressed(_ sender: UIButton) {
+        viewModel.sharePressed()
     }
 }
 
