@@ -165,7 +165,7 @@ private extension MainViewController {
     }
 
     @IBAction func sharePressed(_ sender: UIButton) {
-        viewModel.sharePressed()
+        viewModel.sharePressed(source: .view(sender))
     }
 }
 

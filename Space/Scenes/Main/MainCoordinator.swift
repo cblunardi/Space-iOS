@@ -2,9 +2,14 @@ import UIKit
 
 protocol MainCoordinatorProtocol {
     func showCatalog(model: CatalogViewModel.Model) -> CatalogViewModelInterface
+
     func showAbout()
+
     func showAlert(_ model: AlertModel)
-    func showShare(_ model: ShareModel, completion: (() -> Void)?)
+
+    func showShare(_ model: ShareModel,
+                   source: PopoverPresentationSource,
+                   completion: (() -> Void)?)
 }
 
 struct MainCoordinator: Coordinator, MainCoordinatorProtocol {
