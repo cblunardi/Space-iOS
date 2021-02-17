@@ -16,7 +16,7 @@ final class CatalogViewModel: ViewModel {
 
     let coordinator: CatalogCoordinatorProtocol
     let model: Model
-    let title: String = "Catalog"
+    let title: String = Localized.catalogTitle()
 
     init(model: Model, coordinator: CatalogCoordinatorProtocol) {
         self.model = model

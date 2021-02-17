@@ -6,7 +6,7 @@ final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
 
     var viewModel: CatalogDayViewModel!
 
-    @IBOutlet private var containerView: UIView!
+    @IBOutlet private var backgroundImageView: UIView!
     @IBOutlet private var label: UILabel!
     @IBOutlet private var imageView: UIImageView!
 
@@ -16,6 +16,6 @@ final class CatalogDayCell: UICollectionViewCell, ViewModelOwner {
         label.text = viewModel.text
         imageView.image = viewModel.image
 
-        containerView.backgroundColor = viewModel.backgroundColor
+        backgroundImageView.tintColor = viewModel.backgroundColor
     }
 }

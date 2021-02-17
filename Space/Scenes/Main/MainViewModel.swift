@@ -14,12 +14,15 @@ final class MainViewModel: ViewModel {
 
     private(set) lazy var currentImage: AnyPublisher<UIImage?, Never> =
         currentEntry
-            .flatMapLatestImage()
-            .share()
+            .retrieveImage()
+            .multicast { CurrentValueSubject(nil) }
+            .autoconnect()
             .eraseToAnyPublisher()
 
     init(coordinator: MainCoordinatorProtocol) {
         self.coordinator = coordinator
+
+        configure()
     }
 }
 
@@ -27,6 +30,7 @@ extension MainViewModel {
     var currentEntry: AnyPublisher<EPICImage?, Never> {
         state
             .map { $0.panningEntry ?? $0.currentEntry }
+            .removeDuplicates()
             .eraseToAnyPublisher()
     }
 
@@ -42,9 +46,31 @@ extension MainViewModel {
             .eraseToAnyPublisher()
     }
 
+    var imageLoading: AnyPublisher<Bool, Never> {
+        currentImage
+            .map { $0 == nil }
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
     var catalogButtonVisible: AnyPublisher<Bool, Never> {
         state
-            .map { $0.isLoading == false }
+            .map(\.entries.loaded)
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
+    var shareButtonVisible: AnyPublisher<Bool, Never> {
+        state
+            .map { $0.sharing  == false && $0.currentEntry != nil }
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
+    var shareActivityIndicatorVisible: AnyPublisher<Bool, Never> {
+        state
+            .map(\.sharing)
+            .removeDuplicates()
             .eraseToAnyPublisher()
     }
 
@@ -60,58 +86,64 @@ extension MainViewModel {
 
         let disable = hasImage
             .map { _ in false }
-            .delay(for: .seconds(5), scheduler: RunLoop.main)
+            .delay(for: .seconds(7), scheduler: RunLoop.main)
 
         return Publishers.Merge3(Just(false), enable, disable)
+            .removeDuplicates()
             .eraseToAnyPublisher()
+    }
+
+    var hintLabelTitle: String {
+        Localized.mainHintText()
     }
 }
 
 extension MainViewModel {
     func load() {
-        guard state.value.isLoading == false else { return }
+        guard state.value.entries.loading == false else { return }
 
         state.value.entries.reload()
 
-        dependencies
-            .spaceService
+        dependencies.spaceService
             .retrieveAll()
             .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { [weak self] in self?.receiveInitial(entries: $0) })
+            .sink(receiveCompletion: { [weak self] in self?.handle($0) },
+                  receiveValue: { [weak self] in self?.receive($0) })
             .store(in: &subscriptions)
     }
 
-    private func receiveInitial(entries: [EPICImage]) {
+    private func receive(_ entries: [EPICImage]) {
         state.value.receive(entries: entries)
+    }
+
+    private func handle(_ completion: Subscribers.Completion<Error>) {
+        guard case .failure = completion else { return }
+
+        state.value.entries = .reset
+
+        let action: UIAlertAction = .init(title: Localized.mainFailureRetryAction(),
+                                          style: .default,
+                                          handler: { _ in self.load() })
+
+        coordinator.showAlert(.init(message: Localized.mainFailureMessage(),
+                                    actions: [action]))
     }
 }
 
-extension MainViewModel {
-    func showCatalogPressed() {
-        guard let model = state.value.entries.availableValue else { return }
-
-        coordinator.showCatalog(model: .init(entries: model,
-                                             selectedEntry: state.value.currentEntry))
-            .selectedItem
-            .sink { [weak self] in self?.didSelect(entry: $0) }
+private extension MainViewModel {
+    func configure() {
+        Timer.publish(every: 30 * .secondsInMinute, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak self] _ in self?.load() }
             .store(in: &subscriptions)
-    }
-
-    func showAboutPressed() {
-        coordinator.showAbout()
-    }
-
-    private func didSelect(entry: EPICImage) {
-        state.value.select(entry)
     }
 }
 
 private extension Publisher where Output == EPICImage?, Failure == Never {
-    func flatMapLatestImage() -> AnyPublisher<UIImage?, Never> {
+    func retrieveImage() -> AnyPublisher<UIImage?, Never> {
         map { entry -> AnyPublisher<UIImage?, Never> in
             entry
-                .flatMap({ URL(string: $0.uri) })
+                .flatMap { URL(string: $0.previewImageURI) }
                 .map(dependencies.imageService.retrieveAndProcess(from:))
                 ?? Just(nil).eraseToAnyPublisher()
         }

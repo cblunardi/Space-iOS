@@ -1,0 +1,31 @@
+// MARK: - Main Scene
+"main-hint-text" = "Deslize à direita e à esquerda para rotacionar";
+"main-failure-message" = "Algo deu errado.";
+"main-failure-retry-action" = "Tentar novamente! 🚀";
+
+// MARK: - About Scene
+"about-title" = "Sobre";
+
+"about-option-dscovr-title" = "Sobre a DSCOVR";
+"about-option-epic-title" = "Sobre a EPIC";
+"about-option-acknowledgements-title" = "Agradecimentos";
+
+"about-footer-open-source-title" = "Space foi construída com Swift e está disponível em open-source";
+"about-footer-author-title" = "Este é um projeto hobby mantido por Caio Brigagão Lunardi";
+
+// MARK: - Acknowledgements Scene
+"acknowledgements-title" = "Agradecimentos";
+
+"acknowledgements-nasa" = "NASA, pela disponibilização aperta, gratuita e livre das NASA Open APIs.";
+"acknowledgements-epic" = "NASA, NOAA e NASA ASDC, pela disponibilização aperta, gratuita e livre do acervo de imagens do esperimento EPIC à bordo do veículo especial DSCOVR.";
+"acknowledgements-vapor" = "A comunidade Open Source, pelo Vapor, um Framework Web para Swift.";
+"acknowledgements-lottie" = "AirBnB, pelo Lottie, um motor gráfico avançado para animações.";
+"acknowledgements-animation" = "Wan Souza, pela esplêndida animação da Terra + Lua.";
+"acknowledgements-logo" = "Photo3idea_studio e FlatIcon, pelo esplêndido ícone do aplicativo Space.";
+
+// MARK: - Catalog Scene
+"catalog-title" = "Acervo";
+
+// MARK: - Alert
+"alert-default-action" = "👍";
+"alert-generic-error-message" = "Algo deu errado.\nTente novamente mais tarde.";

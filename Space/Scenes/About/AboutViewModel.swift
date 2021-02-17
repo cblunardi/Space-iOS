@@ -4,7 +4,7 @@ final class AboutViewModel: ViewModel {
     private(set) lazy var snapshot: SnapshotType = makeSnapshot()
 
     let coordinator: AboutCoordinatorProtocol
-    let title: String = "About"
+    let title: String = R.string.localizable.aboutTitle()
 
     init(coordinator: AboutCoordinatorProtocol) {
         self.coordinator = coordinator
@@ -35,7 +35,7 @@ extension AboutViewModel {
         switch item {
         case .header:
             break
-        case .option(.aboutDSCVR):
+        case .option(.aboutDSCOVR):
             URL(string: "https://solarsystem.nasa.gov/missions/DSCOVR/in-depth/")
                 .map(dependencies.appService.open(url:))
         case .option(.aboutEPIC):
@@ -69,21 +69,21 @@ extension AboutViewModel {
     }
 
     enum Option: Hashable, CaseIterable {
-        case aboutDSCVR
+        case aboutDSCOVR
         case aboutEPIC
         case acknowledgements
 
         var title: String {
             switch self {
-            case .aboutDSCVR: return "About DSCVR"
-            case .aboutEPIC: return "About EPIC"
-            case .acknowledgements: return "Acknowledgements"
+            case .aboutDSCOVR: return Localized.aboutOptionDscovrTitle()
+            case .aboutEPIC: return Localized.aboutOptionEpicTitle()
+            case .acknowledgements: return Localized.aboutOptionAcknowledgementsTitle()
             }
         }
 
         var image: UIImage? {
             switch self {
-            case .aboutDSCVR: return UIImage(systemName: "sun.max")
+            case .aboutDSCOVR: return UIImage(systemName: "sun.max")
             case .aboutEPIC: return UIImage(systemName: "camera.circle")
             case .acknowledgements: return UIImage(systemName: "info.circle")
             }
@@ -96,8 +96,8 @@ extension AboutViewModel {
 
         var text: String {
             switch self {
-            case .openSource: return "Space is build with Swift and is available open-source"
-            case .author: return "This is a hobbist project from Caio Brigagão Lunardi"
+            case .openSource: return Localized.aboutFooterOpenSourceTitle()
+            case .author: return Localized.aboutFooterAuthorTitle()
             }
         }
 

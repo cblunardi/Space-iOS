@@ -21,3 +21,9 @@ xcuserdata/
 
 # Space-iOS Project
 Secrets.swift
+
+# CocoaPods
+Pods/
+
+# Auto-generated files
+*.generated.swift

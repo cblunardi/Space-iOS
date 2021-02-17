@@ -10,10 +10,11 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
     @IBOutlet private var label: UILabel!
     @IBOutlet private var containerStackView: UIStackView!
 
-    private lazy var items: [UIView] = containerStackView
+    private lazy var items: [UIImageView] = containerStackView
         .arrangedSubviews
         .compactMap { $0 as? UIStackView }
         .flatMap(\.arrangedSubviews)
+        .compactMap { $0 as? UIImageView }
 
     func bind(viewModel: CatalogMonthViewModel) {
         self.viewModel = viewModel
@@ -22,6 +23,6 @@ final class CatalogMonthCell: UICollectionViewCell, ViewModelOwner {
 
         items
             .enumerated()
-            .forEach { $0.element.backgroundColor = viewModel.color(for: $0.offset) }
+            .forEach { $0.element.tintColor = viewModel.color(for: $0.offset) }
     }
 }

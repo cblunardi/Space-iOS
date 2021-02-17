@@ -77,7 +77,7 @@ extension MonthCatalogViewModel {
             .focusedYear
             .months
             .firstIndex(of: model.focused)
-            .map { IndexPath(row: model.focused.daysRange?.median() ?? .zero, section: $0) }
+            .map { IndexPath(row: model.focused.daysRange.median() ?? .zero, section: $0) }
 
         for month in model.focusedYear.months {
             let section = Section(date: monthFormatter.string(from: month.date))
@@ -99,7 +99,10 @@ extension MonthCatalogViewModel: MonthCatalogViewModelInterface {
     }
 
     func didSelect(item: CatalogDayViewModel) {
-        guard let entry = item.model.day?.models.median() else { return }
+        guard let entry = item.model.calendarDay.day?.models.median() else {
+            return
+        }
+
         coordinator.close()
         selectedItemSubject.send(entry)
     }
@@ -110,25 +113,7 @@ private extension MonthCatalogViewModel {
                selectedDay: DateCatalog<EPICImage>.Day?)
     -> [CatalogDayViewModel]
     {
-        (0 ..< (month.weeksRange?.count ?? 7))
-            .mapped(by: 7)
-            .map { index in
-                .init(model: .init(month: month,
-                                   day: month.day(from: index),
-                                   index: index,
-                                   selectedDay: selectedDay))
-            }
-    }
-}
-
-private extension Range where Bound: AdditiveArithmetic {
-    func offset(by amount: Bound) -> Self {
-        lowerBound + amount ..< upperBound + amount
-    }
-}
-
-private extension Range where Bound: Numeric {
-    func mapped(by amount: Bound) -> Self {
-        lowerBound * amount ..< upperBound * amount
+        month.calendarDays(selectedDay: selectedDay)
+            .map { .init(model: .init(month: month, calendarDay: $0)) }
     }
 }

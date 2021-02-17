@@ -3,8 +3,6 @@ import Lottie
 import UIKit
 
 final class AboutHeaderCell: UICollectionViewCell, LoadableView {
-    static let reuseIdentifier: String = "AboutHeaderCell"
-
     @IBOutlet private var animationContainerView: UIView!
 
     lazy var loadingView: AnimationView = makeLoadingView(in: animationContainerView)
